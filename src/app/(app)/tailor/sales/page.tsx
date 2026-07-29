@@ -43,9 +43,9 @@ export default function TailorSalesPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[12px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[18px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[11px] text-ink-400 num">{k.s}</p>
+              <p className="text-[13.5px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[20px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[12.5px] text-ink-400 num">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -64,7 +64,7 @@ export default function TailorSalesPage() {
                       key={r}
                       onClick={() => setRange(r)}
                       className={cn(
-                        "rounded px-2 py-1 text-[11.5px] transition-colors",
+                        "rounded px-2 py-1 text-[13px] transition-colors",
                         range === r ? "bg-tailor-600 text-white" : "text-ink-500 hover:bg-ink-50",
                       )}
                     >
@@ -92,7 +92,7 @@ export default function TailorSalesPage() {
               />
               <ul className="mt-2 space-y-1.5 border-t border-ink-100 pt-2.5">
                 {TAILOR_REVENUE_MIX.map((r, i) => (
-                  <li key={r.name} className="flex items-center gap-2 text-[11.5px]">
+                  <li key={r.name} className="flex items-center gap-2 text-[13px]">
                     <span className="h-2 w-2 rounded-sm" style={{ background: COLORS[i] }} />
                     <span className="flex-1 truncate text-ink-500">{r.name}</span>
                     <span className="text-ink-700 num">{won(r.value)}</span>
@@ -183,18 +183,18 @@ export default function TailorSalesPage() {
                     key={c.id}
                     className="flex items-center gap-3 border-b border-ink-100 px-4 py-2.5 last:border-b-0"
                   >
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tailor-50 text-[10.5px] font-semibold text-tailor-700">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tailor-50 text-[12px] font-semibold text-tailor-700">
                       {c.name.slice(0, 1)}
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block truncate text-[12.5px] font-medium text-ink-800">
+                      <span className="block truncate text-[14px] font-medium text-ink-800">
                         {c.name}
                       </span>
-                      <span className="block truncate text-[11px] text-ink-400">
+                      <span className="block truncate text-[12.5px] text-ink-400">
                         {c.visits}회 방문 · {c.grade}
                       </span>
                     </span>
-                    <span className="shrink-0 text-[12px] font-medium text-ink-800 num">
+                    <span className="shrink-0 text-[13.5px] font-medium text-ink-800 num">
                       {wonShort(c.totalAmount)}
                     </span>
                   </li>
@@ -204,7 +204,7 @@ export default function TailorSalesPage() {
         </div>
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         주문 {num(TAILOR_ORDERS.length)}건 기준 (데모 데이터)
       </p>
     </div>

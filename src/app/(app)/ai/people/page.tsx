@@ -42,9 +42,9 @@ export default function PeoplePage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[12px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[18px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 truncate text-[11px] text-ink-400">{k.s}</p>
+              <p className="text-[13.5px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[20px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 truncate text-[12.5px] text-ink-400">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -73,7 +73,7 @@ export default function PeoplePage() {
                     <Tr key={m.id}>
                       <Td>
                         <span className="flex items-center gap-2">
-                          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-corp-50 text-[10.5px] font-semibold text-corp-700">
+                          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-corp-50 text-[12px] font-semibold text-corp-700">
                             {m.name.slice(0, 1)}
                           </span>
                           <span className="font-medium text-ink-800">{m.name}</span>
@@ -89,7 +89,7 @@ export default function PeoplePage() {
                       <Td>
                         <div className="flex items-center gap-2">
                           <Bar value={m.allocation} color="#5e79bd" className="w-[70px]" />
-                          <span className="text-[11.5px] text-ink-500 num">{m.allocation}%</span>
+                          <span className="text-[13px] text-ink-500 num">{m.allocation}%</span>
                         </div>
                       </Td>
                       <Td className="text-right num">{won(m.monthlyCost)}</Td>
@@ -127,7 +127,7 @@ export default function PeoplePage() {
                 const cnt = MEMBERS.filter((m) => m.level === l).length;
                 return (
                   <li key={l} className="border-b border-ink-100 py-2.5 last:border-b-0">
-                    <div className="flex items-center justify-between text-[12.5px]">
+                    <div className="flex items-center justify-between text-[14px]">
                       <span className="text-ink-600">{l}</span>
                       <span className="font-medium text-ink-800 num">{cnt}명</span>
                     </div>
@@ -144,7 +144,7 @@ export default function PeoplePage() {
         </div>
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         핵심 인력 {num(MEMBERS.length)}명 · 전체 {SUMMARY.corp.headcount}명 (데모 데이터)
       </p>
     </div>

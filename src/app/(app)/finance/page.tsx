@@ -65,7 +65,7 @@ export default function FinancePage() {
             key={String(t.value)}
             onClick={() => setScope(t.value)}
             className={cn(
-              "flex-1 rounded px-4 py-1.5 text-[12.5px] font-medium transition-colors sm:flex-none",
+              "flex-1 rounded px-4 py-1.5 text-[14px] font-medium transition-colors sm:flex-none",
               scope === t.value
                 ? t.value === "tailor"
                   ? "bg-tailor-600 text-white"
@@ -89,11 +89,11 @@ export default function FinancePage() {
         <Card className="col-span-2 lg:col-span-1">
           <div className="flex h-full items-center gap-3 p-4">
             <div className="min-w-0 flex-1">
-              <p className="text-[12px] text-ink-500">집행률</p>
-              <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">
+              <p className="text-[13.5px] text-ink-500">집행률</p>
+              <p className="mt-1.5 text-[23px] font-semibold text-ink-900 num">
                 {pct(executed, planned)}%
               </p>
-              <p className="mt-1 text-[11px] text-ink-400">계획 대비</p>
+              <p className="mt-1 text-[12.5px] text-ink-400">계획 대비</p>
             </div>
             <RateDonut
               value={pct(executed, planned)}
@@ -119,7 +119,7 @@ export default function FinancePage() {
                   action={
                     <button
                       onClick={() => setScope(c)}
-                      className="text-[11.5px] text-ink-400 transition-colors hover:text-ink-700"
+                      className="text-[13px] text-ink-400 transition-colors hover:text-ink-700"
                     >
                       상세 보기 ›
                     </button>
@@ -130,7 +130,7 @@ export default function FinancePage() {
                   <div className="min-w-0 flex-1 space-y-2">
                     {cl.map((b) => (
                       <div key={b.id}>
-                        <div className="flex items-center justify-between gap-2 text-[11.5px]">
+                        <div className="flex items-center justify-between gap-2 text-[13px]">
                           <span className="truncate text-ink-600">{b.category}</span>
                           <span className="shrink-0 text-ink-500 num">
                             {wonShort(b.executed)} / {wonShort(b.planned)}
@@ -166,7 +166,7 @@ export default function FinancePage() {
               />
               <ul className="thin-scroll max-h-[200px] space-y-1.5 overflow-y-auto">
                 {lines.map((b, i) => (
-                  <li key={b.id} className="flex items-center gap-2 text-[11.5px]">
+                  <li key={b.id} className="flex items-center gap-2 text-[13px]">
                     <span
                       className="h-2 w-2 shrink-0 rounded-sm"
                       style={{ background: colors[i % colors.length] }}
@@ -245,7 +245,7 @@ export default function FinancePage() {
                           color={b.company === "tailor" ? "#86293d" : "#234084"}
                           className="w-[70px]"
                         />
-                        <span className="text-[11.5px] text-ink-500 num">{rate}%</span>
+                        <span className="text-[13px] text-ink-500 num">{rate}%</span>
                       </div>
                     </Td>
                   </Tr>
@@ -324,7 +324,7 @@ export default function FinancePage() {
             <CardHeader title="회사별 자금 흐름" desc="최근 6개월 수입 · 지출" action={<MoreLink href="/revenue" />} />
             <div className="p-3.5">
               <CashFlowChart data={CASH_TREND} height={252} />
-              <div className="mt-3 grid grid-cols-2 gap-2 border-t border-ink-100 pt-3 text-[11.5px]">
+              <div className="mt-3 grid grid-cols-2 gap-2 border-t border-ink-100 pt-3 text-[13px]">
                 <div className="rounded-md bg-tailor-50/60 p-2.5">
                   <p className="text-tailor-700">비앤테일러샵 7월</p>
                   <p className="mt-1 text-ink-600 num">
@@ -343,7 +343,7 @@ export default function FinancePage() {
         </div>
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         집행 항목 {num(lines.length)}개 · 집행 내역 {num(txs.length)}건 (데모 데이터)
       </p>
     </div>
@@ -354,9 +354,9 @@ function SummaryCard({ label, value, sub }: { label: string; value: string; sub:
   return (
     <Card>
       <div className="p-4">
-        <p className="text-[12px] text-ink-500">{label}</p>
-        <p className="mt-1.5 text-[19px] font-semibold text-ink-900 num">{value}</p>
-        <p className="mt-1 text-[11px] text-ink-400">{sub}</p>
+        <p className="text-[13.5px] text-ink-500">{label}</p>
+        <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">{value}</p>
+        <p className="mt-1 text-[12.5px] text-ink-400">{sub}</p>
       </div>
     </Card>
   );

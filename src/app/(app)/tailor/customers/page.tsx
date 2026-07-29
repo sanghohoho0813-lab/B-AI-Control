@@ -51,9 +51,9 @@ export default function CustomersPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[12px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[19px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[11px] text-ink-400">{k.s}</p>
+              <p className="text-[13.5px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[12.5px] text-ink-400">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -69,7 +69,7 @@ export default function CustomersPage() {
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="고객명 · 소속 검색"
-                className="w-full max-w-[180px] rounded-md border border-ink-200 px-2.5 py-1.5 text-[12px] outline-none placeholder:text-ink-300 focus:border-ink-400"
+                className="w-full max-w-[180px] rounded-md border border-ink-200 px-2.5 py-1.5 text-[13.5px] outline-none placeholder:text-ink-300 focus:border-ink-400"
               />
               <div className="flex flex-wrap items-center gap-1 rounded-md border border-ink-200 p-0.5">
                 {GRADES.map((g) => (
@@ -77,7 +77,7 @@ export default function CustomersPage() {
                     key={g}
                     onClick={() => setGrade(g)}
                     className={cn(
-                      "rounded px-2 py-1 text-[11.5px] transition-colors",
+                      "rounded px-2 py-1 text-[13px] transition-colors",
                       grade === g ? "bg-tailor-600 text-white" : "text-ink-500 hover:bg-ink-50",
                     )}
                   >
@@ -109,7 +109,7 @@ export default function CustomersPage() {
                 <Tr key={c.id}>
                   <Td>
                     <span className="flex items-center gap-2">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-tailor-50 text-[10.5px] font-semibold text-tailor-700">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-tailor-50 text-[12px] font-semibold text-tailor-700">
                         {c.name.slice(0, 1)}
                       </span>
                       <span className="font-medium text-ink-800">{c.name}</span>
@@ -127,7 +127,7 @@ export default function CustomersPage() {
                   <Td>
                     <div className="flex items-center gap-2">
                       <Bar value={c.repurchaseScore} color="#86293d" className="w-[60px]" />
-                      <span className="text-[11.5px] text-ink-500 num">{c.repurchaseScore}</span>
+                      <span className="text-[13px] text-ink-500 num">{c.repurchaseScore}</span>
                     </div>
                   </Td>
                   <Td>
@@ -153,22 +153,22 @@ export default function CustomersPage() {
                             { l: "재구매 추천도", v: `${c.repurchaseScore}점` },
                           ].map((f) => (
                             <div key={f.l} className="border-b border-ink-100 py-2.5">
-                              <p className="text-[11px] text-ink-400">{f.l}</p>
-                              <p className="mt-1 text-[13px] text-ink-800 num">{f.v}</p>
+                              <p className="text-[12.5px] text-ink-400">{f.l}</p>
+                              <p className="mt-1 text-[14.5px] text-ink-800 num">{f.v}</p>
                             </div>
                           ))}
                         </div>
                         <div className="px-5 py-4">
-                          <p className="text-[11px] text-ink-400">다음 액션</p>
-                          <p className="mt-1.5 rounded-md border border-tailor-200 bg-tailor-50/50 px-3 py-2.5 text-[12.5px] text-tailor-800">
+                          <p className="text-[12.5px] text-ink-400">다음 액션</p>
+                          <p className="mt-1.5 rounded-md border border-tailor-200 bg-tailor-50/50 px-3 py-2.5 text-[14px] text-tailor-800">
                             {c.nextAction}
                           </p>
-                          <p className="mt-3 text-[11px] text-ink-400">주문 이력</p>
+                          <p className="mt-3 text-[12.5px] text-ink-400">주문 이력</p>
                           <ul className="mt-1.5 space-y-1">
                             {TAILOR_ORDERS.filter((o) => o.customerId === c.id).map((o) => (
                               <li
                                 key={o.id}
-                                className="flex items-center justify-between rounded border border-ink-200 px-3 py-2 text-[12px]"
+                                className="flex items-center justify-between rounded border border-ink-200 px-3 py-2 text-[13.5px]"
                               >
                                 <span className="text-ink-700">{o.item}</span>
                                 <span className="text-ink-400">{o.stage}</span>
@@ -176,7 +176,7 @@ export default function CustomersPage() {
                               </li>
                             ))}
                             {TAILOR_ORDERS.filter((o) => o.customerId === c.id).length === 0 ? (
-                              <li className="rounded border border-ink-200 px-3 py-3 text-center text-[12px] text-ink-400">
+                              <li className="rounded border border-ink-200 px-3 py-3 text-center text-[13.5px] text-ink-400">
                                 진행 중인 주문이 없습니다.
                               </li>
                             ) : null}
@@ -200,7 +200,7 @@ export default function CustomersPage() {
         </TableWrap>
       </Card>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         표시 고객 {num(items.length)}명 (데모 데이터)
       </p>
     </div>

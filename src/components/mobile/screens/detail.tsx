@@ -56,7 +56,7 @@ function MTrend({
   return (
     <MCard>
       <div className="p-3.5">
-        <p className="text-[12px] text-ink-500">{label}</p>
+        <p className="text-[13.5px] text-ink-500">{label}</p>
         <div className="mt-3 flex items-end gap-1.5" style={{ height: 76 }}>
           {data.map((d, i) => (
             <div key={d.month} className="flex flex-1 flex-col items-center gap-1.5">
@@ -68,11 +68,11 @@ function MTrend({
                 )}
                 style={{ height: Math.max(4, (d.value / max) * 60) }}
               />
-              <span className="text-[10px] text-ink-400">{d.month}</span>
+              <span className="text-[11.5px] text-ink-400">{d.month}</span>
             </div>
           ))}
         </div>
-        <p className="mt-2 border-t border-ink-100 pt-2 text-[11.5px] text-ink-400 num">
+        <p className="mt-2 border-t border-ink-100 pt-2 text-[13px] text-ink-400 num">
           최근 6개월 · 이번 달 {wonShort(data[data.length - 1].value)}
         </p>
       </div>
@@ -95,11 +95,11 @@ function MMix({
         {data.map((d) => (
           <div key={d.name} className="px-3.5 py-2.5">
             <div className="flex items-center gap-2">
-              <span className="flex-1 truncate text-[13px] text-ink-700">{d.name}</span>
-              <span className="shrink-0 text-[12.5px] font-semibold text-ink-800 num">
+              <span className="flex-1 truncate text-[14.5px] text-ink-700">{d.name}</span>
+              <span className="shrink-0 text-[14px] font-semibold text-ink-800 num">
                 {wonShort(d.value)}
               </span>
-              <span className="w-9 shrink-0 text-right text-[11px] text-ink-400 num">
+              <span className="w-9 shrink-0 text-right text-[12.5px] text-ink-400 num">
                 {pct(d.value, total)}%
               </span>
             </div>
@@ -147,26 +147,26 @@ export function MobileApprovals() {
                 <div className="p-3.5">
                   <div className="flex items-center gap-1.5">
                     <MCompanyBadge company={a.company} />
-                    <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[10.5px] font-medium leading-none text-ink-500">
+                    <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[12px] font-medium leading-none text-ink-500">
                       {a.kind}
                     </span>
-                    <span className="ml-auto text-[10.5px] text-ink-400">{a.at}</span>
+                    <span className="ml-auto text-[12px] text-ink-400">{a.at}</span>
                   </div>
-                  <p className="mt-2 text-[14px] font-semibold leading-snug text-ink-800">
+                  <p className="mt-2 text-[16px] font-semibold leading-snug text-ink-800">
                     {a.title}
                   </p>
-                  <p className="mt-1 text-[12px] text-ink-400">{a.detail}</p>
+                  <p className="mt-1 text-[13.5px] text-ink-400">{a.detail}</p>
                   {a.amount ? (
-                    <p className="mt-2 text-[17px] font-semibold text-ink-900 num">
+                    <p className="mt-2 text-[19px] font-semibold text-ink-900 num">
                       {won(a.amount)}
                     </p>
                   ) : null}
-                  <p className="mt-1.5 text-[11px] text-ink-400">요청 {a.requestedBy}</p>
+                  <p className="mt-1.5 text-[12.5px] text-ink-400">요청 {a.requestedBy}</p>
                 </div>
                 {done[a.id] ? (
                   <div
                     className={cn(
-                      "border-t border-ink-100 px-3.5 py-3 text-center text-[13px] font-medium",
+                      "border-t border-ink-100 px-3.5 py-3 text-center text-[14.5px] font-medium",
                       done[a.id] === "승인" ? "text-emerald-600" : "text-ink-500",
                     )}
                   >
@@ -176,14 +176,14 @@ export function MobileApprovals() {
                   <div className="grid grid-cols-2 gap-px border-t border-ink-100 bg-ink-100">
                     <button
                       onClick={() => setDone((p) => ({ ...p, [a.id]: "보류" }))}
-                      className="bg-white py-3 text-[13px] font-medium text-ink-500 active:bg-ivory-100"
+                      className="bg-white py-3 text-[14.5px] font-medium text-ink-500 active:bg-ivory-100"
                     >
                       보류
                     </button>
                     <button
                       onClick={() => setDone((p) => ({ ...p, [a.id]: "승인" }))}
                       className={cn(
-                        "py-3 text-[13px] font-medium text-white",
+                        "py-3 text-[14.5px] font-medium text-white",
                         a.company === "tailor" ? "bg-tailor-600" : "bg-corp-700",
                       )}
                     >
@@ -312,7 +312,7 @@ export function MobileAlerts() {
       <MSection className="mt-3">
         <button
           onClick={markAllRead}
-          className="mb-2 w-full rounded-[12px] border border-ink-200 bg-white py-2.5 text-[12.5px] font-medium text-ink-600 active:bg-ivory-100"
+          className="mb-2 w-full rounded-[12px] border border-ink-200 bg-white py-2.5 text-[14px] font-medium text-ink-600 active:bg-ivory-100"
         >
           모두 읽음 처리
         </button>
@@ -335,18 +335,18 @@ export function MobileAlerts() {
                       status={a.level}
                       level={a.level === "긴급" ? "긴급" : a.level === "주의" ? "주의" : "안내"}
                     />
-                    <span className="text-[10.5px] text-ink-400">{a.category}</span>
-                    <span className="ml-auto text-[10.5px] text-ink-400">{a.at}</span>
+                    <span className="text-[12px] text-ink-400">{a.category}</span>
+                    <span className="ml-auto text-[12px] text-ink-400">{a.at}</span>
                   </span>
                   <span
                     className={cn(
-                      "mt-2 block text-[13.5px] leading-snug",
+                      "mt-2 block text-[15px] leading-snug",
                       a.read ? "text-ink-600" : "font-semibold text-ink-800",
                     )}
                   >
                     {a.title}
                   </span>
-                  <span className="mt-1 block text-[12px] leading-relaxed text-ink-400">
+                  <span className="mt-1 block text-[13.5px] leading-relaxed text-ink-400">
                     {a.detail}
                   </span>
                 </button>
@@ -386,11 +386,11 @@ export function MobileTailorHome() {
       <MSection title="미수금">
         <MCard>
           <div className="p-3.5">
-            <p className="text-[12px] text-ink-500">회수 대기 금액</p>
-            <p className="mt-1.5 text-[23px] font-semibold leading-none text-ink-900 num">
+            <p className="text-[13.5px] text-ink-500">회수 대기 금액</p>
+            <p className="mt-1.5 text-[26px] font-semibold leading-none text-ink-900 num">
               {won(S.receivable)}
             </p>
-            <p className="mt-1.5 text-[11.5px] text-ink-400">30일 초과 3건 포함</p>
+            <p className="mt-1.5 text-[13px] text-ink-400">30일 초과 3건 포함</p>
           </div>
           <MRow href="/tailor/sales" title="매출·수금 상세" />
         </MCard>
@@ -410,9 +410,9 @@ export function MobileTailorHome() {
 
 function Count({ v, unit }: { v: number; unit: string }) {
   return (
-    <span className="text-[15px] font-semibold text-ink-800 num">
+    <span className="text-[17px] font-semibold text-ink-800 num">
       {v}
-      <span className="ml-0.5 text-[11px] font-normal text-ink-400">{unit}</span>
+      <span className="ml-0.5 text-[12.5px] font-normal text-ink-400">{unit}</span>
     </span>
   );
 }
@@ -444,11 +444,11 @@ export function MobileAiHome() {
       <MSection title="이번 달 개발비">
         <MCard>
           <div className="p-3.5">
-            <p className="text-[12px] text-ink-500">집행 금액</p>
-            <p className="mt-1.5 text-[23px] font-semibold leading-none text-ink-900 num">
+            <p className="text-[13.5px] text-ink-500">집행 금액</p>
+            <p className="mt-1.5 text-[26px] font-semibold leading-none text-ink-900 num">
               {won(S.devCost)}
             </p>
-            <p className="mt-1.5 text-[11.5px] text-ink-400">인건비 · 클라우드 · 데이터 구축 포함</p>
+            <p className="mt-1.5 text-[13px] text-ink-400">인건비 · 클라우드 · 데이터 구축 포함</p>
           </div>
           <MRow href="/finance" title="자금 집행 상세" />
         </MCard>
@@ -497,35 +497,35 @@ export function MobileOrders() {
               <MCard key={o.id}>
                 <div className="p-3.5">
                   <div className="flex items-center gap-1.5">
-                    <span className="rounded-[5px] bg-tailor-50 px-1.5 py-[3px] text-[10.5px] font-semibold leading-none text-tailor-700">
+                    <span className="rounded-[5px] bg-tailor-50 px-1.5 py-[3px] text-[12px] font-semibold leading-none text-tailor-700">
                       {o.stage}
                     </span>
                     <MStatusBadge
                       status={o.status}
                       level={o.status === "지연" ? "긴급" : o.status === "지연 위험" ? "주의" : "안내"}
                     />
-                    <span className="ml-auto text-[10.5px] text-ink-400 num">{o.id}</span>
+                    <span className="ml-auto text-[12px] text-ink-400 num">{o.id}</span>
                   </div>
-                  <p className="mt-2 text-[14px] font-semibold text-ink-800">
+                  <p className="mt-2 text-[16px] font-semibold text-ink-800">
                     {o.customer} 님 · {o.item}
                   </p>
-                  <p className="mt-1 truncate text-[12px] text-ink-400">{o.fabric}</p>
+                  <p className="mt-1 truncate text-[13.5px] text-ink-400">{o.fabric}</p>
                   <div className="mt-3 grid grid-cols-3 gap-2 border-t border-ink-100 pt-2.5">
                     <div>
-                      <p className="text-[10.5px] text-ink-400">주문 금액</p>
-                      <p className="mt-0.5 text-[13px] font-semibold text-ink-800 num">
+                      <p className="text-[12px] text-ink-400">주문 금액</p>
+                      <p className="mt-0.5 text-[14.5px] font-semibold text-ink-800 num">
                         {wonShort(o.amount)}
                       </p>
                     </div>
                     <div>
-                      <p className="text-[10.5px] text-ink-400">잔금</p>
-                      <p className="mt-0.5 text-[13px] font-semibold text-ink-800 num">
+                      <p className="text-[12px] text-ink-400">잔금</p>
+                      <p className="mt-0.5 text-[14.5px] font-semibold text-ink-800 num">
                         {wonShort(o.amount - o.deposit)}
                       </p>
                     </div>
                     <div>
-                      <p className="text-[10.5px] text-ink-400">납기</p>
-                      <p className="mt-0.5 text-[13px] font-semibold text-ink-800 num">
+                      <p className="text-[12px] text-ink-400">납기</p>
+                      <p className="mt-0.5 text-[14.5px] font-semibold text-ink-800 num">
                         {o.dueAt.slice(5)}
                       </p>
                     </div>
@@ -583,7 +583,7 @@ export function MobileFabrics() {
                   />
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5">
-                      <p className="min-w-0 flex-1 truncate text-[13.5px] font-semibold text-ink-800">
+                      <p className="min-w-0 flex-1 truncate text-[15px] font-semibold text-ink-800">
                         {f.brand}
                       </p>
                       <MStatusBadge
@@ -593,13 +593,13 @@ export function MobileFabrics() {
                         }
                       />
                     </div>
-                    <p className="mt-0.5 truncate text-[12px] text-ink-400">
+                    <p className="mt-0.5 truncate text-[13.5px] text-ink-400">
                       {f.name} · {f.color}
                     </p>
                     <div className="mt-2.5">
                       <MProgress value={pct(f.assignedM, f.stockM)} tone="tailor" />
                     </div>
-                    <p className="mt-1.5 text-[11.5px] text-ink-400 num">
+                    <p className="mt-1.5 text-[13px] text-ink-400 num">
                       재고 {f.stockM.toFixed(1)}m · 배정 {f.assignedM.toFixed(1)}m ·{" "}
                       <span className={remain < 1.5 ? "font-medium text-rose-600" : "text-ink-600"}>
                         잔여 {remain.toFixed(1)}m
@@ -632,30 +632,30 @@ export function MobileProduction() {
             <MCard key={j.id}>
               <div className="p-3.5">
                 <div className="flex items-center gap-1.5">
-                  <span className="rounded-[5px] bg-tailor-50 px-1.5 py-[3px] text-[10.5px] font-semibold leading-none text-tailor-700">
+                  <span className="rounded-[5px] bg-tailor-50 px-1.5 py-[3px] text-[12px] font-semibold leading-none text-tailor-700">
                     {j.stage}
                   </span>
                   <MStatusBadge
                     status={j.status}
                     level={j.status === "지연" ? "긴급" : j.status === "지연 위험" ? "주의" : "안내"}
                   />
-                  <span className="ml-auto text-[10.5px] text-ink-400 num">
+                  <span className="ml-auto text-[12px] text-ink-400 num">
                     납기 {j.dueAt.slice(5)}
                     {j.riskDays > 0 ? (
                       <span className="ml-1 font-medium text-rose-600">+{j.riskDays}일</span>
                     ) : null}
                   </span>
                 </div>
-                <p className="mt-2 text-[14px] font-semibold text-ink-800">
+                <p className="mt-2 text-[16px] font-semibold text-ink-800">
                   {j.customer} 님 · {j.item}
                 </p>
                 <div className="mt-2.5 flex items-center gap-2">
                   <MProgress value={j.progress} tone="tailor" />
-                  <span className="shrink-0 text-[12px] font-medium text-ink-600 num">
+                  <span className="shrink-0 text-[13.5px] font-medium text-ink-600 num">
                     {j.progress}%
                   </span>
                 </div>
-                <p className="mt-1.5 text-[11.5px] text-ink-400">
+                <p className="mt-1.5 text-[13px] text-ink-400">
                   {j.worker} · {j.orderId}
                 </p>
               </div>
@@ -690,23 +690,24 @@ export function MobileCustomers() {
             <MRow
               key={c.id}
               leading={
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-tailor-50 text-[13px] font-semibold text-tailor-700">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-tailor-50 text-[14.5px] font-semibold text-tailor-700">
                   {c.name.slice(0, 1)}
                 </span>
               }
               title={c.name}
               sub={`${c.company} · ${c.visits}회 방문`}
+              wrapTitle
               meta={
-                <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[10.5px] font-medium leading-none text-ink-500">
+                <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[12px] font-medium leading-none text-ink-500">
                   {c.grade}
                 </span>
               }
               trailing={
                 <span className="flex flex-col items-end">
-                  <span className="text-[13px] font-semibold text-ink-800 num">
+                  <span className="text-[14.5px] font-semibold text-ink-800 num">
                     {wonShort(c.totalAmount)}
                   </span>
-                  <span className="text-[10.5px] text-ink-400 num">추천도 {c.repurchaseScore}</span>
+                  <span className="text-[12px] text-ink-400 num">추천도 {c.repurchaseScore}</span>
                 </span>
               }
               chevron={false}
@@ -750,38 +751,38 @@ export function MobileProjects() {
               <MCard key={p.id}>
                 <div className="p-3.5">
                   <div className="flex items-center gap-1.5">
-                    <span className="rounded-[5px] bg-corp-50 px-1.5 py-[3px] text-[10.5px] font-semibold leading-none text-corp-700">
+                    <span className="rounded-[5px] bg-corp-50 px-1.5 py-[3px] text-[12px] font-semibold leading-none text-corp-700">
                       {p.phase}
                     </span>
                     <MStatusBadge
                       status={p.status}
                       level={p.status === "지연" ? "긴급" : p.status === "주의" ? "주의" : "안내"}
                     />
-                    <span className="ml-auto text-[10.5px] text-ink-400 num">{p.dueAt}</span>
+                    <span className="ml-auto text-[12px] text-ink-400 num">{p.dueAt}</span>
                   </div>
-                  <p className="mt-2 text-[14px] font-semibold leading-snug text-ink-800">{p.name}</p>
-                  <p className="mt-1 truncate text-[12px] text-ink-400">
+                  <p className="mt-2 text-[16px] font-semibold leading-snug text-ink-800">{p.name}</p>
+                  <p className="mt-1 truncate text-[13.5px] text-ink-400">
                     {p.owner} · {p.client}
                   </p>
                   <div className="mt-2.5 space-y-2">
                     <div className="flex items-center gap-2">
                       <MProgress value={p.progress} tone="corp" />
-                      <span className="w-[68px] shrink-0 text-right text-[11px] text-ink-500 num">
+                      <span className="w-[68px] shrink-0 text-right text-[12.5px] text-ink-500 num">
                         개발 {p.progress}%
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <MProgress value={pct(p.spent, p.budget)} tone="corp" />
-                      <span className="w-[68px] shrink-0 text-right text-[11px] text-ink-500 num">
+                      <span className="w-[68px] shrink-0 text-right text-[12.5px] text-ink-500 num">
                         집행 {pct(p.spent, p.budget)}%
                       </span>
                     </div>
                   </div>
-                  <p className="mt-2.5 border-t border-ink-100 pt-2 text-[11.5px] text-ink-500">
+                  <p className="mt-2.5 border-t border-ink-100 pt-2 text-[13px] text-ink-500">
                     다음 · {p.nextMilestone}
                   </p>
                   {p.issue ? (
-                    <p className="mt-1 text-[11.5px] text-rose-600">이슈 · {p.issue}</p>
+                    <p className="mt-1 text-[13px] text-rose-600">이슈 · {p.issue}</p>
                   ) : null}
                 </div>
               </MCard>
@@ -811,25 +812,25 @@ export function MobileRnd() {
             <MCard key={r.id}>
               <div className="p-3.5">
                 <div className="flex items-center gap-1.5">
-                  <span className="rounded-[5px] bg-corp-50 px-1.5 py-[3px] text-[10.5px] font-semibold leading-none text-corp-700">
+                  <span className="rounded-[5px] bg-corp-50 px-1.5 py-[3px] text-[12px] font-semibold leading-none text-corp-700">
                     {r.category}
                   </span>
                   <MStatusBadge status={r.status} level={r.status === "주의" ? "주의" : "안내"} />
-                  <span className="ml-auto text-[10.5px] text-ink-400 num">{r.dueAt}</span>
+                  <span className="ml-auto text-[12px] text-ink-400 num">{r.dueAt}</span>
                 </div>
-                <p className="mt-2 text-[13.5px] font-semibold leading-snug text-ink-800">
+                <p className="mt-2 text-[15px] font-semibold leading-snug text-ink-800">
                   {r.title}
                 </p>
-                <p className="mt-1 text-[12px] text-ink-400">
+                <p className="mt-1 text-[13.5px] text-ink-400">
                   {r.agency} · {r.owner}
                 </p>
                 <div className="mt-2.5 flex items-center gap-2">
                   <MProgress value={r.progress} tone="corp" />
-                  <span className="shrink-0 text-[12px] font-medium text-ink-600 num">
+                  <span className="shrink-0 text-[13.5px] font-medium text-ink-600 num">
                     {r.progress}%
                   </span>
                 </div>
-                <p className="mt-1.5 text-[11.5px] text-ink-400 num">
+                <p className="mt-1.5 text-[13px] text-ink-400 num">
                   {wonShort(r.spent)} / {wonShort(r.budget)} · {r.output}
                 </p>
               </div>
@@ -858,7 +859,7 @@ export function MobilePeople() {
             <MRow
               key={m.id}
               leading={
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-corp-50 text-[13px] font-semibold text-corp-700">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-corp-50 text-[14.5px] font-semibold text-corp-700">
                   {m.name.slice(0, 1)}
                 </span>
               }
@@ -866,16 +867,16 @@ export function MobilePeople() {
               sub={`${m.role} · ${m.projects.length}개 프로젝트`}
               wrapTitle
               meta={
-                <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[10.5px] font-medium leading-none text-ink-500">
+                <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[12px] font-medium leading-none text-ink-500">
                   {m.level}
                 </span>
               }
               trailing={
                 <span className="flex flex-col items-end">
-                  <span className="text-[13px] font-semibold text-ink-800 num">
+                  <span className="text-[14.5px] font-semibold text-ink-800 num">
                     {wonShort(m.monthlyCost)}
                   </span>
-                  <span className="text-[10.5px] text-ink-400 num">투입 {m.allocation}%</span>
+                  <span className="text-[12px] text-ink-400 num">투입 {m.allocation}%</span>
                 </span>
               }
               chevron={false}
@@ -913,7 +914,7 @@ export function MobileTech() {
               chevron={false}
               trailing={
                 <span className="flex flex-col items-end gap-1">
-                  <span className="text-[12px] font-semibold text-ink-800 num">{d.scale}</span>
+                  <span className="text-[13.5px] font-semibold text-ink-800 num">{d.scale}</span>
                   <MStatusBadge status={d.status} level={d.status === "검증 중" ? "주의" : "안내"} />
                 </span>
               }
@@ -942,19 +943,19 @@ export function MobileBiz() {
             <MCard key={d.id}>
               <div className="p-3.5">
                 <div className="flex items-center gap-1.5">
-                  <span className="rounded-[5px] bg-corp-50 px-1.5 py-[3px] text-[10.5px] font-semibold leading-none text-corp-700">
+                  <span className="rounded-[5px] bg-corp-50 px-1.5 py-[3px] text-[12px] font-semibold leading-none text-corp-700">
                     {d.phase}
                   </span>
                   <MStatusBadge status={d.status} level={d.status === "보류" ? "주의" : "안내"} />
-                  <span className="ml-auto text-[10.5px] text-ink-400 num">{d.closeAt}</span>
+                  <span className="ml-auto text-[12px] text-ink-400 num">{d.closeAt}</span>
                 </div>
-                <p className="mt-2 text-[14px] font-semibold text-ink-800">{d.client}</p>
-                <p className="mt-1 truncate text-[12px] text-ink-400">{d.project}</p>
+                <p className="mt-2 text-[16px] font-semibold text-ink-800">{d.client}</p>
+                <p className="mt-1 truncate text-[13.5px] text-ink-400">{d.project}</p>
                 <div className="mt-2.5 flex items-center gap-2">
                   <MProgress value={d.probability} tone="corp" />
-                  <span className="shrink-0 text-[11.5px] text-ink-500 num">{d.probability}%</span>
+                  <span className="shrink-0 text-[13px] text-ink-500 num">{d.probability}%</span>
                 </div>
-                <p className="mt-1.5 text-[11.5px] text-ink-400 num">
+                <p className="mt-1.5 text-[13px] text-ink-400 num">
                   계약 {wonShort(d.amount)}
                   {d.monthly ? ` · 월 ${wonShort(d.monthly)}` : ""}
                 </p>
@@ -986,12 +987,12 @@ export function MobileCompanies() {
                     id === "tailor" ? "bg-tailor-700" : "bg-corp-800",
                   )}
                 >
-                  <span className="flex h-9 w-9 items-center justify-center rounded-[8px] bg-white/15 text-[12px] font-bold text-white">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-[8px] bg-white/15 text-[13.5px] font-bold text-white">
                     {c.mark}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[14px] font-semibold text-white">{c.name}</p>
-                    <p className="truncate text-[11px] text-white/60">{c.business}</p>
+                    <p className="text-[16px] font-semibold text-white">{c.name}</p>
+                    <p className="truncate text-[12.5px] text-white/60">{c.business}</p>
                   </div>
                 </div>
                 <MMiniGrid
@@ -1013,7 +1014,7 @@ export function MobileCompanies() {
                 <button
                   onClick={() => setScope(active ? "all" : id)}
                   className={cn(
-                    "w-full border-t border-ink-100 py-3 text-[13px] font-medium",
+                    "w-full border-t border-ink-100 py-3 text-[14.5px] font-medium",
                     active
                       ? "bg-ivory-100 text-ink-500"
                       : id === "tailor"
@@ -1042,14 +1043,14 @@ export function MobileReports() {
           <MCard key={r.id}>
             <div className="p-3.5">
               <div className="flex items-center gap-1.5">
-                <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[10.5px] font-medium leading-none text-ink-500">
+                <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[12px] font-medium leading-none text-ink-500">
                   {r.scope}
                 </span>
-                <span className="ml-auto text-[10.5px] text-ink-400 num">{r.updatedAt}</span>
+                <span className="ml-auto text-[12px] text-ink-400 num">{r.updatedAt}</span>
               </div>
-              <p className="mt-2 text-[13.5px] font-semibold leading-snug text-ink-800">{r.title}</p>
-              <p className="mt-1 text-[12px] text-ink-400 num">{r.period}</p>
-              <p className="mt-2 rounded-[10px] bg-ivory-100 px-3 py-2 text-[12px] leading-relaxed text-ink-600">
+              <p className="mt-2 text-[15px] font-semibold leading-snug text-ink-800">{r.title}</p>
+              <p className="mt-1 text-[13.5px] text-ink-400 num">{r.period}</p>
+              <p className="mt-2 rounded-[10px] bg-ivory-100 px-3 py-2 text-[13.5px] leading-relaxed text-ink-600">
                 {r.summary}
               </p>
             </div>
@@ -1116,11 +1117,11 @@ export function MobileTailorAnalytics() {
               return (
                 <div key={g} className="px-3.5 py-2.5">
                   <div className="flex items-center gap-2">
-                    <span className="flex-1 text-[13px] text-ink-700">{g}</span>
-                    <span className="text-[12.5px] font-semibold text-ink-800 num">
+                    <span className="flex-1 text-[14.5px] text-ink-700">{g}</span>
+                    <span className="text-[14px] font-semibold text-ink-800 num">
                       {wonShort(sum)}
                     </span>
-                    <span className="w-9 text-right text-[11px] text-ink-400 num">
+                    <span className="w-9 text-right text-[12.5px] text-ink-400 num">
                       {pct(sum, total)}%
                     </span>
                   </div>
@@ -1146,7 +1147,7 @@ export function MobileTailorAnalytics() {
                 sub={c.nextAction}
                 chevron={false}
                 trailing={
-                  <span className="text-[15px] font-semibold text-tailor-700 num">
+                  <span className="text-[17px] font-semibold text-tailor-700 num">
                     {c.repurchaseScore}
                   </span>
                 }

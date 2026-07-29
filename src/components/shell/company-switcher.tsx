@@ -17,7 +17,7 @@ export function CompanySwitcher({ compact = false }: { compact?: boolean }) {
   return (
     <div className="flex items-center gap-2">
       {!compact ? (
-        <span className="mr-0.5 text-[12px] font-medium text-ink-400">Company</span>
+        <span className="mr-0.5 text-[13.5px] font-medium text-ink-400">Company</span>
       ) : null}
       <div className="flex items-center gap-1 rounded-md border border-ink-200 bg-white p-0.5">
         {OPTIONS.map((opt) => {
@@ -27,7 +27,7 @@ export function CompanySwitcher({ compact = false }: { compact?: boolean }) {
               key={opt.value}
               onClick={() => setScope(opt.value)}
               className={cn(
-                "flex items-center gap-1.5 rounded px-2.5 py-1.5 text-[12.5px] font-medium transition-colors",
+                "flex items-center gap-1.5 rounded px-2.5 py-1.5 text-[14px] font-medium transition-colors",
                 active
                   ? opt.value === "tailor"
                     ? "bg-tailor-600 text-white"
@@ -39,7 +39,7 @@ export function CompanySwitcher({ compact = false }: { compact?: boolean }) {
             >
               <span
                 className={cn(
-                  "flex h-[17px] min-w-[17px] items-center justify-center rounded-[3px] px-1 text-[8.5px] font-bold",
+                  "flex h-[17px] min-w-[17px] items-center justify-center rounded-[3px] px-1 text-[10px] font-bold",
                   active
                     ? "bg-white/20 text-white"
                     : opt.value === "tailor"

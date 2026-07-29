@@ -30,10 +30,10 @@ const SheetContent = React.forwardRef<
     >
       <div className="flex items-start justify-between gap-3 border-b border-ink-200/70 px-4 py-3.5">
         <div>
-          <DialogPrimitive.Title className="text-[14px] font-semibold text-ink-800">
+          <DialogPrimitive.Title className="text-[16px] font-semibold text-ink-800">
             {title}
           </DialogPrimitive.Title>
-          <DialogPrimitive.Description className="mt-0.5 text-[11.5px] text-ink-400">
+          <DialogPrimitive.Description className="mt-0.5 text-[13px] text-ink-400">
             {desc ?? ""}
           </DialogPrimitive.Description>
         </div>

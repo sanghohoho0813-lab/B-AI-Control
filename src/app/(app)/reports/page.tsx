@@ -89,31 +89,31 @@ export default function ReportsPage() {
                           <DialogContent title={r.title} desc={`${r.period} · ${r.author}`}>
                             <div className="space-y-4 px-5 py-4">
                               <div className="rounded-md border border-ink-200 bg-ivory-100/60 px-4 py-3">
-                                <p className="text-[11.5px] text-ink-400">핵심 요약</p>
-                                <p className="mt-1 text-[13px] text-ink-800">{r.summary}</p>
+                                <p className="text-[13px] text-ink-400">핵심 요약</p>
+                                <p className="mt-1 text-[14.5px] text-ink-800">{r.summary}</p>
                               </div>
                               <div>
-                                <p className="mb-2 text-[12px] font-medium text-ink-700">
+                                <p className="mb-2 text-[13.5px] font-medium text-ink-700">
                                   회사별 매출 추이
                                 </p>
                                 <RevenueTrendChart data={REVENUE_TREND} height={200} />
                               </div>
                               <div className="grid grid-cols-2 gap-3">
                                 <div className="rounded-md border border-tailor-200/70 bg-tailor-50/40 p-3">
-                                  <p className="text-[11.5px] text-tailor-700">비앤테일러샵</p>
-                                  <p className="mt-1 text-[15px] font-semibold text-ink-800 num">
+                                  <p className="text-[13px] text-tailor-700">비앤테일러샵</p>
+                                  <p className="mt-1 text-[17px] font-semibold text-ink-800 num">
                                     {won(SUMMARY.tailor.revenue)}
                                   </p>
-                                  <p className="mt-1 text-[11px] text-ink-400 num">
+                                  <p className="mt-1 text-[12.5px] text-ink-400 num">
                                     자금 집행률 {pct(tExec, tPlan)}% · 계획 {wonShort(tPlan)}
                                   </p>
                                 </div>
                                 <div className="rounded-md border border-corp-200/70 bg-corp-50/40 p-3">
-                                  <p className="text-[11.5px] text-corp-700">AI 소프트웨어 법인</p>
-                                  <p className="mt-1 text-[15px] font-semibold text-ink-800 num">
+                                  <p className="text-[13px] text-corp-700">AI 소프트웨어 법인</p>
+                                  <p className="mt-1 text-[17px] font-semibold text-ink-800 num">
                                     {won(SUMMARY.corp.revenue)}
                                   </p>
-                                  <p className="mt-1 text-[11px] text-ink-400 num">
+                                  <p className="mt-1 text-[12.5px] text-ink-400 num">
                                     자금 집행률 {pct(cExec, cPlan)}% · 계획 {wonShort(cPlan)}
                                   </p>
                                 </div>
@@ -150,8 +150,8 @@ export default function ReportsPage() {
                 { l: "AI 집행률", v: `${pct(cExec, cPlan)}%` },
               ].map((r) => (
                 <div key={r.l} className="px-4 py-3">
-                  <p className="text-[11px] text-ink-400">{r.l}</p>
-                  <p className="mt-1 text-[13px] font-semibold text-ink-800 num">{r.v}</p>
+                  <p className="text-[12.5px] text-ink-400">{r.l}</p>
+                  <p className="mt-1 text-[14.5px] font-semibold text-ink-800 num">{r.v}</p>
                 </div>
               ))}
             </div>

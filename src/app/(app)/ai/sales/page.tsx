@@ -44,9 +44,9 @@ export default function AiSalesPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[12px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[18px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[11px] text-ink-400 num">{k.s}</p>
+              <p className="text-[13.5px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[20px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[12.5px] text-ink-400 num">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -65,7 +65,7 @@ export default function AiSalesPage() {
                       key={r}
                       onClick={() => setRange(r)}
                       className={cn(
-                        "rounded px-2 py-1 text-[11.5px] transition-colors",
+                        "rounded px-2 py-1 text-[13px] transition-colors",
                         range === r ? "bg-corp-700 text-white" : "text-ink-500 hover:bg-ink-50",
                       )}
                     >
@@ -93,7 +93,7 @@ export default function AiSalesPage() {
               />
               <ul className="mt-2 space-y-1.5 border-t border-ink-100 pt-2.5">
                 {CORP_REVENUE_MIX.map((r, i) => (
-                  <li key={r.name} className="flex items-center gap-2 text-[11.5px]">
+                  <li key={r.name} className="flex items-center gap-2 text-[13px]">
                     <span className="h-2 w-2 rounded-sm" style={{ background: COLORS[i] }} />
                     <span className="flex-1 truncate text-ink-500">{r.name}</span>
                     <span className="text-ink-700 num">{won(r.value)}</span>
@@ -156,14 +156,14 @@ export default function AiSalesPage() {
                 .map((p) => (
                   <li key={p.id} className="border-b border-ink-100 py-2.5 last:border-b-0">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="truncate text-[12.5px] text-ink-800">{p.name}</span>
-                      <span className="shrink-0 text-[12.5px] font-medium text-ink-800 num">
+                      <span className="truncate text-[14px] text-ink-800">{p.name}</span>
+                      <span className="shrink-0 text-[14px] font-medium text-ink-800 num">
                         {won(p.expectedRevenue)}
                       </span>
                     </div>
                     <div className="mt-1.5 flex items-center gap-2">
                       <Bar value={p.progress} color="#234084" />
-                      <span className="w-20 shrink-0 text-right text-[10.5px] text-ink-400">
+                      <span className="w-20 shrink-0 text-right text-[12px] text-ink-400">
                         {p.phase} {p.progress}%
                       </span>
                     </div>
@@ -174,7 +174,7 @@ export default function AiSalesPage() {
         </div>
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         계약 {num(DEALS.length)}건 · 프로젝트 {num(AI_PROJECTS.length)}건 (데모 데이터)
       </p>
     </div>

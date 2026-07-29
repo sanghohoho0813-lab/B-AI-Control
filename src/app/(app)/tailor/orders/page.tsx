@@ -43,9 +43,9 @@ export default function OrdersPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[12px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[19px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[11px] text-ink-400">{k.s}</p>
+              <p className="text-[13.5px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[12.5px] text-ink-400">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -59,7 +59,7 @@ export default function OrdersPage() {
             <button
               onClick={() => setStage("전체")}
               className={cn(
-                "rounded border px-2.5 py-1 text-[12px] transition-colors",
+                "rounded border px-2.5 py-1 text-[13.5px] transition-colors",
                 stage === "전체"
                   ? "border-ink-800 bg-ink-800 text-white"
                   : "border-ink-200 bg-white text-ink-500 hover:bg-ink-50",
@@ -72,7 +72,7 @@ export default function OrdersPage() {
                 key={s}
                 onClick={() => setStage(s)}
                 className={cn(
-                  "rounded border px-2.5 py-1 text-[12px] transition-colors",
+                  "rounded border px-2.5 py-1 text-[13.5px] transition-colors",
                   stage === s
                     ? "border-tailor-600 bg-tailor-600 text-white"
                     : "border-ink-200 bg-white text-ink-500 hover:bg-ink-50",
@@ -154,7 +154,7 @@ export default function OrdersPage() {
               />
               <ul className="mt-2 space-y-1 border-t border-ink-100 pt-2.5">
                 {ORDER_FUNNEL.map((f) => (
-                  <li key={f.stage} className="flex items-center justify-between text-[11.5px]">
+                  <li key={f.stage} className="flex items-center justify-between text-[13px]">
                     <span className="text-ink-500">{f.stage}</span>
                     <span className="text-ink-700 num">
                       {f.count}건 · {wonShort(f.amount)}
@@ -167,7 +167,7 @@ export default function OrdersPage() {
         </div>
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         표시 주문 {num(items.length)}건 (데모 데이터)
       </p>
     </div>

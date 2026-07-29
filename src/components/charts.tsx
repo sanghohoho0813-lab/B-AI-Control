@@ -20,7 +20,7 @@ import {
 } from "recharts";
 import { TONE, won, wonAxis, wonShort } from "@/lib/utils";
 
-const AXIS = { fontSize: 11, fill: "#8a94a8" } as const;
+const AXIS = { fontSize: 12.5, fill: "#8a94a8" } as const;
 const GRID = "#eceef2";
 
 function TooltipBox({
@@ -37,9 +37,9 @@ function TooltipBox({
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-md border border-ink-200 bg-white px-3 py-2 shadow-panel">
-      {label ? <p className="mb-1 text-[11.5px] font-medium text-ink-700">{label}</p> : null}
+      {label ? <p className="mb-1 text-[13px] font-medium text-ink-700">{label}</p> : null}
       {payload.map((p, i) => (
-        <p key={i} className="flex items-center gap-2 text-[11.5px] text-ink-600">
+        <p key={i} className="flex items-center gap-2 text-[13px] text-ink-600">
           <span
             className="h-1.5 w-1.5 rounded-full"
             style={{ background: p.color ?? "#8a94a8" }}
@@ -81,7 +81,7 @@ export function RevenueTrendChart({
           tick={AXIS}
           axisLine={false}
           tickLine={false}
-          width={52}
+          width={62}
           tickFormatter={(v: number) => wonAxis(v)}
         />
         <Tooltip content={<TooltipBox />} />
@@ -92,7 +92,7 @@ export function RevenueTrendChart({
             height={24}
             iconType="circle"
             iconSize={7}
-            wrapperStyle={{ fontSize: 11.5, color: "#5f6a80" }}
+            wrapperStyle={{ fontSize: 13, color: "#5f6a80" }}
           />
         ) : null}
         {showTailor ? (
@@ -215,8 +215,8 @@ export function RateDonut({
         </PieChart>
       </ResponsiveContainer>
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-[15px] font-semibold text-ink-800 num">{value}%</span>
-        {label ? <span className="text-[9.5px] text-ink-400">{label}</span> : null}
+        <span className="text-[17px] font-semibold text-ink-800 num">{value}%</span>
+        {label ? <span className="text-[11px] text-ink-400">{label}</span> : null}
       </div>
     </div>
   );
@@ -258,8 +258,8 @@ export function CategoryDonut({
       </ResponsiveContainer>
       {centerTop ? (
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-[11px] text-ink-400">{centerBottom}</span>
-          <span className="text-[16px] font-semibold text-ink-800 num">{centerTop}</span>
+          <span className="text-[12.5px] text-ink-400">{centerBottom}</span>
+          <span className="text-[18px] font-semibold text-ink-800 num">{centerTop}</span>
         </div>
       ) : null}
     </div>
@@ -280,12 +280,12 @@ export function PlanVsActualChart({
     <ResponsiveContainer width="100%" height={height}>
       <BarChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }} barGap={3}>
         <CartesianGrid stroke={GRID} vertical={false} />
-        <XAxis dataKey="name" tick={{ ...AXIS, fontSize: 10.5 }} axisLine={false} tickLine={false} interval={0} />
+        <XAxis dataKey="name" tick={{ ...AXIS, fontSize: 11.5 }} axisLine={false} tickLine={false} interval={0} />
         <YAxis
           tick={AXIS}
           axisLine={false}
           tickLine={false}
-          width={52}
+          width={62}
           tickFormatter={(v: number) => wonAxis(v)}
         />
         <Tooltip content={<TooltipBox />} cursor={{ fill: "rgba(0,0,0,0.03)" }} />
@@ -295,7 +295,7 @@ export function PlanVsActualChart({
           height={24}
           iconType="circle"
           iconSize={7}
-          wrapperStyle={{ fontSize: 11.5, color: "#5f6a80" }}
+          wrapperStyle={{ fontSize: 13, color: "#5f6a80" }}
         />
         <Bar dataKey="planned" name="계획" fill="#d9dde5" radius={[3, 3, 0, 0]} maxBarSize={26} />
         <Bar dataKey="executed" name="집행" fill={color} radius={[3, 3, 0, 0]} maxBarSize={26} />
@@ -321,7 +321,7 @@ export function CashFlowChart({
           tick={AXIS}
           axisLine={false}
           tickLine={false}
-          width={52}
+          width={62}
           tickFormatter={(v: number) => wonAxis(v)}
         />
         <Tooltip content={<TooltipBox />} cursor={{ fill: "rgba(0,0,0,0.03)" }} />
@@ -331,7 +331,7 @@ export function CashFlowChart({
           height={24}
           iconType="circle"
           iconSize={7}
-          wrapperStyle={{ fontSize: 11.5, color: "#5f6a80" }}
+          wrapperStyle={{ fontSize: 13, color: "#5f6a80" }}
         />
         <Bar dataKey="tailorIn" name="비앤 수입" fill={TONE.tailor.chart} radius={[3, 3, 0, 0]} maxBarSize={14} />
         <Bar dataKey="tailorOut" name="비앤 지출" fill={TONE.tailor.chartSoft} radius={[3, 3, 0, 0]} maxBarSize={14} />
@@ -360,10 +360,10 @@ export function StageBarChart({
         <YAxis
           type="category"
           dataKey="name"
-          tick={{ ...AXIS, fontSize: 11 }}
+          tick={{ ...AXIS, fontSize: 12 }}
           axisLine={false}
           tickLine={false}
-          width={78}
+          width={86}
         />
         <Tooltip content={<TooltipBox unit="raw" />} cursor={{ fill: "rgba(0,0,0,0.03)" }} />
         <Bar dataKey="value" name="건수" fill={color} radius={[0, 3, 3, 0]} maxBarSize={16} />

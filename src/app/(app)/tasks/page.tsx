@@ -44,7 +44,7 @@ export default function TasksPage() {
                 <CompanyChip company={t.company} />
                 <StatusBadge status={t.level} />
               </div>
-              <p className="mt-2.5 flex items-center gap-1.5 text-[14px] font-semibold text-ink-800">
+              <p className="mt-2.5 flex items-center gap-1.5 text-[16px] font-semibold text-ink-800">
                 <AlertTriangle
                   className={cn(
                     "h-4 w-4",
@@ -53,12 +53,12 @@ export default function TasksPage() {
                 />
                 {t.title}
               </p>
-              <p className="mt-1 text-[11.5px] text-ink-400">{t.detail}</p>
+              <p className="mt-1 text-[13px] text-ink-400">{t.detail}</p>
               <div className="mt-3 flex items-center justify-between border-t border-ink-100 pt-2.5">
-                <span className="text-[11.5px] text-ink-400">{t.due}</span>
-                <span className="text-[19px] font-semibold text-ink-800 num">
+                <span className="text-[13px] text-ink-400">{t.due}</span>
+                <span className="text-[21px] font-semibold text-ink-800 num">
                   {t.count}
-                  <span className="ml-0.5 text-[11px] font-normal text-ink-400">건</span>
+                  <span className="ml-0.5 text-[12.5px] font-normal text-ink-400">건</span>
                 </span>
               </div>
               <Button variant="outline" size="sm" className="mt-3 w-full" asChild>
@@ -81,16 +81,16 @@ export default function TasksPage() {
                   {delayed.map((j) => (
                     <li key={j.id} className="border-b border-ink-100 px-4 py-3 last:border-b-0">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="text-[12.5px] font-medium text-ink-800">
+                        <span className="text-[14px] font-medium text-ink-800">
                           {j.customer} 님 · {j.item}
                         </span>
                         <StatusBadge status={j.status} />
                       </div>
                       <div className="mt-2 flex items-center gap-2">
                         <Bar value={j.progress} color="#86293d" />
-                        <span className="shrink-0 text-[11px] text-ink-500 num">{j.progress}%</span>
+                        <span className="shrink-0 text-[12.5px] text-ink-500 num">{j.progress}%</span>
                       </div>
-                      <p className="mt-1.5 text-[11px] text-ink-400">
+                      <p className="mt-1.5 text-[12.5px] text-ink-400">
                         {j.orderId} · 담당 {j.worker} · 납기 <span className="num">{j.dueAt}</span>
                         {j.riskDays > 0 ? (
                           <span className="ml-1 font-medium text-rose-600 num">+{j.riskDays}일</span>
@@ -112,10 +112,10 @@ export default function TasksPage() {
                       className="flex items-center gap-3 border-b border-ink-100 px-4 py-3 last:border-b-0"
                     >
                       <span className="min-w-0 flex-1">
-                        <span className="block truncate text-[12.5px] font-medium text-ink-800">
+                        <span className="block truncate text-[14px] font-medium text-ink-800">
                           {f.brand} {f.name}
                         </span>
-                        <span className="block truncate text-[11px] text-ink-400">
+                        <span className="block truncate text-[12.5px] text-ink-400">
                           {f.code} · {f.color} · 잔여 {(f.stockM - f.assignedM).toFixed(1)}m · 리드타임{" "}
                           {f.leadTimeDays}일
                         </span>
@@ -137,15 +137,15 @@ export default function TasksPage() {
                 {projectIssues.map((p) => (
                   <li key={p.id} className="border-b border-ink-100 px-4 py-3 last:border-b-0">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-[12.5px] font-medium text-ink-800">{p.name}</span>
+                      <span className="text-[14px] font-medium text-ink-800">{p.name}</span>
                       <StatusBadge status={p.status} />
                     </div>
-                    <p className="mt-1 text-[11.5px] text-ink-500">{p.issue}</p>
+                    <p className="mt-1 text-[13px] text-ink-500">{p.issue}</p>
                     <div className="mt-2 flex items-center gap-2">
                       <Bar value={p.progress} color="#234084" />
-                      <span className="shrink-0 text-[11px] text-ink-500 num">{p.progress}%</span>
+                      <span className="shrink-0 text-[12.5px] text-ink-500 num">{p.progress}%</span>
                     </div>
-                    <p className="mt-1.5 text-[11px] text-ink-400">
+                    <p className="mt-1.5 text-[12.5px] text-ink-400">
                       담당 {p.owner} · 예상 완료 <span className="num">{p.dueAt}</span> · 집행{" "}
                       <span className="num">{pct(p.spent, p.budget)}%</span>
                     </p>
@@ -170,20 +170,20 @@ export default function TasksPage() {
                 >
                   <CompanyChip company={t.company} />
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-[12.5px] font-medium text-ink-800">
+                    <span className="block truncate text-[14px] font-medium text-ink-800">
                       {t.title}
                     </span>
-                    <span className="block truncate text-[11px] text-ink-400">
+                    <span className="block truncate text-[12.5px] text-ink-400">
                       {t.category} · {t.vendor} · <span className="num">{t.date}</span>
                     </span>
                   </span>
-                  <span className="shrink-0 text-[12.5px] font-semibold text-ink-800 num">
+                  <span className="shrink-0 text-[14px] font-semibold text-ink-800 num">
                     {won(t.amount)}
                   </span>
                 </li>
               ))}
               {pending.length === 0 ? (
-                <li className="px-4 py-8 text-center text-[12.5px] text-ink-400">
+                <li className="px-4 py-8 text-center text-[14px] text-ink-400">
                   승인 대기 중인 집행 건이 없습니다.
                 </li>
               ) : null}
@@ -197,7 +197,7 @@ export default function TasksPage() {
         </div>
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         확인 필요 업무 {num(tasks.reduce((s, t) => s + t.count, 0))}건 (데모 데이터)
       </p>
     </div>

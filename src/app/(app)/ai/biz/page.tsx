@@ -35,9 +35,9 @@ export default function BizPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[12px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[18px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[11px] text-ink-400 num">{k.s}</p>
+              <p className="text-[13.5px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[20px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[12.5px] text-ink-400 num">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -50,12 +50,12 @@ export default function BizPage() {
           <div className="mt-4 grid grid-cols-3 gap-2 md:grid-cols-6">
             {COMMERCIALIZATION_FUNNEL.map((f) => (
               <div key={f.phase} className="rounded-md border border-ink-200/70 bg-ivory-100/50 p-2.5">
-                <p className="text-[11px] text-ink-400">{f.phase}</p>
-                <p className="mt-1 text-[17px] font-semibold text-ink-800 num">
+                <p className="text-[12.5px] text-ink-400">{f.phase}</p>
+                <p className="mt-1 text-[19px] font-semibold text-ink-800 num">
                   {f.count}
-                  <span className="ml-0.5 text-[10.5px] font-normal text-ink-400">건</span>
+                  <span className="ml-0.5 text-[12px] font-normal text-ink-400">건</span>
                 </p>
-                <p className="mt-0.5 text-[10.5px] text-ink-400 num">
+                <p className="mt-0.5 text-[12px] text-ink-400 num">
                   {f.amount ? wonShort(f.amount) : "매출 미발생"}
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function BizPage() {
                       <Td>
                         <div className="flex items-center gap-2">
                           <Bar value={d.probability} color="#234084" className="w-[60px]" />
-                          <span className="text-[11.5px] text-ink-500 num">{d.probability}%</span>
+                          <span className="text-[13px] text-ink-500 num">{d.probability}%</span>
                         </div>
                       </Td>
                       <Td className="text-ink-600">{d.owner}</Td>
@@ -139,14 +139,14 @@ export default function BizPage() {
                   <li key={s} className="border-b border-ink-100 py-2.5 last:border-b-0">
                     <div className="flex items-center justify-between">
                       <StatusBadge status={s} />
-                      <span className="text-[12.5px] font-medium text-ink-800 num">{won(amt)}</span>
+                      <span className="text-[14px] font-medium text-ink-800 num">{won(amt)}</span>
                     </div>
                     <div className="mt-1.5 flex items-center gap-2">
                       <Bar
                         value={pct(amt, DEALS.reduce((a, d) => a + d.amount, 0))}
                         color="#234084"
                       />
-                      <span className="w-14 shrink-0 text-right text-[11px] text-ink-400 num">
+                      <span className="w-14 shrink-0 text-right text-[12.5px] text-ink-400 num">
                         {list.length}건
                       </span>
                     </div>
@@ -158,7 +158,7 @@ export default function BizPage() {
         </div>
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         고객사 계약 {num(DEALS.length)}건 (데모 데이터)
       </p>
     </div>

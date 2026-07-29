@@ -39,12 +39,12 @@ export default function TechPage() {
                 onClick={() => setType(t as DataAsset["type"])}
                 className="w-full p-4 text-left transition-colors hover:bg-ivory-100/60"
               >
-                <p className="text-[12px] text-ink-500">{t}</p>
-                <p className="mt-1.5 text-[19px] font-semibold text-ink-900 num">
+                <p className="text-[13.5px] text-ink-500">{t}</p>
+                <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">
                   {cnt}
-                  <span className="ml-0.5 text-[11px] font-normal text-ink-400">건</span>
+                  <span className="ml-0.5 text-[12.5px] font-normal text-ink-400">건</span>
                 </p>
-                <p className="mt-1 text-[11px] text-ink-400">
+                <p className="mt-1 text-[12.5px] text-ink-400">
                   운영 {DATA_ASSETS.filter((d) => d.type === t && d.status === "운영 중").length}건
                 </p>
               </button>
@@ -64,7 +64,7 @@ export default function TechPage() {
                   key={t}
                   onClick={() => setType(t)}
                   className={cn(
-                    "rounded px-2 py-1 text-[11.5px] transition-colors",
+                    "rounded px-2 py-1 text-[13px] transition-colors",
                     type === t ? "bg-corp-700 text-white" : "text-ink-500 hover:bg-ink-50",
                   )}
                 >
@@ -113,12 +113,12 @@ export default function TechPage() {
           <Card key={d.id}>
             <div className="p-3.5">
               <div className="flex items-start justify-between gap-2">
-                <span className="text-[12.5px] font-semibold text-ink-800">{d.name}</span>
+                <span className="text-[14px] font-semibold text-ink-800">{d.name}</span>
                 <StatusBadge status={d.status} />
               </div>
-              <p className="mt-1.5 text-[15px] font-semibold text-corp-700 num">{d.scale}</p>
-              <p className="mt-1 text-[11px] leading-relaxed text-ink-400">{d.note}</p>
-              <p className="mt-2 border-t border-ink-100 pt-2 text-[11px] text-ink-400">
+              <p className="mt-1.5 text-[17px] font-semibold text-corp-700 num">{d.scale}</p>
+              <p className="mt-1 text-[12.5px] leading-relaxed text-ink-400">{d.note}</p>
+              <p className="mt-2 border-t border-ink-100 pt-2 text-[12.5px] text-ink-400">
                 {d.type} · {d.owner} · <span className="num">{d.updatedAt}</span>
               </p>
             </div>
@@ -126,7 +126,7 @@ export default function TechPage() {
         ))}
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         기술 · 데이터 자산 {num(DATA_ASSETS.length)}건 (데모 데이터)
       </p>
     </div>

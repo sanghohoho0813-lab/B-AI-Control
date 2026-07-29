@@ -42,12 +42,12 @@ export default function MorePage() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="flex items-center gap-2.5 border-b border-ink-100 px-4 py-2.5 text-[12.5px] text-ink-600 transition-colors last:border-b-0 hover:bg-ivory-100 hover:text-ink-800"
+                    className="flex items-center gap-2.5 border-b border-ink-100 px-4 py-2.5 text-[14px] text-ink-600 transition-colors last:border-b-0 hover:bg-ivory-100 hover:text-ink-800"
                   >
                     <Icon name={item.icon} className="h-[15px] w-[15px] text-ink-400" />
                     <span className="flex-1 truncate">{item.label}</span>
                     {item.badge ? (
-                      <span className="rounded bg-ink-100 px-1.5 py-0.5 text-[10.5px] font-medium text-ink-600 num">
+                      <span className="rounded bg-ink-100 px-1.5 py-0.5 text-[12px] font-medium text-ink-600 num">
                         {item.badge}
                       </span>
                     ) : null}
@@ -62,18 +62,18 @@ export default function MorePage() {
       <Card className="mt-3">
         <CardHeader title="대표자 계정" desc="양사 통합 관리자" />
         <div className="flex flex-wrap items-center gap-4 p-4">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-ink-800 text-[15px] font-semibold text-white">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-ink-800 text-[17px] font-semibold text-white">
             김
           </span>
           <div className="min-w-0 flex-1">
-            <p className="text-[15px] font-semibold text-ink-800">김상호 대표</p>
-            <p className="mt-0.5 text-[12px] text-ink-400">
+            <p className="text-[17px] font-semibold text-ink-800">김상호 대표</p>
+            <p className="mt-0.5 text-[13.5px] text-ink-400">
               비앤테일러샵 · AI 소프트웨어 법인 대표이사
             </p>
           </div>
           <Link
             href="/mobile"
-            className="flex items-center gap-1.5 rounded-md border border-ink-200 px-3 py-2 text-[12.5px] text-ink-600 transition-colors hover:bg-ivory-100"
+            className="flex items-center gap-1.5 rounded-md border border-ink-200 px-3 py-2 text-[14px] text-ink-600 transition-colors hover:bg-ivory-100"
           >
             <Smartphone className="h-3.5 w-3.5" />
             모바일 브리핑 미리보기

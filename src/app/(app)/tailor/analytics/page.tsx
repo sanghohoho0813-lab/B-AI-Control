@@ -51,9 +51,9 @@ export default function TailorAnalyticsPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[12px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[18px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[11px] text-ink-400">{k.s}</p>
+              <p className="text-[13.5px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[20px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[12.5px] text-ink-400">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -73,7 +73,7 @@ export default function TailorAnalyticsPage() {
               />
               <ul className="mt-2 space-y-1.5 border-t border-ink-100 pt-2.5">
                 {gradeMix.map((g, i) => (
-                  <li key={g.name} className="flex items-center gap-2 text-[11.5px]">
+                  <li key={g.name} className="flex items-center gap-2 text-[13px]">
                     <span className="h-2 w-2 rounded-sm" style={{ background: COLORS[i] }} />
                     <span className="flex-1 text-ink-500">{g.name}</span>
                     <span className="text-ink-700 num">{g.value}명</span>
@@ -106,13 +106,13 @@ export default function TailorAnalyticsPage() {
                   <li key={g} className="border-b border-ink-100 py-3 last:border-b-0">
                     <div className="flex items-center justify-between">
                       <StatusBadge status={g} />
-                      <span className="text-[12.5px] font-medium text-ink-800 num">
+                      <span className="text-[14px] font-medium text-ink-800 num">
                         {won(sum)}
                       </span>
                     </div>
                     <div className="mt-2 flex items-center gap-2">
                       <Bar value={pct(sum, total)} color="#86293d" />
-                      <span className="w-9 shrink-0 text-right text-[11px] text-ink-500 num">
+                      <span className="w-9 shrink-0 text-right text-[12.5px] text-ink-500 num">
                         {pct(sum, total)}%
                       </span>
                     </div>
@@ -157,7 +157,7 @@ export default function TailorAnalyticsPage() {
                   <Td>
                     <div className="flex items-center gap-2">
                       <Bar value={c.repurchaseScore} color="#86293d" className="w-[80px]" />
-                      <span className="text-[11.5px] font-medium text-ink-700 num">
+                      <span className="text-[13px] font-medium text-ink-700 num">
                         {c.repurchaseScore}
                       </span>
                     </div>
@@ -170,7 +170,7 @@ export default function TailorAnalyticsPage() {
         </TableWrap>
       </Card>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         분석 대상 고객 {num(TAILOR_CUSTOMERS.length)}명 (데모 데이터)
       </p>
     </div>

@@ -25,10 +25,10 @@ const DialogContent = React.forwardRef<
     >
       <div className="flex items-start justify-between gap-4 border-b border-ink-200/70 px-5 py-4">
         <div className="min-w-0">
-          <DialogPrimitive.Title className="truncate text-[15px] font-semibold text-ink-800">
+          <DialogPrimitive.Title className="truncate text-[17px] font-semibold text-ink-800">
             {title}
           </DialogPrimitive.Title>
-          <DialogPrimitive.Description className="mt-0.5 text-[12px] text-ink-400">
+          <DialogPrimitive.Description className="mt-0.5 text-[13.5px] text-ink-400">
             {desc ?? ""}
           </DialogPrimitive.Description>
         </div>

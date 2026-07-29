@@ -37,42 +37,42 @@ export default function RevenuePage() {
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Card>
           <div className="p-4">
-            <p className="text-[12px] text-ink-500">양사 합산 매출</p>
-            <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">{won(total)}</p>
-            <p className="mt-1 text-[11px] text-emerald-600 num">
+            <p className="text-[13.5px] text-ink-500">양사 합산 매출</p>
+            <p className="mt-1.5 text-[23px] font-semibold text-ink-900 num">{won(total)}</p>
+            <p className="mt-1 text-[12.5px] text-emerald-600 num">
               전월 대비 +{(((total - lastTotal) / lastTotal) * 100).toFixed(1)}%
             </p>
           </div>
         </Card>
         <Card className="stripe-tailor">
           <div className="p-4">
-            <p className="text-[12px] text-tailor-700">비앤테일러샵</p>
-            <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">
+            <p className="text-[13.5px] text-tailor-700">비앤테일러샵</p>
+            <p className="mt-1.5 text-[23px] font-semibold text-ink-900 num">
               {won(SUMMARY.tailor.revenue)}
             </p>
-            <p className="mt-1 text-[11px] text-ink-400 num">
+            <p className="mt-1 text-[12.5px] text-ink-400 num">
               비중 {pct(SUMMARY.tailor.revenue, total)}% · 전월 대비 +{SUMMARY.tailor.revenueDelta}%
             </p>
           </div>
         </Card>
         <Card className="stripe-corp">
           <div className="p-4">
-            <p className="text-[12px] text-corp-700">AI 소프트웨어 법인</p>
-            <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">
+            <p className="text-[13.5px] text-corp-700">AI 소프트웨어 법인</p>
+            <p className="mt-1.5 text-[23px] font-semibold text-ink-900 num">
               {won(SUMMARY.corp.revenue)}
             </p>
-            <p className="mt-1 text-[11px] text-ink-400 num">
+            <p className="mt-1 text-[12.5px] text-ink-400 num">
               비중 {pct(SUMMARY.corp.revenue, total)}% · 전월 대비 +{SUMMARY.corp.revenueDelta}%
             </p>
           </div>
         </Card>
         <Card>
           <div className="p-4">
-            <p className="text-[12px] text-ink-500">미수금 합계</p>
-            <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">
+            <p className="text-[13.5px] text-ink-500">미수금 합계</p>
+            <p className="mt-1.5 text-[23px] font-semibold text-ink-900 num">
               {won(SUMMARY.tailor.receivable + SUMMARY.corp.receivable)}
             </p>
-            <p className="mt-1 text-[11px] text-ink-400 num">
+            <p className="mt-1 text-[12.5px] text-ink-400 num">
               비앤 {wonShort(SUMMARY.tailor.receivable)} · AI {wonShort(SUMMARY.corp.receivable)}
             </p>
           </div>
@@ -90,7 +90,7 @@ export default function RevenuePage() {
                   key={r}
                   onClick={() => setRange(r)}
                   className={cn(
-                    "rounded px-2 py-1 text-[11.5px] transition-colors",
+                    "rounded px-2 py-1 text-[13px] transition-colors",
                     range === r ? "bg-ink-800 text-white" : "text-ink-500 hover:bg-ink-50",
                   )}
                 >
@@ -120,7 +120,7 @@ export default function RevenuePage() {
                 />
                 <ul className="mt-2 space-y-1.5">
                   {TAILOR_REVENUE_MIX.map((r, i) => (
-                    <li key={r.name} className="flex items-center gap-2 text-[11.5px]">
+                    <li key={r.name} className="flex items-center gap-2 text-[13px]">
                       <span
                         className="h-2 w-2 rounded-sm"
                         style={{ background: TAILOR_COLORS[i] }}
@@ -149,7 +149,7 @@ export default function RevenuePage() {
                 />
                 <ul className="mt-2 space-y-1.5">
                   {CORP_REVENUE_MIX.map((r, i) => (
-                    <li key={r.name} className="flex items-center gap-2 text-[11.5px]">
+                    <li key={r.name} className="flex items-center gap-2 text-[13px]">
                       <span className="h-2 w-2 rounded-sm" style={{ background: CORP_COLORS[i] }} />
                       <span className="flex-1 truncate text-ink-500">{r.name}</span>
                       <span className="text-ink-700 num">{won(r.value)}</span>

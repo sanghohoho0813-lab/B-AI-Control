@@ -76,14 +76,14 @@ export function MobileTasks() {
                   <div className="flex items-center gap-1.5">
                     <MCompanyBadge company={u.company} />
                     <MStatusBadge status={u.status} level={u.level} />
-                    <span className="ml-auto text-[11px] text-ink-400">{u.at}</span>
+                    <span className="ml-auto text-[12.5px] text-ink-400">{u.at}</span>
                   </div>
                   <div className="mt-2 flex items-start gap-2">
                     <div className="min-w-0 flex-1">
-                      <p className="text-[14px] font-semibold leading-snug text-ink-800">
+                      <p className="text-[16px] font-semibold leading-snug text-ink-800">
                         {u.title}
                       </p>
-                      <p className="mt-1 text-[12px] leading-relaxed text-ink-400">{u.detail}</p>
+                      <p className="mt-1 text-[13.5px] leading-relaxed text-ink-400">{u.detail}</p>
                     </div>
                     <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-ink-300" />
                   </div>
@@ -106,7 +106,7 @@ export function MobileTasks() {
               wrapTitle
               trailing={
                 a.amount ? (
-                  <span className="text-[12.5px] font-semibold text-ink-800 num">
+                  <span className="text-[14px] font-semibold text-ink-800 num">
                     {wonShort(a.amount)}
                   </span>
                 ) : null
@@ -151,13 +151,13 @@ export function MobileSchedule() {
         return (
           <MSection key={d} className="mt-5">
             <div className="mb-2 flex items-center gap-2 px-1">
-              <h2 className="text-[14px] font-semibold tracking-tight text-ink-800 num">{d}</h2>
+              <h2 className="text-[16px] font-semibold tracking-tight text-ink-800 num">{d}</h2>
               {isToday ? (
-                <span className="rounded-full bg-ink-800 px-2 py-[3px] text-[10.5px] font-medium leading-none text-white">
+                <span className="rounded-full bg-ink-800 px-2 py-[3px] text-[12px] font-medium leading-none text-white">
                   오늘
                 </span>
               ) : null}
-              <span className="ml-auto text-[11.5px] text-ink-400">{dayItems.length}건</span>
+              <span className="ml-auto text-[13px] text-ink-400">{dayItems.length}건</span>
             </div>
             <MTimeline>
               {dayItems.map((s, i, arr) => (
@@ -203,24 +203,24 @@ export function MobileFinance() {
       {/* 가용자금 */}
       <MCard className="border-0 bg-ink-800">
         <div className="p-4">
-          <p className="text-[12px] text-white/55">
+          <p className="text-[13.5px] text-white/55">
             {scope === "all" ? "통합 가용자금" : `${COMPANIES[scope].shortName} 가용자금`}
           </p>
-          <p className="mt-1.5 text-[27px] font-semibold leading-none tracking-tight text-white num">
+          <p className="mt-1.5 text-[30px] font-semibold leading-none tracking-tight text-white num">
             {won(available)}
           </p>
           <div className="mt-3.5 grid grid-cols-3 gap-2 border-t border-white/10 pt-3 text-center">
             <div>
-              <p className="text-[10.5px] text-white/50">계획</p>
-              <p className="mt-1 text-[13px] font-medium text-white num">{wonShort(planned)}</p>
+              <p className="text-[12px] text-white/50">계획</p>
+              <p className="mt-1 text-[14.5px] font-medium text-white num">{wonShort(planned)}</p>
             </div>
             <div>
-              <p className="text-[10.5px] text-white/50">집행</p>
-              <p className="mt-1 text-[13px] font-medium text-white num">{wonShort(executed)}</p>
+              <p className="text-[12px] text-white/50">집행</p>
+              <p className="mt-1 text-[14.5px] font-medium text-white num">{wonShort(executed)}</p>
             </div>
             <div>
-              <p className="text-[10.5px] text-white/50">집행률</p>
-              <p className="mt-1 text-[13px] font-medium text-white num">
+              <p className="text-[12px] text-white/50">집행률</p>
+              <p className="mt-1 text-[14.5px] font-medium text-white num">
                 {pct(executed, planned)}%
               </p>
             </div>
@@ -241,17 +241,17 @@ export function MobileFinance() {
                   <div className="p-3.5">
                     <span className="flex items-center gap-1.5">
                       <MCompanyBadge company={c} />
-                      <span className="truncate text-[11.5px] text-ink-500">
+                      <span className="truncate text-[13px] text-ink-500">
                         {COMPANIES[c].shortName}
                       </span>
                     </span>
-                    <p className="mt-2 text-[23px] font-semibold leading-none text-ink-900 num">
+                    <p className="mt-2 text-[26px] font-semibold leading-none text-ink-900 num">
                       {pct(e, p)}%
                     </p>
                     <div className="mt-2">
                       <MProgress value={pct(e, p)} tone={c} />
                     </div>
-                    <p className="mt-1.5 text-[11px] text-ink-400 num">
+                    <p className="mt-1.5 text-[12.5px] text-ink-400 num">
                       {wonShort(e)} / {wonShort(p)}
                     </p>
                   </div>
@@ -270,17 +270,17 @@ export function MobileFinance() {
               <div key={b.id} className="px-3.5 py-3">
                 <div className="flex items-center gap-2">
                   <MCompanyBadge company={b.company} />
-                  <span className="flex-1 truncate text-[13px] font-medium text-ink-800">
+                  <span className="flex-1 truncate text-[14.5px] font-medium text-ink-800">
                     {b.category}
                   </span>
-                  <span className="shrink-0 text-[11.5px] text-ink-500 num">
+                  <span className="shrink-0 text-[13px] text-ink-500 num">
                     {pct(b.executed, b.planned)}%
                   </span>
                 </div>
                 <div className="mt-2">
                   <MProgress value={pct(b.executed, b.planned)} tone={b.company} />
                 </div>
-                <p className="mt-1.5 text-[11px] text-ink-400 num">
+                <p className="mt-1.5 text-[12.5px] text-ink-400 num">
                   집행 {wonShort(b.executed)} · 잔여 {wonShort(b.planned - b.executed)}
                 </p>
               </div>
@@ -302,7 +302,7 @@ export function MobileFinance() {
               chevron={false}
               trailing={
                 <span className="flex flex-col items-end gap-1">
-                  <span className="text-[13px] font-semibold text-ink-800 num">
+                  <span className="text-[14.5px] font-semibold text-ink-800 num">
                     {wonShort(t.amount)}
                   </span>
                   <MStatusBadge
@@ -369,12 +369,12 @@ export function MobileMore() {
     <>
       <MCard>
         <div className="flex items-center gap-3 p-4">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink-800 text-[15px] font-semibold text-white">
+          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink-800 text-[17px] font-semibold text-white">
             김
           </span>
           <div className="min-w-0 flex-1">
-            <p className="text-[15px] font-semibold text-ink-800">김상호 대표</p>
-            <p className="mt-0.5 truncate text-[12px] text-ink-400">
+            <p className="text-[17px] font-semibold text-ink-800">김상호 대표</p>
+            <p className="mt-0.5 truncate text-[13.5px] text-ink-400">
               비앤테일러샵 · AI 소프트웨어 법인
             </p>
           </div>
@@ -385,15 +385,15 @@ export function MobileMore() {
             onClick={() => go("/companies")}
             className="bg-white px-3.5 py-3 text-left active:bg-ivory-100"
           >
-            <p className="text-[11px] text-ink-400">관리 법인</p>
-            <p className="mt-0.5 text-[15px] font-semibold text-ink-800 num">2개</p>
+            <p className="text-[12.5px] text-ink-400">관리 법인</p>
+            <p className="mt-0.5 text-[17px] font-semibold text-ink-800 num">2개</p>
           </button>
           <button
             onClick={() => go("/notifications")}
             className="bg-white px-3.5 py-3 text-left active:bg-ivory-100"
           >
-            <p className="text-[11px] text-ink-400">읽지 않은 알림</p>
-            <p className="mt-0.5 text-[15px] font-semibold text-ink-800 num">4개</p>
+            <p className="text-[12.5px] text-ink-400">읽지 않은 알림</p>
+            <p className="mt-0.5 text-[17px] font-semibold text-ink-800 num">4개</p>
           </button>
         </div>
       </MCard>
@@ -424,7 +424,7 @@ export function MobileMore() {
         </MSection>
       ))}
 
-      <p className="mt-6 pb-2 text-center text-[11px] text-ink-300">
+      <p className="mt-6 pb-2 text-center text-[12.5px] text-ink-300">
         B&amp;AI Control · 데모 데이터 기준일 2026.07.29
       </p>
     </>

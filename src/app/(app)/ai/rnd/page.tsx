@@ -37,9 +37,9 @@ export default function RndPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[12px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[18px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[11px] text-ink-400 num">{k.s}</p>
+              <p className="text-[13.5px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[20px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[12.5px] text-ink-400 num">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -75,7 +75,7 @@ export default function RndPage() {
                   <Td>
                     <div className="flex items-center gap-2">
                       <Bar value={r.progress} color="#5e79bd" className="w-[80px]" />
-                      <span className="text-[11.5px] text-ink-500 num">{r.progress}%</span>
+                      <span className="text-[13px] text-ink-500 num">{r.progress}%</span>
                     </div>
                   </Td>
                   <Td className="text-right num">{won(r.budget)}</Td>
@@ -118,19 +118,19 @@ export default function RndPage() {
               {ip.map((d) => (
                 <li key={d.id} className="border-b border-ink-100 px-4 py-3 last:border-b-0">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[12.5px] font-medium text-ink-800">{d.name}</span>
+                    <span className="text-[14px] font-medium text-ink-800">{d.name}</span>
                     <StatusBadge status={d.status} />
                   </div>
-                  <p className="mt-1 text-[11.5px] text-ink-500 num">{d.scale}</p>
-                  <p className="mt-0.5 text-[11px] text-ink-400">
+                  <p className="mt-1 text-[13px] text-ink-500 num">{d.scale}</p>
+                  <p className="mt-0.5 text-[12.5px] text-ink-400">
                     담당 {d.owner} · 갱신 <span className="num">{d.updatedAt}</span>
                   </p>
                 </li>
               ))}
               {RND_TASKS.slice(0, 3).map((r) => (
                 <li key={r.id} className="border-b border-ink-100 px-4 py-3 last:border-b-0">
-                  <p className="text-[12.5px] text-ink-800">{r.output}</p>
-                  <p className="mt-0.5 text-[11px] text-ink-400">
+                  <p className="text-[14px] text-ink-800">{r.output}</p>
+                  <p className="mt-0.5 text-[12.5px] text-ink-400">
                     {r.title} · {wonShort(r.budget)}
                   </p>
                 </li>
@@ -140,7 +140,7 @@ export default function RndPage() {
         </div>
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         R&D 과제 {num(RND_TASKS.length)}건 (데모 데이터)
       </p>
     </div>

@@ -144,8 +144,8 @@ export function MobileApp({ embedded = false }: { embedded?: boolean }) {
               onClick={() => go("/dashboard")}
               className="flex items-baseline gap-1 py-2 text-left"
             >
-              <span className="text-[15px] font-semibold tracking-tight text-ink-900">B&amp;AI</span>
-              <span className="text-[15px] font-light tracking-[0.14em] text-ink-400">CONTROL</span>
+              <span className="text-[17px] font-semibold tracking-tight text-ink-900">B&amp;AI</span>
+              <span className="text-[17px] font-light tracking-[0.14em] text-ink-400">CONTROL</span>
             </button>
           ) : (
             <>
@@ -156,7 +156,7 @@ export function MobileApp({ embedded = false }: { embedded?: boolean }) {
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
-              <h1 className="min-w-0 flex-1 truncate text-[16px] font-semibold tracking-tight text-ink-900">
+              <h1 className="min-w-0 flex-1 truncate text-[18px] font-semibold tracking-tight text-ink-900">
                 {screen.title}
               </h1>
             </>
@@ -170,7 +170,7 @@ export function MobileApp({ embedded = false }: { embedded?: boolean }) {
             >
               <Bell className="h-[19px] w-[19px]" />
               {unread > 0 ? (
-                <span className="absolute right-1.5 top-1.5 flex h-[15px] min-w-[15px] items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-semibold text-white">
+                <span className="absolute right-1.5 top-1.5 flex h-[15px] min-w-[15px] items-center justify-center rounded-full bg-rose-500 px-1 text-[10.5px] font-semibold text-white">
                   {unread}
                 </span>
               ) : null}
@@ -178,7 +178,7 @@ export function MobileApp({ embedded = false }: { embedded?: boolean }) {
             <button
               onClick={() => go("/more")}
               aria-label="대표자 프로필"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-ink-800 text-[12px] font-semibold text-white active:opacity-80"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-ink-800 text-[13.5px] font-semibold text-white active:opacity-80"
             >
               김
             </button>
@@ -196,7 +196,7 @@ export function MobileApp({ embedded = false }: { embedded?: boolean }) {
                     key={String(t.value)}
                     onClick={() => setScope(t.value)}
                     className={cn(
-                      "flex-1 whitespace-nowrap rounded-[9px] border px-1 py-2 text-[12.5px] font-medium transition-colors",
+                      "flex-1 whitespace-nowrap rounded-[9px] border px-1 py-2 text-[14px] font-medium transition-colors",
                       active
                         ? t.value === "tailor"
                           ? "border-tailor-600 bg-tailor-600 text-white"
@@ -250,7 +250,7 @@ export function MobileApp({ embedded = false }: { embedded?: boolean }) {
                     />
                     <span
                       className={cn(
-                        "text-[10.5px] leading-none",
+                        "text-[12px] leading-none",
                         active
                           ? cn(
                               "font-semibold",

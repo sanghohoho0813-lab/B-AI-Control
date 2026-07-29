@@ -12,7 +12,7 @@ export function MCompanyBadge({ company }: { company: CompanyId }) {
   return (
     <span
       className={cn(
-        "inline-flex shrink-0 items-center rounded-[5px] px-1.5 py-[3px] text-[10.5px] font-semibold leading-none",
+        "inline-flex shrink-0 items-center rounded-[5px] px-1.5 py-[3px] text-[12px] font-semibold leading-none",
         company === "tailor" ? "bg-tailor-50 text-tailor-700" : "bg-corp-50 text-corp-700",
       )}
     >
@@ -31,7 +31,7 @@ export function MStatusBadge({
   return (
     <span
       className={cn(
-        "inline-flex shrink-0 items-center rounded-[5px] px-1.5 py-[3px] text-[10.5px] font-medium leading-none",
+        "inline-flex shrink-0 items-center rounded-[5px] px-1.5 py-[3px] text-[12px] font-medium leading-none",
         level === "긴급"
           ? "bg-rose-50 text-rose-600"
           : level === "주의"
@@ -64,11 +64,11 @@ export function MSection({
     <section className={cn("mt-5 first:mt-0", className)}>
       {title ? (
         <div className="mb-2 flex items-center justify-between px-1">
-          <h2 className="text-[14px] font-semibold tracking-tight text-ink-800">{title}</h2>
+          <h2 className="text-[16px] font-semibold tracking-tight text-ink-800">{title}</h2>
           {action && actionHref ? (
             <button
               onClick={() => go(actionHref)}
-              className="flex items-center gap-0.5 py-1 text-[12px] text-ink-400 active:text-ink-700"
+              className="flex items-center gap-0.5 py-1 text-[13.5px] text-ink-400 active:text-ink-700"
             >
               {action}
               <ChevronRight className="h-3.5 w-3.5" />
@@ -149,20 +149,20 @@ export function MStat({
             {icon}
           </span>
         ) : null}
-        <span className="text-[12px] text-ink-500">{label}</span>
+        <span className="text-[13.5px] text-ink-500">{label}</span>
       </span>
       <span className="mt-1.5 block">
         <span
           className={cn(
-            "text-[23px] font-semibold leading-none tracking-tight num",
+            "text-[26px] font-semibold leading-none tracking-tight num",
             tone === "alert" ? "text-rose-600" : "text-ink-900",
           )}
         >
           {value}
         </span>
-        {unit ? <span className="ml-0.5 text-[12px] text-ink-400">{unit}</span> : null}
+        {unit ? <span className="ml-0.5 text-[13.5px] text-ink-400">{unit}</span> : null}
       </span>
-      {hint ? <span className="mt-1 block truncate text-[11px] text-ink-400">{hint}</span> : null}
+      {hint ? <span className="mt-1 block truncate text-[12.5px] text-ink-400">{hint}</span> : null}
     </button>
   );
 }
@@ -182,6 +182,7 @@ export function MRow({
   meta,
   chevron = true,
   wrapTitle = false,
+  action,
 }: {
   href?: string;
   leading?: React.ReactNode;
@@ -192,17 +193,47 @@ export function MRow({
   chevron?: boolean;
   /** 제목이 길 때 말줄임 대신 줄바꿈한다 */
   wrapTitle?: boolean;
+  /** 우측 실행 버튼 */
+  action?: { label: string; onPress: () => void; tone?: CompanyId };
 }) {
   const { go } = useMobileNav();
+
+  if (action) {
+    return (
+      <div className="flex min-h-[64px] w-full items-center gap-3 border-b border-ink-100 px-4 py-3.5 last:border-b-0">
+        <div className="min-w-0 flex-1">
+          <div className="flex items-start gap-1.5">
+            {meta ? <span className="mt-[2px]">{meta}</span> : null}
+            <p className="min-w-0 flex-1 break-keep text-[15px] font-semibold leading-snug text-ink-800">
+              {title}
+            </p>
+          </div>
+          {sub ? (
+            <p className="mt-1 break-keep text-[12.5px] leading-snug text-ink-400">{sub}</p>
+          ) : null}
+        </div>
+        <button
+          onClick={action.onPress}
+          className={cn(
+            "shrink-0 rounded-[9px] px-3.5 py-2.5 text-[13px] font-semibold text-white active:opacity-85",
+            action.tone === "corp" ? "bg-corp-700" : "bg-tailor-700",
+          )}
+        >
+          {action.label}
+        </button>
+      </div>
+    );
+  }
+
   const inner = (
-    <div className="flex min-h-[56px] w-full items-center gap-3 border-b border-ink-100 px-3.5 py-3 last:border-b-0">
+    <div className="flex min-h-[60px] w-full items-center gap-3 border-b border-ink-100 px-4 py-3.5 last:border-b-0">
       {leading ? <div className="shrink-0">{leading}</div> : null}
       <div className="min-w-0 flex-1">
         <div className={cn("flex gap-1.5", wrapTitle ? "items-start" : "items-center")}>
           {meta ? <span className={cn(wrapTitle && "mt-[1px]")}>{meta}</span> : null}
           <p
             className={cn(
-              "min-w-0 flex-1 text-[13.5px] font-medium leading-snug text-ink-800",
+              "min-w-0 flex-1 text-[15px] font-medium leading-snug text-ink-800",
               wrapTitle ? "break-keep" : "truncate",
             )}
           >
@@ -210,7 +241,7 @@ export function MRow({
           </p>
         </div>
         {sub ? (
-          <p className={cn("mt-0.5 text-[11.5px] text-ink-400", wrapTitle ? "" : "truncate")}>
+          <p className={cn("mt-0.5 text-[13px] text-ink-400", wrapTitle ? "" : "truncate")}>
             {sub}
           </p>
         ) : null}
@@ -270,7 +301,7 @@ export function MTimelineItem({
   const { go } = useMobileNav();
   return (
     <div className="relative pb-3 last:pb-0">
-      <span className="absolute -left-[68px] top-[13px] w-[44px] text-right text-[12px] font-medium text-ink-500 num">
+      <span className="absolute -left-[68px] top-[13px] w-[44px] text-right text-[13.5px] font-medium text-ink-500 num">
         {time}
       </span>
       <span
@@ -295,21 +326,21 @@ export function MTimelineItem({
           <span className="flex items-center gap-1.5">
             <MCompanyBadge company={company} />
             {tag ? (
-              <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[10.5px] font-medium leading-none text-ink-500">
+              <span className="rounded-[5px] bg-ink-100 px-1.5 py-[3px] text-[12px] font-medium leading-none text-ink-500">
                 {tag}
               </span>
             ) : null}
           </span>
           <span
             className={cn(
-              "mt-1.5 block text-[13.5px] font-medium leading-snug text-ink-800",
+              "mt-1.5 block text-[15px] font-medium leading-snug text-ink-800",
               done && "line-through",
             )}
           >
             {title}
           </span>
           {sub ? (
-            <span className="mt-0.5 block truncate text-[11.5px] text-ink-400">{sub}</span>
+            <span className="mt-0.5 block truncate text-[13px] text-ink-400">{sub}</span>
           ) : null}
         </button>
         {onToggle ? (
@@ -336,7 +367,7 @@ export function MTimelineItem({
 export function MEmpty({ text }: { text: string }) {
   return (
     <MCard>
-      <p className="px-4 py-10 text-center text-[13px] text-ink-400">{text}</p>
+      <p className="px-4 py-10 text-center text-[14.5px] text-ink-400">{text}</p>
     </MCard>
   );
 }
@@ -359,7 +390,7 @@ export function MChips({
           key={it}
           onClick={() => onChange(it)}
           className={cn(
-            "shrink-0 rounded-full border px-3 py-1.5 text-[12.5px] font-medium transition-colors",
+            "shrink-0 rounded-full border px-3 py-1.5 text-[14px] font-medium transition-colors",
             value === it
               ? tone === "tailor"
                 ? "border-tailor-600 bg-tailor-600 text-white"
@@ -403,7 +434,7 @@ export function MCompanyCard({
       >
         <span
           className={cn(
-            "flex h-[18px] min-w-[18px] items-center justify-center rounded-[4px] px-1 text-[8.5px] font-bold text-white",
+            "flex h-[18px] min-w-[18px] items-center justify-center rounded-[4px] px-1 text-[10px] font-bold text-white",
             company === "tailor" ? "bg-tailor-600" : "bg-corp-700",
           )}
         >
@@ -411,7 +442,7 @@ export function MCompanyCard({
         </span>
         <span
           className={cn(
-            "flex-1 text-[13.5px] font-semibold",
+            "flex-1 text-[15px] font-semibold",
             company === "tailor" ? "text-tailor-700" : "text-corp-700",
           )}
         >
@@ -434,19 +465,97 @@ export function MMiniGrid({
     <div className="grid grid-cols-2 gap-px bg-ink-100">
       {items.map((it) => (
         <div key={it.label} className="bg-white px-3.5 py-2.5">
-          <p className="truncate text-[11px] text-ink-400">{it.label}</p>
+          <p className="truncate text-[12.5px] text-ink-400">{it.label}</p>
           <p
             className={cn(
-              "mt-0.5 text-[17px] font-semibold leading-none tracking-tight num",
+              "mt-0.5 text-[19px] font-semibold leading-none tracking-tight num",
               it.alert ? "text-rose-600" : "text-ink-800",
             )}
           >
             {it.value}
             {it.unit ? (
-              <span className="ml-0.5 text-[11px] font-normal text-ink-400">{it.unit}</span>
+              <span className="ml-0.5 text-[12.5px] font-normal text-ink-400">{it.unit}</span>
             ) : null}
           </p>
         </div>
+      ))}
+    </div>
+  );
+}
+
+
+/* ── 실행 액션 타일 (레퍼런스형) ─────────────── */
+
+export function MActionGrid({ children }: { children: React.ReactNode }) {
+  return <div className="grid grid-cols-2 gap-3">{children}</div>;
+}
+
+export function MActionTile({
+  label,
+  count,
+  unit,
+  action,
+  href,
+  icon,
+  tone = "tailor",
+}: {
+  label: string;
+  count: number;
+  unit: string;
+  action: string;
+  href: string;
+  icon: React.ReactNode;
+  tone?: "tailor" | "corp";
+}) {
+  const { go } = useMobileNav();
+  return (
+    <button
+      onClick={() => go(href)}
+      className="rounded-[16px] border border-ink-200/60 bg-white px-3.5 pb-3 pt-3 text-left shadow-[0_1px_3px_rgba(16,24,40,0.05)] active:bg-ivory-100"
+    >
+      <span className="flex items-center gap-1.5">
+        <span className={tone === "corp" ? "text-corp-700" : "text-tailor-700"}>{icon}</span>
+        <span className="truncate text-[13.5px] text-ink-500">{label}</span>
+      </span>
+      <span className="mt-1.5 block">
+        <span className="text-[28px] font-bold leading-none tracking-tight text-ink-900 num">
+          {count}
+        </span>
+        <span className="ml-0.5 text-[13.5px] text-ink-400">{unit}</span>
+      </span>
+      <span
+        className={cn(
+          "mt-2.5 block w-full rounded-[9px] py-[9px] text-center text-[13.5px] font-semibold text-white",
+          tone === "corp" ? "bg-corp-700" : "bg-tailor-700",
+        )}
+      >
+        {action}
+      </span>
+    </button>
+  );
+}
+
+/* ── 금액 2분할 행 ──────────────────────────── */
+
+export function MMoneyRow({
+  items,
+}: {
+  items: { label: string; value: string; href?: string }[];
+}) {
+  const { go } = useMobileNav();
+  return (
+    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[16px] border border-ink-200/60 bg-ink-100 shadow-[0_1px_3px_rgba(16,24,40,0.05)]">
+      {items.map((it) => (
+        <button
+          key={it.label}
+          onClick={() => it.href && go(it.href)}
+          className="bg-white px-4 py-3.5 text-left active:bg-ivory-100"
+        >
+          <p className="text-[13px] text-ink-500">{it.label}</p>
+          <p className="mt-1.5 text-[22px] font-bold leading-none tracking-tight text-ink-900 num">
+            {it.value}
+          </p>
+        </button>
       ))}
     </div>
   );

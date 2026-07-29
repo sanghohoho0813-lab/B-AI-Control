@@ -14,8 +14,8 @@ import type { AiProject, CompanyId, TailorOrder } from "@/lib/types";
 function Field({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="border-b border-ink-100 py-2.5">
-      <p className="text-[11px] text-ink-400">{label}</p>
-      <div className="mt-1 text-[13px] text-ink-800">{value}</div>
+      <p className="text-[12.5px] text-ink-400">{label}</p>
+      <div className="mt-1 text-[14.5px] text-ink-800">{value}</div>
     </div>
   );
 }
@@ -38,7 +38,7 @@ export function OrderDetailModal({
         desc={`${order.id} · 담당 ${order.manager}`}
       >
         <div className="border-b border-ink-200/60 bg-ivory-100/50 px-5 py-4">
-          <p className="mb-2 text-[11.5px] text-ink-400">주문 진행단계</p>
+          <p className="mb-2 text-[13px] text-ink-400">주문 진행단계</p>
           <StageFlow stages={ORDER_STAGES} current={order.stage} tone="tailor" />
         </div>
         <div className="grid gap-x-6 px-5 pb-2 sm:grid-cols-2">
@@ -54,8 +54,8 @@ export function OrderDetailModal({
           <Field label="담당" value={order.manager} />
         </div>
         <div className="px-5 py-4">
-          <p className="text-[11px] text-ink-400">제작 요청사항</p>
-          <p className="mt-1.5 rounded-md border border-ink-200 bg-ivory-100/60 px-3 py-2.5 text-[12.5px] leading-relaxed text-ink-700">
+          <p className="text-[12.5px] text-ink-400">제작 요청사항</p>
+          <p className="mt-1.5 rounded-md border border-ink-200 bg-ivory-100/60 px-3 py-2.5 text-[14px] leading-relaxed text-ink-700">
             {order.note}
           </p>
         </div>
@@ -83,20 +83,20 @@ export function ProjectDetailModal({
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent title={project.name} desc={`${project.id} · ${project.product} · 담당 ${project.owner}`}>
         <div className="border-b border-ink-200/60 bg-ivory-100/50 px-5 py-4">
-          <p className="mb-2 text-[11.5px] text-ink-400">사업화 단계</p>
+          <p className="mb-2 text-[13px] text-ink-400">사업화 단계</p>
           <StageFlow stages={PROJECT_PHASES} current={project.phase} tone="corp" />
         </div>
 
         <div className="grid gap-4 border-b border-ink-100 px-5 py-4 sm:grid-cols-2">
           <div>
-            <div className="mb-1.5 flex items-center justify-between text-[11.5px]">
+            <div className="mb-1.5 flex items-center justify-between text-[13px]">
               <span className="text-ink-400">개발 진행률</span>
               <span className="font-medium text-ink-800 num">{project.progress}%</span>
             </div>
             <Bar value={project.progress} color="#234084" />
           </div>
           <div>
-            <div className="mb-1.5 flex items-center justify-between text-[11.5px]">
+            <div className="mb-1.5 flex items-center justify-between text-[13px]">
               <span className="text-ink-400">예산 집행률</span>
               <span className="font-medium text-ink-800 num">{rate}%</span>
             </div>
@@ -194,8 +194,8 @@ export function ExpenseModal({
       >
         {done ? (
           <div className="px-5 py-10 text-center">
-            <p className="text-[14px] font-medium text-ink-800">집행 건이 등록되었습니다.</p>
-            <p className="mt-1 text-[12.5px] text-ink-400">
+            <p className="text-[16px] font-medium text-ink-800">집행 건이 등록되었습니다.</p>
+            <p className="mt-1 text-[14px] text-ink-400">
               {company === "tailor" ? "비앤테일러샵" : "AI 소프트웨어 법인"} · {category} · {won(Number(amount.replace(/,/g, "")) || 0)}
             </p>
             <div className="mt-5 flex justify-center gap-2">
@@ -211,14 +211,14 @@ export function ExpenseModal({
           <>
             <div className="space-y-3.5 px-5 py-4">
               <div>
-                <label className="mb-1.5 block text-[11.5px] text-ink-500">회사 구분</label>
+                <label className="mb-1.5 block text-[13px] text-ink-500">회사 구분</label>
                 <div className="grid grid-cols-2 gap-2">
                   {(["tailor", "corp"] as CompanyId[]).map((c) => (
                     <button
                       key={c}
                       onClick={() => setCompany(c)}
                       className={cn(
-                        "rounded-md border px-3 py-2 text-[12.5px] font-medium transition-colors",
+                        "rounded-md border px-3 py-2 text-[14px] font-medium transition-colors",
                         company === c
                           ? c === "tailor"
                             ? "border-tailor-600 bg-tailor-600 text-white"
@@ -234,11 +234,11 @@ export function ExpenseModal({
 
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
-                  <label className="mb-1.5 block text-[11.5px] text-ink-500">집행 항목</label>
+                  <label className="mb-1.5 block text-[13px] text-ink-500">집행 항목</label>
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-[12.5px] text-ink-800 outline-none focus:border-ink-400"
+                    className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-[14px] text-ink-800 outline-none focus:border-ink-400"
                   >
                     {categories.map((c) => (
                       <option key={c} value={c}>
@@ -248,11 +248,11 @@ export function ExpenseModal({
                   </select>
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-[11.5px] text-ink-500">지급 방식</label>
+                  <label className="mb-1.5 block text-[13px] text-ink-500">지급 방식</label>
                   <select
                     value={method}
                     onChange={(e) => setMethod(e.target.value as (typeof METHODS)[number])}
-                    className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-[12.5px] text-ink-800 outline-none focus:border-ink-400"
+                    className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-[14px] text-ink-800 outline-none focus:border-ink-400"
                   >
                     {METHODS.map((m) => (
                       <option key={m} value={m}>
@@ -264,38 +264,38 @@ export function ExpenseModal({
               </div>
 
               <div>
-                <label className="mb-1.5 block text-[11.5px] text-ink-500">집행 내용</label>
+                <label className="mb-1.5 block text-[13px] text-ink-500">집행 내용</label>
                 <input
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="예) Zegna Trofeo 600 네이비 12m 발주"
-                  className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-[12.5px] text-ink-800 outline-none placeholder:text-ink-300 focus:border-ink-400"
+                  className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-[14px] text-ink-800 outline-none placeholder:text-ink-300 focus:border-ink-400"
                 />
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
-                  <label className="mb-1.5 block text-[11.5px] text-ink-500">거래처</label>
+                  <label className="mb-1.5 block text-[13px] text-ink-500">거래처</label>
                   <input
                     value={vendor}
                     onChange={(e) => setVendor(e.target.value)}
                     placeholder="예) 제냐 코리아"
-                    className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-[12.5px] text-ink-800 outline-none placeholder:text-ink-300 focus:border-ink-400"
+                    className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-[14px] text-ink-800 outline-none placeholder:text-ink-300 focus:border-ink-400"
                   />
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-[11.5px] text-ink-500">집행 금액 (원)</label>
+                  <label className="mb-1.5 block text-[13px] text-ink-500">집행 금액 (원)</label>
                   <input
                     value={amount}
                     onChange={(e) => setAmount(e.target.value.replace(/[^\d,]/g, ""))}
                     inputMode="numeric"
                     placeholder="0"
-                    className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-right text-[12.5px] text-ink-800 outline-none placeholder:text-ink-300 focus:border-ink-400 num"
+                    className="w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-right text-[14px] text-ink-800 outline-none placeholder:text-ink-300 focus:border-ink-400 num"
                   />
                 </div>
               </div>
 
-              <p className="rounded-md bg-ivory-100 px-3 py-2 text-[11.5px] text-ink-400">
+              <p className="rounded-md bg-ivory-100 px-3 py-2 text-[13px] text-ink-400">
                 등록 시 결재자는 김상호 대표로 지정되며, 상태는 <b className="text-ink-600">승인 대기</b>로 저장됩니다.
               </p>
             </div>
@@ -330,19 +330,19 @@ export function ProjectPickerModal({ children }: { children: React.ReactNode }) 
           {AI_PROJECTS.map((p) => (
             <li key={p.id} className="rounded-md px-3 py-2.5 hover:bg-ivory-100">
               <div className="flex items-center justify-between gap-3">
-                <span className="text-[13px] font-medium text-ink-800">{p.name}</span>
+                <span className="text-[14.5px] font-medium text-ink-800">{p.name}</span>
                 <StatusBadge status={p.status} />
               </div>
               <div className="mt-1.5 flex items-center gap-3">
                 <Bar value={p.progress} color="#234084" className="max-w-[180px]" />
-                <span className="text-[11.5px] text-ink-500 num">{p.progress}%</span>
-                <span className="text-[11.5px] text-ink-400">{p.phase}</span>
-                <span className="ml-auto text-[11.5px] text-ink-400 num">{p.dueAt}</span>
+                <span className="text-[13px] text-ink-500 num">{p.progress}%</span>
+                <span className="text-[13px] text-ink-400">{p.phase}</span>
+                <span className="ml-auto text-[13px] text-ink-400 num">{p.dueAt}</span>
               </div>
             </li>
           ))}
         </ul>
-        <div className="border-t border-ink-200/60 px-5 py-3 text-[11.5px] text-ink-400">
+        <div className="border-t border-ink-200/60 px-5 py-3 text-[13px] text-ink-400">
           투입 인력 합계 {num(AI_PROJECTS.reduce((s, p) => s + p.headcount, 0))}명 · 배정 예산 합계{" "}
           {won(AI_PROJECTS.reduce((s, p) => s + p.budget, 0))}
         </div>

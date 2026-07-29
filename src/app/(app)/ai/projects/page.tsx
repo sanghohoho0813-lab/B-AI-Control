@@ -47,9 +47,9 @@ export default function ProjectsPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[12px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[18px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[11px] text-ink-400 num">{k.s}</p>
+              <p className="text-[13.5px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[20px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[12.5px] text-ink-400 num">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -63,7 +63,7 @@ export default function ProjectsPage() {
             <button
               onClick={() => setPhase("전체")}
               className={cn(
-                "rounded border px-2.5 py-1 text-[12px] transition-colors",
+                "rounded border px-2.5 py-1 text-[13.5px] transition-colors",
                 phase === "전체"
                   ? "border-ink-800 bg-ink-800 text-white"
                   : "border-ink-200 bg-white text-ink-500 hover:bg-ink-50",
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
                 key={p}
                 onClick={() => setPhase(p)}
                 className={cn(
-                  "rounded border px-2.5 py-1 text-[12px] transition-colors",
+                  "rounded border px-2.5 py-1 text-[13.5px] transition-colors",
                   phase === p
                     ? "border-corp-700 bg-corp-700 text-white"
                     : "border-ink-200 bg-white text-ink-500 hover:bg-ink-50",
@@ -128,7 +128,7 @@ export default function ProjectsPage() {
                   <Td>
                     <div className="flex items-center gap-2">
                       <Bar value={p.progress} color="#234084" className="w-[80px]" />
-                      <span className="text-[11.5px] text-ink-500 num">{p.progress}%</span>
+                      <span className="text-[13px] text-ink-500 num">{p.progress}%</span>
                     </div>
                   </Td>
                   <Td className="max-w-[210px] truncate text-ink-600">{p.nextMilestone}</Td>
@@ -160,27 +160,27 @@ export default function ProjectsPage() {
             <span className="block h-[3px] bg-corp-700" />
             <div className="p-3.5">
               <div className="flex items-start justify-between gap-2">
-                <span className="text-[13px] font-semibold text-ink-800">{p.name}</span>
+                <span className="text-[14.5px] font-semibold text-ink-800">{p.name}</span>
                 <StatusBadge status={p.status} />
               </div>
-              <p className="mt-1 text-[11px] text-ink-400">
+              <p className="mt-1 text-[12.5px] text-ink-400">
                 {p.phase} · {p.owner} · {p.headcount}명
               </p>
               <div className="mt-2.5">
-                <div className="flex items-center justify-between text-[11px] text-ink-400">
+                <div className="flex items-center justify-between text-[12.5px] text-ink-400">
                   <span>개발 진행</span>
                   <span className="num">{p.progress}%</span>
                 </div>
                 <Bar value={p.progress} className="mt-1" color="#234084" />
               </div>
               <div className="mt-2">
-                <div className="flex items-center justify-between text-[11px] text-ink-400">
+                <div className="flex items-center justify-between text-[12.5px] text-ink-400">
                   <span>예산 집행</span>
                   <span className="num">{pct(p.spent, p.budget)}%</span>
                 </div>
                 <Bar value={pct(p.spent, p.budget)} className="mt-1" color="#94a9d8" />
               </div>
-              <p className="mt-2.5 border-t border-ink-100 pt-2 text-[11px] text-ink-500">
+              <p className="mt-2.5 border-t border-ink-100 pt-2 text-[12.5px] text-ink-500">
                 {p.nextMilestone}
               </p>
               <ProjectDetailModal project={p}>
@@ -193,7 +193,7 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         표시 프로젝트 {num(items.length)}건 (데모 데이터)
       </p>
     </div>

@@ -1,33 +1,29 @@
 "use client";
 
-import { AlertTriangle, Banknote, CalendarDays, TrendingUp } from "lucide-react";
+import { AlertTriangle, CalendarDays, ClipboardCheck, Truck } from "lucide-react";
 import { useApp } from "@/components/app-store";
+import { useMobileNav } from "@/components/mobile/nav-context";
 import {
+  MActionGrid,
+  MActionTile,
   MCompanyBadge,
   MCompanyCard,
   MList,
   MMiniGrid,
+  MMoneyRow,
   MRow,
   MSection,
-  MStat,
-  MStatGrid,
-  MStatusBadge,
   MTimeline,
   MTimelineItem,
 } from "@/components/mobile/ui";
-import {
-  APPROVALS,
-  APPROVAL_KINDS,
-  SCHEDULES,
-  SUMMARY,
-  TODAY_URGENT,
-} from "@/lib/data";
+import { APPROVALS, APPROVAL_KINDS, SCHEDULES, SUMMARY, TODAY_URGENT } from "@/lib/data";
 import { wonShort } from "@/lib/utils";
 
 const TODAY_D = "2026.07.29";
 
 export function MobileHome() {
   const { scope } = useApp();
+  const { go } = useMobileNav();
   const showTailor = scope !== "corp";
   const showCorp = scope !== "tailor";
 
@@ -51,79 +47,92 @@ export function MobileHome() {
         ? SUMMARY.cash.tailorAvailable
         : SUMMARY.cash.available;
 
+  const accent = scope === "corp" ? "corp" : "tailor";
+
   return (
     <>
-      {/* 1. 인사말 */}
-      <div className="mb-3.5 px-1">
-        <p className="text-[18px] font-semibold leading-snug tracking-tight text-ink-900">
-          대표자님, 오늘 확인할 업무가
-          <br />
-          <span className="text-tailor-700">{urgent.length}건</span> 있습니다.
+      {/* 1. 오늘의 실행 */}
+      <div className="mb-4">
+        <h1 className="text-[23px] font-bold leading-tight tracking-tight text-ink-900">
+          오늘의 실행
+        </h1>
+        <p className="mt-1.5 text-[14px] text-ink-400">
+          2026년 7월 29일 (수) · 확인할 업무{" "}
+          <span className={accent === "corp" ? "text-corp-700" : "text-tailor-700"}>
+            {urgent.length}건
+          </span>
         </p>
-        <p className="mt-1 text-[12px] text-ink-400">2026년 7월 29일 수요일</p>
       </div>
 
-      {/* 2. 오늘의 핵심 요약 */}
-      <MStatGrid>
-        <MStat
-          label="오늘 매출"
-          value={wonShort(todayRevenue)}
-          hint={scope === "all" ? "양사 합산" : scope === "tailor" ? "비앤테일러샵" : "AI 법인"}
-          href="/revenue"
-          icon={<TrendingUp className="h-3 w-3" />}
-        />
-        <MStat
-          label="가용자금"
-          value={wonShort(available)}
-          hint={`예상 지출 ${wonShort(SUMMARY.cash.plannedSpend)}`}
-          href="/finance"
-          icon={<Banknote className="h-3 w-3" />}
-        />
-        <MStat
-          label="긴급업무"
-          value={String(urgent.length)}
+      {/* 2. 실행 액션 */}
+      <MActionGrid>
+        <MActionTile
+          label="긴급 업무"
+          count={urgent.length}
           unit="건"
-          hint={`즉시 확인 ${urgent.filter((u) => u.level === "긴급").length}건`}
+          action="확인하기"
           href="/tasks"
-          tone="alert"
-          icon={<AlertTriangle className="h-3 w-3" />}
+          tone={accent}
+          icon={<AlertTriangle className="h-[18px] w-[18px]" />}
         />
-        <MStat
-          label="오늘 일정"
-          value={String(todaySchedules.length)}
+        <MActionTile
+          label="승인 대기"
+          count={approvals.length}
           unit="건"
-          hint={todaySchedules[0] ? `다음 ${todaySchedules[0].time}` : "일정 없음"}
-          href="/schedule"
-          icon={<CalendarDays className="h-3 w-3" />}
+          action="결재하기"
+          href="/approvals"
+          tone={accent}
+          icon={<ClipboardCheck className="h-[18px] w-[18px]" />}
         />
-      </MStatGrid>
+        <MActionTile
+          label="납품 예정"
+          count={SUMMARY.tailor.delivery}
+          unit="건"
+          action="일정 보기"
+          href="/tailor/orders"
+          tone={accent}
+          icon={<Truck className="h-[18px] w-[18px]" />}
+        />
+        <MActionTile
+          label="오늘 일정"
+          count={todaySchedules.length}
+          unit="건"
+          action="일정 확인"
+          href="/schedule"
+          tone={accent}
+          icon={<CalendarDays className="h-[18px] w-[18px]" />}
+        />
+      </MActionGrid>
 
-      {/* 3. 긴급 확인 업무 — 첫 화면에서 바로 보이도록 상단에 배치 */}
-      <MSection title="긴급 확인 업무" action="전체 보기" actionHref="/tasks">
+      {/* 3. 오늘 매출 · 가용자금 */}
+      <div className="mt-3">
+        <MMoneyRow
+          items={[
+            { label: "오늘 매출", value: wonShort(todayRevenue), href: "/revenue" },
+            { label: "가용자금", value: wonShort(available), href: "/finance" },
+          ]}
+        />
+      </div>
+
+      {/* 4. 긴급 확인 업무 */}
+      <MSection title={`긴급 확인 업무 ${urgent.length}건`} action="전체보기" actionHref="/tasks">
         <MList>
           {urgent.slice(0, 4).map((u) => (
             <MRow
               key={u.id}
-              href={u.href}
-              meta={<MCompanyBadge company={u.company} />}
               title={u.title}
-              sub={u.detail}
               wrapTitle
-              trailing={
-                <span className="flex flex-col items-end gap-1">
-                  <MStatusBadge status={u.status} level={u.level} />
-                  <span className="text-[10.5px] text-ink-400">{u.at}</span>
-                </span>
-              }
-              chevron={false}
+              meta={<MCompanyBadge company={u.company} />}
+              sub={u.detail}
+              action={{ label: "확인하기", onPress: () => go(u.href), tone: u.company }}
             />
           ))}
         </MList>
       </MSection>
 
-      {/* 4. 회사별 요약 */}
+      {/* 5. 회사별 현황 */}
       <MSection title="회사별 현황">
-        <div className="space-y-2.5">
+        <div className="space-y-3">
           {showTailor ? (
             <MCompanyCard company="tailor" title="비앤테일러샵" href="/tailor">
               <MMiniGrid
@@ -167,15 +176,19 @@ export function MobileHome() {
         </div>
       </MSection>
 
-      {/* 5. 오늘 일정 */}
-      <MSection title="오늘 일정" action="전체 보기" actionHref="/schedule">
+      {/* 6. 오늘 일정 */}
+      <MSection
+        title={`오늘 일정 ${todaySchedules.length}건`}
+        action="전체보기"
+        actionHref="/schedule"
+      >
         <MTimeline>
           {todaySchedules.slice(0, 4).map((s, i, arr) => (
             <MTimelineItem
               key={s.id}
               time={s.time}
               title={s.title}
-              sub={`${s.place} · ${s.owner}`}
+              sub={s.owner}
               company={s.company}
               tag={s.kind}
               last={i === arr.length - 1}
@@ -185,8 +198,8 @@ export function MobileHome() {
         </MTimeline>
       </MSection>
 
-      {/* 6. 대표자 확인 필요 */}
-      <MSection title="대표자 확인 필요" action="전체 보기" actionHref="/approvals">
+      {/* 7. 대표자 확인 필요 */}
+      <MSection title="대표자 확인 필요" action="전체보기" actionHref="/approvals">
         <MList>
           {APPROVAL_KINDS.map((kind) => {
             const count = approvals.filter((a) => a.kind === kind).length;
@@ -197,9 +210,9 @@ export function MobileHome() {
                 href="/approvals"
                 title={kind}
                 trailing={
-                  <span className="text-[15px] font-semibold text-ink-800 num">
+                  <span className="text-[19px] font-bold text-ink-800 num">
                     {count}
-                    <span className="ml-0.5 text-[11px] font-normal text-ink-400">건</span>
+                    <span className="ml-0.5 text-[13px] font-normal text-ink-400">건</span>
                   </span>
                 }
               />

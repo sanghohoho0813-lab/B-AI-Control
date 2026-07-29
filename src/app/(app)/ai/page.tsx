@@ -92,12 +92,12 @@ export default function AiDashboardPage() {
           <div className="mt-4 grid grid-cols-3 gap-2 md:grid-cols-6">
             {COMMERCIALIZATION_FUNNEL.map((f) => (
               <div key={f.phase} className="rounded-md border border-ink-200/70 bg-ivory-100/50 p-2.5">
-                <p className="text-[11px] text-ink-400">{f.phase}</p>
-                <p className="mt-1 text-[17px] font-semibold text-ink-800 num">
+                <p className="text-[12.5px] text-ink-400">{f.phase}</p>
+                <p className="mt-1 text-[19px] font-semibold text-ink-800 num">
                   {f.count}
-                  <span className="ml-0.5 text-[10.5px] font-normal text-ink-400">건</span>
+                  <span className="ml-0.5 text-[12px] font-normal text-ink-400">건</span>
                 </p>
-                <p className="mt-0.5 text-[10.5px] text-ink-400 num">
+                <p className="mt-0.5 text-[12px] text-ink-400 num">
                   {f.amount ? wonShort(f.amount) : "매출 미발생"}
                 </p>
               </div>
@@ -145,7 +145,7 @@ export default function AiDashboardPage() {
                   <Td>
                     <div className="flex items-center gap-2">
                       <Bar value={p.progress} color="#234084" className="w-[80px]" />
-                      <span className="text-[11.5px] text-ink-500 num">{p.progress}%</span>
+                      <span className="text-[13px] text-ink-500 num">{p.progress}%</span>
                     </div>
                   </Td>
                   <Td className="max-w-[220px] truncate text-ink-600">{p.nextMilestone}</Td>
@@ -168,20 +168,20 @@ export default function AiDashboardPage() {
               {AI_PROJECTS.slice(0, 6).map((p) => (
                 <li key={p.id} className="border-b border-ink-100 py-2.5 last:border-b-0">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="truncate text-[12.5px] text-ink-800">{p.name}</span>
-                    <span className="shrink-0 text-[11.5px] text-ink-500 num">
+                    <span className="truncate text-[14px] text-ink-800">{p.name}</span>
+                    <span className="shrink-0 text-[13px] text-ink-500 num">
                       {wonShort(p.spent)} / {wonShort(p.budget)}
                     </span>
                   </div>
                   <div className="mt-1.5 flex items-center gap-2">
                     <Bar value={p.progress} color="#234084" />
-                    <span className="w-16 shrink-0 text-right text-[10.5px] text-ink-400">
+                    <span className="w-16 shrink-0 text-right text-[12px] text-ink-400">
                       개발 {p.progress}%
                     </span>
                   </div>
                   <div className="mt-1 flex items-center gap-2">
                     <Bar value={pct(p.spent, p.budget)} color="#94a9d8" />
-                    <span className="w-16 shrink-0 text-right text-[10.5px] text-ink-400">
+                    <span className="w-16 shrink-0 text-right text-[12px] text-ink-400">
                       집행 {pct(p.spent, p.budget)}%
                     </span>
                   </div>
@@ -199,8 +199,8 @@ export default function AiDashboardPage() {
                 <li key={r.id} className="border-b border-ink-100 px-4 py-2.5 last:border-b-0">
                   <div className="flex items-start justify-between gap-2">
                     <span className="min-w-0 flex-1">
-                      <span className="block truncate text-[12.5px] text-ink-800">{r.title}</span>
-                      <span className="block truncate text-[11px] text-ink-400">
+                      <span className="block truncate text-[14px] text-ink-800">{r.title}</span>
+                      <span className="block truncate text-[12.5px] text-ink-400">
                         {r.agency} · {r.owner}
                       </span>
                     </span>
@@ -208,7 +208,7 @@ export default function AiDashboardPage() {
                   </div>
                   <div className="mt-1.5 flex items-center gap-2">
                     <Bar value={r.progress} color="#5e79bd" />
-                    <span className="w-9 shrink-0 text-right text-[11px] text-ink-500 num">
+                    <span className="w-9 shrink-0 text-right text-[12.5px] text-ink-500 num">
                       {r.progress}%
                     </span>
                   </div>
@@ -231,10 +231,10 @@ export default function AiDashboardPage() {
                         p.status === "지연" ? "text-rose-500" : "text-amber-500",
                       )}
                     />
-                    <span className="truncate text-[12.5px] font-medium text-ink-800">{p.name}</span>
+                    <span className="truncate text-[14px] font-medium text-ink-800">{p.name}</span>
                   </div>
-                  <p className="mt-1 text-[11.5px] leading-relaxed text-ink-500">{p.issue}</p>
-                  <p className="mt-1 text-[11px] text-ink-400">
+                  <p className="mt-1 text-[13px] leading-relaxed text-ink-500">{p.issue}</p>
+                  <p className="mt-1 text-[12.5px] text-ink-400">
                     담당 {p.owner} · 완료 예정 <span className="num">{p.dueAt}</span>
                   </p>
                 </li>
@@ -271,7 +271,7 @@ export default function AiDashboardPage() {
               />
               <ul className="space-y-1.5">
                 {CORP_REVENUE_MIX.map((r, i) => (
-                  <li key={r.name} className="flex items-center gap-2 text-[11.5px]">
+                  <li key={r.name} className="flex items-center gap-2 text-[13px]">
                     <span
                       className="h-2 w-2 rounded-sm"
                       style={{ background: CORP_COLORS[i % CORP_COLORS.length] }}
@@ -304,27 +304,27 @@ export default function AiDashboardPage() {
           {MEMBERS.slice(0, 8).map((m) => (
             <div key={m.id} className="p-3.5">
               <div className="flex items-center gap-2">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-corp-50 text-[11px] font-semibold text-corp-700">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-corp-50 text-[12.5px] font-semibold text-corp-700">
                   {m.name.slice(0, 1)}
                 </span>
                 <span className="min-w-0">
-                  <span className="block truncate text-[12.5px] font-medium text-ink-800">
+                  <span className="block truncate text-[14px] font-medium text-ink-800">
                     {m.name}
                   </span>
-                  <span className="block truncate text-[10.5px] text-ink-400">{m.role}</span>
+                  <span className="block truncate text-[12px] text-ink-400">{m.role}</span>
                 </span>
               </div>
-              <p className="mt-2 truncate text-[11px] text-ink-500">{m.projects.join(" · ")}</p>
+              <p className="mt-2 truncate text-[12.5px] text-ink-500">{m.projects.join(" · ")}</p>
               <div className="mt-1.5 flex items-center gap-2">
                 <Bar value={m.allocation} color="#5e79bd" />
-                <span className="shrink-0 text-[10.5px] text-ink-400 num">{m.allocation}%</span>
+                <span className="shrink-0 text-[12px] text-ink-400 num">{m.allocation}%</span>
               </div>
             </div>
           ))}
         </div>
       </Card>
 
-      <p className="mt-4 text-center text-[11px] text-ink-300">
+      <p className="mt-4 text-center text-[12.5px] text-ink-300">
         AI 소프트웨어 법인 · 성수 오피스 · 누적 계약 {num(DEALS.length)}건 (데모 데이터)
       </p>
     </div>
