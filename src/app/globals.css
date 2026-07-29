@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Segoe UI", "Noto Sans KR", "Malgun Gothic", sans-serif;
+
+  /* 공통 배경 : 화이트 · 웜 아이보리 · 딥 네이비 */
+  --color-ivory-50: #fdfcfa;
+  --color-ivory-100: #faf7f2;
+  --color-ivory-200: #f3efe7;
+
+  --color-ink-50: #f6f7f9;
+  --color-ink-100: #eceef2;
+  --color-ink-200: #d9dde5;
+  --color-ink-300: #b7bfcd;
+  --color-ink-400: #8a94a8;
+  --color-ink-500: #5f6a80;
+  --color-ink-600: #44506a;
+  --color-ink-700: #2c3750;
+  --color-ink-800: #1b2437;
+  --color-ink-900: #121a29;
+
+  /* 비앤테일러샵 : 버건디 */
+  --color-tailor-50: #fbf4f5;
+  --color-tailor-100: #f6e6e9;
+  --color-tailor-200: #ecccd2;
+  --color-tailor-300: #d9a0ab;
+  --color-tailor-400: #bf6b7c;
+  --color-tailor-500: #9c3d51;
+  --color-tailor-600: #86293d;
+  --color-tailor-700: #6f1f31;
+  --color-tailor-800: #571828;
+  --color-tailor-900: #401220;
+
+  /* AI 소프트웨어 법인 : 딥 네이비 · 인디고 */
+  --color-corp-50: #f2f5fb;
+  --color-corp-100: #e3e9f6;
+  --color-corp-200: #c6d2ec;
+  --color-corp-300: #94a9d8;
+  --color-corp-400: #5e79bd;
+  --color-corp-500: #33529f;
+  --color-corp-600: #234084;
+  --color-corp-700: #1b3269;
+  --color-corp-800: #142650;
+  --color-corp-900: #0e1b3a;
+
+  --radius-card: 10px;
+
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+  --shadow-raise: 0 4px 12px rgba(16, 24, 40, 0.08), 0 1px 3px rgba(16, 24, 40, 0.04);
+  --shadow-panel: 0 12px 32px rgba(12, 20, 40, 0.14);
+}
+
+:root {
+  --sidebar: #0d1526;
+  --sidebar-soft: #161f33;
+  --line: #e7e3db;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-ivory-100);
+  color: #1b2437;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 0;
+  letter-spacing: -0.01em;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* 얇은 스크롤바 */
+.thin-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: rgba(100, 110, 130, 0.28);
+  border-radius: 999px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.22s ease-out both;
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+[data-state="open"].overlay-anim {
+  animation: overlay-in 0.18s ease-out;
+}
+[data-state="open"].panel-anim {
+  animation: panel-in 0.2s ease-out;
+}
+
+/* 회사별 스트라이프 표시 */
+.stripe-tailor {
+  background-image: linear-gradient(135deg, rgba(134, 41, 61, 0.06) 0%, rgba(134, 41, 61, 0) 55%);
+}
+.stripe-corp {
+  background-image: linear-gradient(135deg, rgba(35, 64, 132, 0.07) 0%, rgba(35, 64, 132, 0) 55%);
+}
