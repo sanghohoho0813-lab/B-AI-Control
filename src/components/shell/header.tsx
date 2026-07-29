@@ -2,11 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Bell, Calendar, ChevronDown, Menu, Search } from "lucide-react";
+import { Bell, Calendar, ChevronDown, Search } from "lucide-react";
 import { PERIODS, RANGE_LABEL, useApp } from "@/components/app-store";
 import { CompanySwitcher } from "@/components/shell/company-switcher";
-import { SidebarContent } from "@/components/shell/sidebar";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 function DateFilter() {
@@ -112,30 +110,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-30 border-b border-ink-200/70 bg-white/95 backdrop-blur">
       <div className="flex h-[58px] items-center gap-3 px-4 lg:px-6">
-        {/* 모바일 : 사이드바 드로어 */}
-        <Sheet>
-          <SheetTrigger className="rounded-md border border-ink-200 p-1.5 text-ink-600 lg:hidden">
-            <Menu className="h-4 w-4" />
-          </SheetTrigger>
-          <SheetContent
-            title="메뉴"
-            desc="B&AI Control"
-            side="left"
-            className="w-[260px] border-0 p-0"
-            style={{ background: "var(--sidebar)" }}
-          >
-            <SidebarContent />
-          </SheetContent>
-        </Sheet>
-
-        <Link href="/dashboard" className="flex items-baseline gap-1 lg:hidden">
-          <span className="text-[15px] font-semibold tracking-tight text-ink-800">B&amp;AI</span>
-          <span className="text-[15px] font-light tracking-[0.14em] text-ink-400">CONTROL</span>
-        </Link>
-
-        <div className="hidden lg:block">
-          <CompanySwitcher compact />
-        </div>
+        <CompanySwitcher compact />
 
         <div className="ml-auto flex items-center gap-2">
           <button
@@ -146,9 +121,7 @@ export function Header() {
             <span className="hidden xl:inline">고객 · 주문 · 프로젝트 검색</span>
           </button>
 
-          <div className="hidden md:block">
-            <DateFilter />
-          </div>
+          <DateFilter />
 
           <button
             onClick={() => setNotifyOpen(true)}
@@ -162,10 +135,8 @@ export function Header() {
             ) : null}
           </button>
 
-          <div className="mx-0.5 hidden h-6 w-px bg-ink-200 md:block" />
-          <div className="hidden md:block">
-            <ProfileMenu />
-          </div>
+          <div className="mx-0.5 h-6 w-px bg-ink-200" />
+          <ProfileMenu />
         </div>
       </div>
     </header>

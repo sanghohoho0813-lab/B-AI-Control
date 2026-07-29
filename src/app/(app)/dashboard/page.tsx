@@ -16,7 +16,6 @@ import {
   UsersRound,
 } from "lucide-react";
 import { useApp } from "@/components/app-store";
-import { MobileBriefing } from "@/components/mobile/briefing";
 import {
   CategoryDonut,
   MiniBars,
@@ -52,23 +51,13 @@ export default function DashboardPage() {
   const { scope, alerts, memos, addMemo, setNotifyOpen } = useApp();
 
   return (
-    <>
-      {/* 모바일 : 대표자 브리핑 앱 (데스크톱 축소판이 아닌 별도 화면) */}
-      <div className="-mx-4 -mt-5 lg:hidden">
-        <MobileBriefing />
-      </div>
-
-      {/* 데스크톱 : 통합 대시보드 */}
-      <div className="hidden lg:block">
-        <DesktopDashboard
-          scope={scope}
-          alerts={alerts}
-          memos={memos}
-          addMemo={addMemo}
-          openNotify={() => setNotifyOpen(true)}
-        />
-      </div>
-    </>
+    <DesktopDashboard
+      scope={scope}
+      alerts={alerts}
+      memos={memos}
+      addMemo={addMemo}
+      openNotify={() => setNotifyOpen(true)}
+    />
   );
 }
 

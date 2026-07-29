@@ -1,6 +1,7 @@
 import type {
   AiProject,
   AlertItem,
+  ApprovalItem,
   BudgetLine,
   CashPoint,
   Company,
@@ -17,6 +18,7 @@ import type {
   TailorOrder,
   TaskItem,
   Transaction,
+  UrgentItem,
 } from "./types";
 
 /** 데모 기준일 (서버·클라이언트 렌더 결과를 동일하게 유지하기 위해 고정값 사용) */
@@ -89,6 +91,8 @@ export const SUMMARY = {
     newContract: 3,
     pipeline: 412_000_000,
     delayIssue: 2,
+    rndDueSoon: 2,
+    newHire: 1,
   },
   cash: {
     available: 950_000_000,
@@ -1909,3 +1913,170 @@ export const REPORTS = [
     summary: "과제 8건 진행, 특허 출원 2건 · 논문 1편",
   },
 ];
+
+/* ────────────────────────────────────────────
+   모바일 브리핑 : 오늘 확인할 업무 · 승인 대기
+   ──────────────────────────────────────────── */
+
+/** 대표자가 오늘 확인해야 하는 업무 (모바일 첫 화면 기준) */
+export const TODAY_URGENT: UrgentItem[] = [
+  {
+    id: "U-01",
+    company: "tailor",
+    title: "Zegna Trofeo 600 원단 재고 부족",
+    detail: "잔여 0.7m · 리드타임 21일",
+    status: "발주 필요",
+    level: "긴급",
+    at: "10분 전",
+    href: "/tailor/fabrics",
+  },
+  {
+    id: "U-02",
+    company: "tailor",
+    title: "오세훈 님 주문 납기 4일 초과",
+    detail: "ORD-2606-039 · 봉제 인력 배정 지연",
+    status: "납기 초과",
+    level: "긴급",
+    at: "42분 전",
+    href: "/tailor/production",
+  },
+  {
+    id: "U-03",
+    company: "corp",
+    title: "AI 맞춤 추천 플랫폼 중간 점검 D-3",
+    detail: "롯데백화점 PoC · 정확도 85% 검증",
+    status: "마감 임박",
+    level: "주의",
+    at: "1시간 전",
+    href: "/ai/projects",
+  },
+  {
+    id: "U-04",
+    company: "corp",
+    title: "개발 인력 채용 승인 필요",
+    detail: "MLOps 엔지니어 1명 · 8월 입사 예정",
+    status: "승인 대기",
+    level: "주의",
+    at: "2시간 전",
+    href: "/ai/people",
+  },
+  {
+    id: "U-05",
+    company: "tailor",
+    title: "이도현 님 예복 제작 지연 위험",
+    detail: "원단 추가 입고 대기 · 납기 3일 여유",
+    status: "지연 위험",
+    level: "주의",
+    at: "3시간 전",
+    href: "/tailor/production",
+  },
+  {
+    id: "U-06",
+    company: "corp",
+    title: "이미지 인식 모델 일정 재수립",
+    detail: "라벨링 외주 2주 지연",
+    status: "일정 조정",
+    level: "주의",
+    at: "어제",
+    href: "/ai/projects",
+  },
+];
+
+/** 대표자 승인 대기 업무 */
+export const APPROVALS: ApprovalItem[] = [
+  {
+    id: "AP-01",
+    company: "corp",
+    kind: "자금 집행 승인",
+    title: "원단 이미지 라벨링 외주 3차",
+    detail: "라벨웍스 · 데이터 구축",
+    amount: 6_400_000,
+    requestedBy: "이서현",
+    at: "2시간 전",
+    href: "/finance",
+  },
+  {
+    id: "AP-02",
+    company: "tailor",
+    kind: "자금 집행 승인",
+    title: "Dormeuil Amadeus 365 20m 추가 발주",
+    detail: "도메유 서울 · 원단 매입",
+    amount: 3_120_000,
+    requestedBy: "박선우",
+    at: "3시간 전",
+    href: "/finance",
+  },
+  {
+    id: "AP-03",
+    company: "corp",
+    kind: "자금 집행 승인",
+    title: "문서 분류 엔진 UI 외주 2차",
+    detail: "스튜디오 원 · MVP 개발",
+    amount: 5_500_000,
+    requestedBy: "한지민",
+    at: "어제",
+    href: "/finance",
+  },
+  {
+    id: "AP-04",
+    company: "tailor",
+    kind: "주문 승인",
+    title: "이도현 님 예복 2벌 추가 제작",
+    detail: "Dormeuil Amadeus 365 · 납기 8월 5일",
+    amount: 7_400_000,
+    requestedBy: "이정한",
+    at: "어제",
+    href: "/tailor/orders",
+  },
+  {
+    id: "AP-05",
+    company: "tailor",
+    kind: "주문 승인",
+    title: "최유리 님 팬츠수트 원단 변경",
+    detail: "VBC Perennial → Loro Piana Super 130's",
+    amount: 3_480_000,
+    requestedBy: "정하윤",
+    at: "어제",
+    href: "/tailor/orders",
+  },
+  {
+    id: "AP-06",
+    company: "corp",
+    kind: "프로젝트 일정 변경",
+    title: "이미지 인식 모델 완료일 2주 연기",
+    detail: "2026.10.09 → 2026.10.23",
+    amount: null,
+    requestedBy: "정승우",
+    at: "1일 전",
+    href: "/ai/projects",
+  },
+  {
+    id: "AP-07",
+    company: "corp",
+    kind: "보고서 확인",
+    title: "AI 법인 사업화 진행 리포트",
+    detail: "2026.07.01 ~ 07.29",
+    amount: null,
+    requestedBy: "장태호",
+    at: "2일 전",
+    href: "/reports",
+  },
+  {
+    id: "AP-08",
+    company: "tailor",
+    kind: "보고서 확인",
+    title: "비앤테일러샵 7월 운영 리포트",
+    detail: "2026.07.01 ~ 07.29",
+    amount: null,
+    requestedBy: "이정한",
+    at: "2일 전",
+    href: "/reports",
+  },
+];
+
+export const APPROVAL_KINDS = [
+  "자금 집행 승인",
+  "주문 승인",
+  "프로젝트 일정 변경",
+  "보고서 확인",
+] as const;

@@ -23,6 +23,7 @@ export const NAV: NavGroup[] = [
       { label: "회사 전환", href: "/companies", icon: "Building2", scope: "all" },
       { label: "매출·재무", href: "/revenue", icon: "TrendingUp", scope: "all" },
       { label: "자금 관리", href: "/finance", icon: "Wallet", scope: "all" },
+      { label: "승인 업무", href: "/approvals", icon: "ClipboardCheck", scope: "all", badge: 8 },
       { label: "일정 관리", href: "/schedule", icon: "CalendarDays", scope: "all" },
       { label: "보고서", href: "/reports", icon: "FileText", scope: "all" },
       { label: "알림 센터", href: "/notifications", icon: "Bell", scope: "all", badge: 4 },
@@ -59,6 +60,7 @@ export const NAV: NavGroup[] = [
     tone: "neutral",
     items: [
       { label: "모바일 브리핑", href: "/mobile", icon: "Smartphone", scope: "all" },
+      { label: "전체 메뉴", href: "/more", icon: "LayoutGrid", scope: "all" },
     ],
   },
 ];

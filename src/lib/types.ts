@@ -257,6 +257,31 @@ export interface TaskItem {
   href: string;
 }
 
+/** 모바일 첫 화면의 긴급 확인 업무 (오늘 처리해야 하는 단위 업무) */
+export interface UrgentItem {
+  id: string;
+  company: CompanyId;
+  title: string;
+  detail: string;
+  status: string;
+  level: AlertLevel;
+  at: string;
+  href: string;
+}
+
+/** 대표자 승인 대기 업무 */
+export interface ApprovalItem {
+  id: string;
+  company: CompanyId;
+  kind: "자금 집행 승인" | "주문 승인" | "프로젝트 일정 변경" | "보고서 확인";
+  title: string;
+  detail: string;
+  amount: number | null;
+  requestedBy: string;
+  at: string;
+  href: string;
+}
+
 export interface MemoItem {
   id: string;
   company: Scope;
