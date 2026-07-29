@@ -6,14 +6,14 @@ export function TableWrap({ className, ...props }: React.HTMLAttributes<HTMLDivE
 }
 
 export function Table({ className, ...props }: React.TableHTMLAttributes<HTMLTableElement>) {
-  return <table className={cn("w-full min-w-max text-left text-[14px]", className)} {...props} />;
+  return <table className={cn("w-full min-w-max text-left text-[17px]", className)} {...props} />;
 }
 
 export function Th({ className, ...props }: React.ThHTMLAttributes<HTMLTableCellElement>) {
   return (
     <th
       className={cn(
-        "whitespace-nowrap border-b border-ink-200/70 bg-ivory-100/70 px-3 py-2 text-[13px] font-medium text-ink-500",
+        "whitespace-nowrap border-b border-ink-200/70 bg-ivory-100/70 px-3 py-2 text-[15.5px] font-medium text-ink-500",
         className,
       )}
       {...props}

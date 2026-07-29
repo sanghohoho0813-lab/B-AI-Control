@@ -15,7 +15,7 @@ function DateFilter() {
     <div className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 rounded-md border border-ink-200 bg-white px-3 py-[7px] text-[14px] text-ink-700 transition-colors hover:bg-ink-50"
+        className="flex items-center gap-2 rounded-md border border-ink-200 bg-white px-3 py-[7px] text-[17px] text-ink-700 transition-colors hover:bg-ink-50"
       >
         <Calendar className="h-3.5 w-3.5 text-ink-400" />
         <span className="num">{dateLabel}</span>
@@ -27,7 +27,7 @@ function DateFilter() {
         <>
           <div className="fixed inset-0 z-30" onClick={() => setOpen(false)} />
           <div className="animate-fade-in absolute right-0 z-40 mt-1.5 w-56 rounded-md border border-ink-200 bg-white p-1.5 shadow-panel">
-            <p className="px-2 py-1 text-[12.5px] text-ink-400">조회 기간</p>
+            <p className="px-2 py-1 text-[15px] text-ink-400">조회 기간</p>
             {PERIODS.map((p) => (
               <button
                 key={p}
@@ -36,12 +36,12 @@ function DateFilter() {
                   setOpen(false);
                 }}
                 className={cn(
-                  "flex w-full items-center justify-between rounded px-2 py-1.5 text-left text-[14px] transition-colors hover:bg-ivory-100",
+                  "flex w-full items-center justify-between rounded px-2 py-1.5 text-left text-[17px] transition-colors hover:bg-ivory-100",
                   period === p ? "font-medium text-ink-800" : "text-ink-600",
                 )}
               >
                 <span>{p}</span>
-                <span className="text-[12px] text-ink-400 num">{RANGE_LABEL[p]}</span>
+                <span className="text-[14.5px] text-ink-400 num">{RANGE_LABEL[p]}</span>
               </button>
             ))}
           </div>
@@ -59,12 +59,12 @@ function ProfileMenu() {
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-2 rounded-md border border-transparent px-1.5 py-1 transition-colors hover:border-ink-200 hover:bg-white"
       >
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-ink-800 text-[12.5px] font-semibold text-white">
-          김
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-ink-800 text-[15px] font-semibold text-white">
+          박
         </span>
         <span className="hidden text-left leading-tight md:block">
-          <span className="block text-[14px] font-medium text-ink-800">김상호 대표</span>
-          <span className="block text-[12px] text-ink-400">양사 대표이사</span>
+          <span className="block text-[17px] font-medium text-ink-800">박정열 대표</span>
+          <span className="block text-[14.5px] text-ink-400">양사 대표이사</span>
         </span>
         <ChevronDown className="h-3.5 w-3.5 text-ink-400" />
       </button>
@@ -73,27 +73,27 @@ function ProfileMenu() {
           <div className="fixed inset-0 z-30" onClick={() => setOpen(false)} />
           <div className="animate-fade-in absolute right-0 z-40 mt-1.5 w-52 rounded-md border border-ink-200 bg-white p-1.5 shadow-panel">
             <div className="border-b border-ink-100 px-2 pb-2 pt-1">
-              <p className="text-[14px] font-medium text-ink-800">김상호</p>
-              <p className="text-[12.5px] text-ink-400">비앤테일러샵 · AI 소프트웨어 법인</p>
+              <p className="text-[17px] font-medium text-ink-800">박정열</p>
+              <p className="text-[15px] text-ink-400">비앤테일러샵 · AI 소프트웨어 법인</p>
             </div>
             <Link
               href="/companies"
               onClick={() => setOpen(false)}
-              className="block rounded px-2 py-1.5 text-[14px] text-ink-600 hover:bg-ivory-100"
+              className="block rounded px-2 py-1.5 text-[17px] text-ink-600 hover:bg-ivory-100"
             >
               회사 정보 · 전환
             </Link>
             <Link
               href="/reports"
               onClick={() => setOpen(false)}
-              className="block rounded px-2 py-1.5 text-[14px] text-ink-600 hover:bg-ivory-100"
+              className="block rounded px-2 py-1.5 text-[17px] text-ink-600 hover:bg-ivory-100"
             >
               보고서 보관함
             </Link>
             <Link
               href="/mobile"
               onClick={() => setOpen(false)}
-              className="block rounded px-2 py-1.5 text-[14px] text-ink-600 hover:bg-ivory-100"
+              className="block rounded px-2 py-1.5 text-[17px] text-ink-600 hover:bg-ivory-100"
             >
               모바일 브리핑 미리보기
             </Link>
@@ -115,7 +115,7 @@ export function Header() {
         <div className="ml-auto flex items-center gap-2">
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex items-center gap-2 rounded-md border border-ink-200 bg-white px-3 py-[7px] text-[14px] text-ink-400 transition-colors hover:bg-ink-50"
+            className="flex items-center gap-2 rounded-md border border-ink-200 bg-white px-3 py-[7px] text-[17px] text-ink-400 transition-colors hover:bg-ink-50"
           >
             <Search className="h-3.5 w-3.5" />
             <span className="hidden xl:inline">고객 · 주문 · 프로젝트 검색</span>
@@ -129,7 +129,7 @@ export function Header() {
           >
             <Bell className="h-4 w-4" />
             {unread > 0 ? (
-              <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[11px] font-semibold text-white">
+              <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[13px] font-semibold text-white">
                 {unread}
               </span>
             ) : null}

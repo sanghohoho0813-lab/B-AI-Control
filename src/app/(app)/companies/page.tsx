@@ -89,12 +89,12 @@ export default function CompaniesPage() {
                   id === "tailor" ? "bg-tailor-700" : "bg-corp-800",
                 )}
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-[14.5px] font-bold text-white">
+                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-[17.5px] font-bold text-white">
                   {c.mark}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[17px] font-semibold text-white">{c.name}</p>
-                  <p className="text-[13px] text-white/60">{c.business}</p>
+                  <p className="text-[20.5px] font-semibold text-white">{c.name}</p>
+                  <p className="text-[15.5px] text-white/60">{c.business}</p>
                 </div>
                 <Button
                   size="sm"
@@ -129,17 +129,17 @@ export default function CompaniesPage() {
                   },
                 ].map((r) => (
                   <div key={r.l} className="px-4 py-3">
-                    <p className="text-[12.5px] text-ink-400">{r.l}</p>
-                    <p className="mt-1 text-[14px] font-medium text-ink-800 num">{r.v}</p>
+                    <p className="text-[15px] text-ink-400">{r.l}</p>
+                    <p className="mt-1 text-[17px] font-medium text-ink-800 num">{r.v}</p>
                   </div>
                 ))}
               </div>
 
               <div className="border-t border-ink-100 p-4">
-                <p className="mb-2 text-[13.5px] font-medium text-ink-700">주요 지표</p>
+                <p className="mb-2 text-[16px] font-medium text-ink-700">주요 지표</p>
                 <ul className="space-y-1.5">
                   {d.metrics.map((m) => (
-                    <li key={m.label} className="flex items-center justify-between text-[13.5px]">
+                    <li key={m.label} className="flex items-center justify-between text-[16px]">
                       <span className="text-ink-500">{m.label}</span>
                       <span className="font-medium text-ink-800 num">{m.value}</span>
                     </li>
@@ -148,14 +148,14 @@ export default function CompaniesPage() {
               </div>
 
               <div className="border-t border-ink-100 p-4">
-                <p className="mb-2 text-[13.5px] font-medium text-ink-700">전용 메뉴</p>
+                <p className="mb-2 text-[16px] font-medium text-ink-700">전용 메뉴</p>
                 <div className="flex flex-wrap gap-1.5">
                   {d.menus.map((m) => (
                     <Link
                       key={m.href}
                       href={m.href}
                       className={cn(
-                        "rounded border px-2 py-1 text-[13px] transition-colors",
+                        "rounded border px-2 py-1 text-[15.5px] transition-colors",
                         id === "tailor"
                           ? "border-tailor-200 bg-tailor-50 text-tailor-700 hover:bg-tailor-100"
                           : "border-corp-200 bg-corp-50 text-corp-700 hover:bg-corp-100",
@@ -188,7 +188,7 @@ export default function CompaniesPage() {
         </div>
       </Card>
 
-      <p className="mt-4 text-center text-[12.5px] text-ink-300">
+      <p className="mt-4 text-center text-[15px] text-ink-300">
         통합 인원 {num(COMPANIES.tailor.employees + COMPANIES.corp.employees)}명 · 통합 가용자금{" "}
         {won(SUMMARY.cash.available)} (데모 데이터)
       </p>

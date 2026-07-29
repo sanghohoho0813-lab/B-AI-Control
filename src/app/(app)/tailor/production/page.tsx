@@ -38,9 +38,9 @@ export default function ProductionPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[13.5px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[12.5px] text-ink-400">{k.s}</p>
+              <p className="text-[16px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[25px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[15px] text-ink-400">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -58,8 +58,8 @@ export default function ProductionPage() {
         {byStage.map((g) => (
           <Card key={g.stage} className="h-full">
             <div className="flex items-center justify-between border-b border-ink-200/60 px-3.5 py-2.5">
-              <span className="text-[14px] font-semibold text-ink-800">{g.stage}</span>
-              <span className="rounded bg-tailor-50 px-1.5 py-0.5 text-[12.5px] font-medium text-tailor-700 num">
+              <span className="text-[17px] font-semibold text-ink-800">{g.stage}</span>
+              <span className="rounded bg-tailor-50 px-1.5 py-0.5 text-[15px] font-medium text-tailor-700 num">
                 {g.jobs.length}
               </span>
             </div>
@@ -77,17 +77,17 @@ export default function ProductionPage() {
                   )}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="truncate text-[14px] font-medium text-ink-800">
+                    <span className="truncate text-[17px] font-medium text-ink-800">
                       {j.customer} 님
                     </span>
                     <StatusBadge status={j.status} />
                   </div>
-                  <p className="mt-0.5 truncate text-[12.5px] text-ink-400">{j.item}</p>
+                  <p className="mt-0.5 truncate text-[15px] text-ink-400">{j.item}</p>
                   <div className="mt-2 flex items-center gap-2">
                     <Bar value={j.progress} color="#86293d" />
-                    <span className="shrink-0 text-[12.5px] text-ink-500 num">{j.progress}%</span>
+                    <span className="shrink-0 text-[15px] text-ink-500 num">{j.progress}%</span>
                   </div>
-                  <p className="mt-1.5 text-[12px] text-ink-400">
+                  <p className="mt-1.5 text-[14.5px] text-ink-400">
                     {j.worker} · 납기 <span className="num">{j.dueAt.slice(5)}</span>
                   </p>
                 </li>
@@ -128,7 +128,7 @@ export default function ProductionPage() {
                       <Td>
                         <div className="flex items-center gap-2">
                           <Bar value={j.progress} color="#86293d" className="w-[80px]" />
-                          <span className="text-[13px] text-ink-500 num">{j.progress}%</span>
+                          <span className="text-[15.5px] text-ink-500 num">{j.progress}%</span>
                         </div>
                       </Td>
                       <Td className="text-ink-600">{j.worker}</Td>
@@ -165,14 +165,14 @@ export default function ProductionPage() {
                           j.status === "지연" ? "text-rose-500" : "text-amber-500",
                         )}
                       />
-                      <span className="text-[14px] font-medium text-ink-800">
+                      <span className="text-[17px] font-medium text-ink-800">
                         {j.customer} 님 · {j.item}
                       </span>
                     </div>
-                    <p className="mt-1 text-[13px] text-ink-500">
+                    <p className="mt-1 text-[15.5px] text-ink-500">
                       {order?.note ?? "상세 사유 확인 필요"}
                     </p>
-                    <p className="mt-1.5 text-[12.5px] text-ink-400">
+                    <p className="mt-1.5 text-[15px] text-ink-400">
                       납기 <span className="num">{j.dueAt}</span> · 담당 {j.worker}
                       {j.riskDays > 0 ? (
                         <span className="ml-1 font-medium text-rose-600 num">+{j.riskDays}일</span>
@@ -186,7 +186,7 @@ export default function ProductionPage() {
         </div>
       </div>
 
-      <p className="mt-4 text-center text-[12.5px] text-ink-300">
+      <p className="mt-4 text-center text-[15px] text-ink-300">
         제작 작업 {num(PRODUCTION_JOBS.length)}건 (데모 데이터)
       </p>
     </div>

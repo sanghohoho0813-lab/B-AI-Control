@@ -47,9 +47,9 @@ export default function FabricsPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[13.5px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[12.5px] text-ink-400">{k.s}</p>
+              <p className="text-[16px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[25px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[15px] text-ink-400">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -66,7 +66,7 @@ export default function FabricsPage() {
                   key={s}
                   onClick={() => setStatus(s)}
                   className={cn(
-                    "rounded px-2 py-1 text-[13px] transition-colors",
+                    "rounded px-2 py-1 text-[15.5px] transition-colors",
                     status === s ? "bg-tailor-600 text-white" : "text-ink-500 hover:bg-ink-50",
                   )}
                 >
@@ -146,10 +146,10 @@ export default function FabricsPage() {
                                 style={{ background: colorOf(f.color) }}
                               />
                               <div>
-                                <p className="text-[14.5px] font-medium text-ink-800">
+                                <p className="text-[17.5px] font-medium text-ink-800">
                                   {f.brand} {f.name}
                                 </p>
-                                <p className="mt-0.5 text-[13px] text-ink-400">{f.composition}</p>
+                                <p className="mt-0.5 text-[15.5px] text-ink-400">{f.composition}</p>
                               </div>
                             </div>
                             <div className="grid grid-cols-3 gap-2 text-center">
@@ -159,20 +159,20 @@ export default function FabricsPage() {
                                 { l: "잔여", v: `${remain.toFixed(1)}m` },
                               ].map((r) => (
                                 <div key={r.l} className="rounded-md border border-ink-200 py-2.5">
-                                  <p className="text-[12.5px] text-ink-400">{r.l}</p>
-                                  <p className="mt-1 text-[14.5px] font-semibold text-ink-800 num">
+                                  <p className="text-[15px] text-ink-400">{r.l}</p>
+                                  <p className="mt-1 text-[17.5px] font-semibold text-ink-800 num">
                                     {r.v}
                                   </p>
                                 </div>
                               ))}
                             </div>
                             <div>
-                              <p className="text-[13px] text-ink-500">권장 발주 수량</p>
-                              <p className="mt-1 text-[17px] font-semibold text-tailor-700 num">
+                              <p className="text-[15.5px] text-ink-500">권장 발주 수량</p>
+                              <p className="mt-1 text-[20.5px] font-semibold text-tailor-700 num">
                                 {Math.max(10, Math.ceil(f.assignedM * 2))}m ·{" "}
                                 {won(Math.max(10, Math.ceil(f.assignedM * 2)) * f.unitPrice)}
                               </p>
-                              <p className="mt-1 text-[12.5px] text-ink-400">
+                              <p className="mt-1 text-[15px] text-ink-400">
                                 최근 3개월 소진 속도와 진행 주문 배정량을 반영한 수치입니다.
                               </p>
                             </div>
@@ -196,7 +196,7 @@ export default function FabricsPage() {
         </TableWrap>
       </Card>
 
-      <p className="mt-4 text-center text-[12.5px] text-ink-300">
+      <p className="mt-4 text-center text-[15px] text-ink-300">
         표시 원단 {num(items.length)}종 (데모 데이터)
       </p>
     </div>

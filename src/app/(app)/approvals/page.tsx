@@ -43,9 +43,9 @@ export default function ApprovalsPage() {
         ].map((k) => (
           <Card key={k.l}>
             <div className="p-4">
-              <p className="text-[13.5px] text-ink-500">{k.l}</p>
-              <p className="mt-1.5 text-[21px] font-semibold text-ink-900 num">{k.v}</p>
-              <p className="mt-1 text-[12.5px] text-ink-400">{k.s}</p>
+              <p className="text-[16px] text-ink-500">{k.l}</p>
+              <p className="mt-1.5 text-[25px] font-semibold text-ink-900 num">{k.v}</p>
+              <p className="mt-1 text-[15px] text-ink-400">{k.s}</p>
             </div>
           </Card>
         ))}
@@ -62,7 +62,7 @@ export default function ApprovalsPage() {
                   key={k}
                   onClick={() => setKind(k)}
                   className={cn(
-                    "rounded px-2 py-1 text-[13px] transition-colors",
+                    "rounded px-2 py-1 text-[15.5px] transition-colors",
                     kind === k ? "bg-ink-800 text-white" : "text-ink-500 hover:bg-ink-50",
                   )}
                 >
@@ -104,7 +104,7 @@ export default function ApprovalsPage() {
                     {decision[a.id] ? (
                       <span
                         className={cn(
-                          "text-[13.5px] font-medium",
+                          "text-[16px] font-medium",
                           decision[a.id] === "승인" ? "text-emerald-600" : "text-ink-500",
                         )}
                       >
@@ -143,7 +143,7 @@ export default function ApprovalsPage() {
         </TableWrap>
       </Card>
 
-      <p className="mt-4 text-center text-[12.5px] text-ink-300">
+      <p className="mt-4 text-center text-[15px] text-ink-300">
         결재 대상 {num(all.length)}건 (데모 데이터)
       </p>
     </div>

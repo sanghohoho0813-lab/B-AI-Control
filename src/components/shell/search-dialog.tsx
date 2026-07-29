@@ -87,13 +87,13 @@ export function SearchDialog() {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="예) 김진우, Zegna, 챗봇, 원단"
-              className="w-full bg-transparent text-[14.5px] text-ink-800 outline-none placeholder:text-ink-300"
+              className="w-full bg-transparent text-[17.5px] text-ink-800 outline-none placeholder:text-ink-300"
             />
           </div>
         </div>
         <ul className="p-2">
           {hits.length === 0 ? (
-            <li className="px-3 py-8 text-center text-[14px] text-ink-400">
+            <li className="px-3 py-8 text-center text-[17px] text-ink-400">
               검색 결과가 없습니다.
             </li>
           ) : (
@@ -118,8 +118,8 @@ export function SearchDialog() {
                     {h.group}
                   </Badge>
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-[14.5px] text-ink-800">{h.label}</span>
-                    <span className="block truncate text-[13px] text-ink-400">{h.sub}</span>
+                    <span className="block truncate text-[17.5px] text-ink-800">{h.label}</span>
+                    <span className="block truncate text-[15.5px] text-ink-400">{h.sub}</span>
                   </span>
                 </button>
               </li>

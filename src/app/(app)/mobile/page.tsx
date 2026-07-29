@@ -52,7 +52,7 @@ export default function MobilePage() {
                 </div>
               </div>
             </div>
-            <p className="mt-3 text-center text-[13px] text-ink-400 num">390 × 844</p>
+            <p className="mt-3 text-center text-[15.5px] text-ink-400 num">390 × 844</p>
           </div>
         </div>
 
@@ -65,8 +65,8 @@ export default function MobilePage() {
             <div className="divide-y divide-ink-100">
               {STEPS.map((r) => (
                 <div key={r.t} className="px-4 py-3">
-                  <p className="text-[14.5px] font-medium text-ink-800">{r.t}</p>
-                  <p className="mt-1 text-[13.5px] leading-relaxed text-ink-500">{r.d}</p>
+                  <p className="text-[17.5px] font-medium text-ink-800">{r.t}</p>
+                  <p className="mt-1 text-[16px] leading-relaxed text-ink-500">{r.d}</p>
                 </div>
               ))}
             </div>
@@ -76,11 +76,11 @@ export default function MobilePage() {
             <CardHeader title="모바일 전용 설계" desc="데스크톱과 무엇이 다른가" />
             <div className="grid grid-cols-1 divide-y divide-ink-100 sm:grid-cols-2 sm:divide-x sm:divide-y-0">
               <div className="p-4">
-                <p className="mb-2 flex items-center gap-1.5 text-[14px] font-medium text-ink-700">
+                <p className="mb-2 flex items-center gap-1.5 text-[17px] font-medium text-ink-700">
                   <Smartphone className="h-3.5 w-3.5 text-ink-400" />
                   모바일 브리핑 앱
                 </p>
-                <ul className="space-y-1.5 text-[13px] leading-relaxed text-ink-500">
+                <ul className="space-y-1.5 text-[15.5px] leading-relaxed text-ink-500">
                   <li>· 데스크톱 사이드바를 아예 렌더링하지 않음</li>
                   <li>· 표 대신 카드 리스트 · 타임라인 · 진행률</li>
                   <li>· 회사 전환은 헤더 아래 3분할 탭 한 곳에만</li>
@@ -90,8 +90,8 @@ export default function MobilePage() {
                 </ul>
               </div>
               <div className="p-4">
-                <p className="mb-2 text-[14px] font-medium text-ink-700">데스크톱 대시보드</p>
-                <ul className="space-y-1.5 text-[13px] leading-relaxed text-ink-500">
+                <p className="mb-2 text-[17px] font-medium text-ink-700">데스크톱 대시보드</p>
+                <ul className="space-y-1.5 text-[15.5px] leading-relaxed text-ink-500">
                   <li>· 회사별 KPI · 추이 · 구성 비중 동시 비교</li>
                   <li>· 원단 재고 · 프로젝트 테이블 전체 조회</li>
                   <li>· 자금 계획 대비 집행 상세 분석</li>
@@ -118,8 +118,8 @@ export default function MobilePage() {
                 { l: "승인 대기", v: `${APPROVALS.length}건` },
               ].map((r) => (
                 <div key={r.l} className="px-4 py-3">
-                  <p className="text-[12.5px] text-ink-400">{r.l}</p>
-                  <p className="mt-1 text-[16px] font-semibold text-ink-800 num">{r.v}</p>
+                  <p className="text-[15px] text-ink-400">{r.l}</p>
+                  <p className="mt-1 text-[19px] font-semibold text-ink-800 num">{r.v}</p>
                 </div>
               ))}
             </div>

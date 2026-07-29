@@ -36,6 +36,7 @@ export const NAV: NavGroup[] = [
       { label: "운영 대시보드", href: "/tailor", icon: "Gauge", scope: "tailor" },
       { label: "고객 관리", href: "/tailor/customers", icon: "Users", scope: "tailor" },
       { label: "주문 관리", href: "/tailor/orders", icon: "ClipboardList", scope: "tailor" },
+      { label: "상품 라인업", href: "/tailor/products", icon: "Shirt", scope: "tailor" },
       { label: "원단·재고", href: "/tailor/fabrics", icon: "Layers", scope: "tailor", badge: 5 },
       { label: "제작·납기", href: "/tailor/production", icon: "Scissors", scope: "tailor" },
       { label: "매출 관리", href: "/tailor/sales", icon: "Receipt", scope: "tailor" },

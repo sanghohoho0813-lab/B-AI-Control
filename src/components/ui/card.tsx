@@ -34,9 +34,9 @@ export function CardHeader({
     >
       <div className="min-w-0">
         {title ? (
-          <h3 className="truncate text-[16px] font-semibold text-ink-800">{title}</h3>
+          <h3 className="truncate text-[19px] font-semibold text-ink-800">{title}</h3>
         ) : null}
-        {desc ? <p className="mt-0.5 truncate text-[13px] text-ink-400">{desc}</p> : null}
+        {desc ? <p className="mt-0.5 truncate text-[15.5px] text-ink-400">{desc}</p> : null}
       </div>
       {action ? <div className="max-w-full shrink-0">{action}</div> : null}
     </div>

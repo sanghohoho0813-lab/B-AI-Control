@@ -53,10 +53,10 @@ export function MobileHome() {
     <>
       {/* 1. 오늘의 실행 */}
       <div className="mb-4">
-        <h1 className="text-[23px] font-bold leading-tight tracking-tight text-ink-900">
+        <h1 className="text-[27.5px] font-bold leading-tight tracking-tight text-ink-900">
           오늘의 실행
         </h1>
-        <p className="mt-1.5 text-[14px] text-ink-400">
+        <p className="mt-1.5 text-[17px] text-ink-400">
           2026년 7월 29일 (수) · 확인할 업무{" "}
           <span className={accent === "corp" ? "text-corp-700" : "text-tailor-700"}>
             {urgent.length}건
@@ -210,9 +210,9 @@ export function MobileHome() {
                 href="/approvals"
                 title={kind}
                 trailing={
-                  <span className="text-[19px] font-bold text-ink-800 num">
+                  <span className="text-[23px] font-bold text-ink-800 num">
                     {count}
-                    <span className="ml-0.5 text-[13px] font-normal text-ink-400">건</span>
+                    <span className="ml-0.5 text-[15.5px] font-normal text-ink-400">건</span>
                   </span>
                 }
               />

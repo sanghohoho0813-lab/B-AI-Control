@@ -44,7 +44,7 @@ export default function SchedulePage() {
             key={k}
             onClick={() => setKind(k as ScheduleKind | "전체")}
             className={cn(
-              "rounded border px-2.5 py-1 text-[13.5px] transition-colors",
+              "rounded border px-2.5 py-1 text-[16px] transition-colors",
               kind === k
                 ? "border-ink-800 bg-ink-800 text-white"
                 : "border-ink-200 bg-white text-ink-500 hover:bg-ink-50",
@@ -53,7 +53,7 @@ export default function SchedulePage() {
             {k}
           </button>
         ))}
-        <span className="ml-auto text-[13px] text-ink-400">총 {items.length}건</span>
+        <span className="ml-auto text-[15.5px] text-ink-400">총 {items.length}건</span>
       </div>
 
       <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
@@ -92,19 +92,19 @@ export default function SchedulePage() {
                       >
                         {checked ? <Check className="h-3 w-3" /> : null}
                       </button>
-                      <span className="w-11 shrink-0 text-[13.5px] font-medium text-ink-700 num">
+                      <span className="w-11 shrink-0 text-[16px] font-medium text-ink-700 num">
                         {s.time}
                       </span>
                       <span className="min-w-0 flex-1">
                         <span
                           className={cn(
-                            "block truncate text-[14px]",
+                            "block truncate text-[17px]",
                             checked ? "text-ink-400 line-through" : "font-medium text-ink-800",
                           )}
                         >
                           {s.title}
                         </span>
-                        <span className="block truncate text-[12.5px] text-ink-400">
+                        <span className="block truncate text-[15px] text-ink-400">
                           {s.place} · {s.owner} · {COMPANIES[s.company].shortName}
                         </span>
                       </span>
@@ -131,7 +131,7 @@ export default function SchedulePage() {
 
       {items.length === 0 ? (
         <Card className="mt-3">
-          <div className="px-4 py-12 text-center text-[14px] text-ink-400">
+          <div className="px-4 py-12 text-center text-[17px] text-ink-400">
             조건에 맞는 일정이 없습니다.
           </div>
         </Card>

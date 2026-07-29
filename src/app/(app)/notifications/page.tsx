@@ -47,7 +47,7 @@ export default function NotificationsPage() {
                       key={l}
                       onClick={() => setLevel(l)}
                       className={cn(
-                        "rounded px-2 py-1 text-[13px] transition-colors",
+                        "rounded px-2 py-1 text-[15.5px] transition-colors",
                         level === l ? "bg-ink-800 text-white" : "text-ink-500 hover:bg-ink-50",
                       )}
                     >
@@ -82,18 +82,18 @@ export default function NotificationsPage() {
                       <span className="flex flex-wrap items-center gap-1.5">
                         <CompanyChip company={a.company} />
                         <StatusBadge status={a.level} />
-                        <span className="text-[12.5px] text-ink-400">{a.category}</span>
-                        <span className="ml-auto text-[12.5px] text-ink-400">{a.at}</span>
+                        <span className="text-[15px] text-ink-400">{a.category}</span>
+                        <span className="ml-auto text-[15px] text-ink-400">{a.at}</span>
                       </span>
                       <span
                         className={cn(
-                          "mt-1.5 block text-[14.5px]",
+                          "mt-1.5 block text-[17.5px]",
                           a.read ? "text-ink-600" : "font-medium text-ink-800",
                         )}
                       >
                         {a.title}
                       </span>
-                      <span className="mt-0.5 block text-[13px] leading-relaxed text-ink-400">
+                      <span className="mt-0.5 block text-[15.5px] leading-relaxed text-ink-400">
                         {a.detail}
                       </span>
                     </span>
@@ -101,7 +101,7 @@ export default function NotificationsPage() {
                 </li>
               ))}
               {items.length === 0 ? (
-                <li className="px-4 py-12 text-center text-[14px] text-ink-400">
+                <li className="px-4 py-12 text-center text-[17px] text-ink-400">
                   조건에 맞는 알림이 없습니다.
                 </li>
               ) : null}
@@ -119,10 +119,10 @@ export default function NotificationsPage() {
                   onClick={() => setLevel(l)}
                   className="px-2 py-4 text-center transition-colors hover:bg-ivory-100"
                 >
-                  <p className="text-[13px] text-ink-400">{l}</p>
+                  <p className="text-[15.5px] text-ink-400">{l}</p>
                   <p
                     className={cn(
-                      "mt-1 text-[23px] font-semibold num",
+                      "mt-1 text-[27.5px] font-semibold num",
                       l === "긴급"
                         ? "text-rose-600"
                         : l === "주의"
@@ -145,7 +145,7 @@ export default function NotificationsPage() {
                 return (
                   <li
                     key={c}
-                    className="flex items-center justify-between border-b border-ink-100 py-2 text-[14px] last:border-b-0"
+                    className="flex items-center justify-between border-b border-ink-100 py-2 text-[17px] last:border-b-0"
                   >
                     <span className="text-ink-600">{c}</span>
                     <span className="font-medium text-ink-800 num">{cnt}건</span>

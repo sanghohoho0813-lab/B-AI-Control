@@ -28,7 +28,7 @@ export function PageHeader({
           {company ? (
             <span
               className={cn(
-                "flex h-5 items-center rounded px-1.5 text-[12px] font-semibold",
+                "flex h-5 items-center rounded px-1.5 text-[14.5px] font-semibold",
                 company === "tailor"
                   ? "bg-tailor-50 text-tailor-700"
                   : "bg-corp-50 text-corp-700",
@@ -37,12 +37,12 @@ export function PageHeader({
               {company === "tailor" ? "비앤테일러샵" : "AI 소프트웨어 법인"}
             </span>
           ) : null}
-          <h1 className="text-[25px] font-semibold tracking-tight text-ink-800">{title}</h1>
+          <h1 className="text-[30px] font-semibold tracking-tight text-ink-800">{title}</h1>
         </div>
-        {desc ? <p className="mt-1 text-[14px] text-ink-400">{desc}</p> : null}
+        {desc ? <p className="mt-1 text-[17px] text-ink-400">{desc}</p> : null}
       </div>
       <div className="flex items-center gap-2">
-        <span className="hidden text-[13px] text-ink-400 sm:inline num">
+        <span className="hidden text-[15.5px] text-ink-400 sm:inline num">
           {dateLabel} 기준 · {period}
         </span>
         {actions}
@@ -97,13 +97,13 @@ export function KpiCard({
               {company ? (
                 <span
                   className={cn(
-                    "mb-1 inline-flex items-center gap-1 text-[12.5px] font-semibold",
+                    "mb-1 inline-flex items-center gap-1 text-[15px] font-semibold",
                     company === "tailor" ? "text-tailor-700" : "text-corp-700",
                   )}
                 >
                   <span
                     className={cn(
-                      "flex h-[15px] min-w-[15px] items-center justify-center rounded-[3px] px-0.5 text-[9.5px] font-bold text-white",
+                      "flex h-[15px] min-w-[15px] items-center justify-center rounded-[3px] px-0.5 text-[11.5px] font-bold text-white",
                       company === "tailor" ? "bg-tailor-600" : "bg-corp-700",
                     )}
                   >
@@ -112,7 +112,7 @@ export function KpiCard({
                   {company === "tailor" ? "비앤테일러샵" : "AI 소프트웨어 법인"}
                 </span>
               ) : null}
-              <p className="truncate text-[13.5px] text-ink-500">{label}</p>
+              <p className="truncate text-[16px] text-ink-500">{label}</p>
             </div>
             <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-ink-300 transition-colors group-hover:text-ink-600" />
           </div>
@@ -120,7 +120,7 @@ export function KpiCard({
           <p
             className={cn(
               "mt-1.5 font-semibold tracking-tight text-ink-900 num",
-              accent ? "text-[29px]" : "text-[25px]",
+              accent ? "text-[35px]" : "text-[30px]",
             )}
           >
             {value}
@@ -130,7 +130,7 @@ export function KpiCard({
             {typeof delta === "number" ? (
               <span
                 className={cn(
-                  "inline-flex items-center gap-0.5 text-[13px] font-medium",
+                  "inline-flex items-center gap-0.5 text-[15.5px] font-medium",
                   up ? "text-emerald-600" : "text-rose-600",
                 )}
               >
@@ -139,7 +139,7 @@ export function KpiCard({
                 {delta}%
               </span>
             ) : null}
-            {sub ? <span className="truncate text-[13px] text-ink-400">{sub}</span> : null}
+            {sub ? <span className="truncate text-[15.5px] text-ink-400">{sub}</span> : null}
           </div>
 
           {chart ? <div className="mt-2">{chart}</div> : null}
@@ -181,10 +181,10 @@ export function StatTile({
           {icon}
         </span>
       ) : null}
-      <span className="text-[13px] text-ink-500">{label}</span>
-      <span className="text-[21px] font-semibold leading-none text-ink-800 num">
+      <span className="text-[15.5px] text-ink-500">{label}</span>
+      <span className="text-[25px] font-semibold leading-none text-ink-800 num">
         {value}
-        {unit ? <span className="ml-0.5 text-[13px] font-normal text-ink-400">{unit}</span> : null}
+        {unit ? <span className="ml-0.5 text-[15.5px] font-normal text-ink-400">{unit}</span> : null}
       </span>
     </div>
   );
@@ -228,7 +228,7 @@ export function MoreLink({ href, label = "전체 보기" }: { href: string; labe
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-0.5 text-[13px] text-ink-400 transition-colors hover:text-ink-700"
+      className="inline-flex items-center gap-0.5 text-[15.5px] text-ink-400 transition-colors hover:text-ink-700"
     >
       {label}
       <ChevronRight className="h-3 w-3" />
@@ -240,7 +240,7 @@ export function CompanyChip({ company }: { company: CompanyId }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[12px] font-medium leading-none",
+        "inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[14.5px] font-medium leading-none",
         company === "tailor"
           ? "border-tailor-200 bg-tailor-50 text-tailor-700"
           : "border-corp-200 bg-corp-50 text-corp-700",
@@ -273,7 +273,7 @@ export function StageFlow({
           <React.Fragment key={s}>
             <span
               className={cn(
-                "inline-flex items-center gap-1 rounded border px-2 py-1 text-[13px] transition-colors",
+                "inline-flex items-center gap-1 rounded border px-2 py-1 text-[15.5px] transition-colors",
                 passed
                   ? t === "tailor"
                     ? "border-tailor-600 bg-tailor-600 text-white"
@@ -285,7 +285,7 @@ export function StageFlow({
               {counts ? (
                 <span
                   className={cn(
-                    "rounded px-1 text-[11.5px] font-semibold",
+                    "rounded px-1 text-[14px] font-semibold",
                     passed ? "bg-white/20" : "bg-ink-100 text-ink-500",
                   )}
                 >
@@ -294,7 +294,7 @@ export function StageFlow({
               ) : null}
             </span>
             {i < stages.length - 1 ? (
-              <span className="text-[11.5px] text-ink-300">›</span>
+              <span className="text-[14px] text-ink-300">›</span>
             ) : null}
           </React.Fragment>
         );

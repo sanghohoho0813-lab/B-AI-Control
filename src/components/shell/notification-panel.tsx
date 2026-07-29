@@ -15,7 +15,7 @@ export function NotificationPanel() {
     <Sheet open={notifyOpen} onOpenChange={setNotifyOpen}>
       <SheetContent title="알림 센터" desc={`읽지 않은 알림 ${unread}건`}>
         <div className="flex items-center justify-between border-b border-ink-200/60 px-4 py-2.5">
-          <span className="text-[13px] text-ink-400">최근 알림 {alerts.length}건</span>
+          <span className="text-[15.5px] text-ink-400">최근 알림 {alerts.length}건</span>
           <Button variant="ghost" size="sm" onClick={markAllRead}>
             모두 읽음 처리
           </Button>
@@ -58,17 +58,17 @@ export function NotificationPanel() {
                         {c.shortName}
                       </Badge>
                       <Badge className={statusStyle(a.level)}>{a.level}</Badge>
-                      <span className="ml-auto shrink-0 text-[12.5px] text-ink-400">{a.at}</span>
+                      <span className="ml-auto shrink-0 text-[15px] text-ink-400">{a.at}</span>
                     </div>
                     <p
                       className={cn(
-                        "mt-1.5 text-[14px] leading-snug",
+                        "mt-1.5 text-[17px] leading-snug",
                         a.read ? "text-ink-600" : "font-medium text-ink-800",
                       )}
                     >
                       {a.title}
                     </p>
-                    <p className="mt-0.5 text-[13px] leading-relaxed text-ink-400">{a.detail}</p>
+                    <p className="mt-0.5 text-[15.5px] leading-relaxed text-ink-400">{a.detail}</p>
                   </div>
                 </Link>
               </li>

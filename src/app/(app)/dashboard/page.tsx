@@ -126,7 +126,7 @@ function DesktopDashboard({
       <div className="grid grid-cols-12 gap-3">
         {showTailor ? (
           <KpiCard
-            className={cn("col-span-12", scope === "all" ? "xl:col-span-3" : "xl:col-span-3")}
+            className="col-span-12 md:col-span-6 xl:col-span-4"
             company="tailor"
             label="이번 달 매출"
             value={won(SUMMARY.tailor.revenue)}
@@ -146,7 +146,7 @@ function DesktopDashboard({
 
         {showCorp ? (
           <KpiCard
-            className="col-span-12 xl:col-span-3"
+            className="col-span-12 md:col-span-6 xl:col-span-4"
             company="corp"
             label="이번 달 매출"
             value={won(SUMMARY.corp.revenue)}
@@ -162,8 +162,8 @@ function DesktopDashboard({
 
         <KpiCard
           className={cn(
-            "col-span-12 sm:col-span-6",
-            scope === "all" ? "xl:col-span-2" : "xl:col-span-3",
+            "col-span-12 md:col-span-6",
+            scope === "all" ? "xl:col-span-4" : "xl:col-span-6",
           )}
           label={scope === "all" ? "통합 가용자금" : "가용자금"}
           value={won(
@@ -187,7 +187,7 @@ function DesktopDashboard({
                   />
                   <span className="flex-1 bg-corp-700" />
                 </div>
-                <div className="mt-1.5 flex items-center justify-between text-[12px] text-ink-400">
+                <div className="mt-1.5 flex items-center justify-between text-[14.5px] text-ink-400">
                   <span className="num">비앤 {wonShort(SUMMARY.cash.tailorAvailable)}</span>
                   <span className="num">AI {wonShort(SUMMARY.cash.corpAvailable)}</span>
                 </div>
@@ -196,35 +196,33 @@ function DesktopDashboard({
           }
         />
 
-        <div className={cn("col-span-12 sm:col-span-6", scope === "all" ? "xl:col-span-2" : "xl:col-span-3")}>
+        <div className={cn("col-span-12 md:col-span-6", scope === "all" ? "xl:col-span-4" : "xl:col-span-6")}>
           <Card className="h-full">
-            <div className="p-4">
-              <div className="flex items-start justify-between gap-2">
-                <p className="text-[13.5px] text-ink-500">이번 달 예상 지출</p>
-                <RateDonut value={SUMMARY.cash.executedRate} color="#1b2437" size={52} />
+            <div className="flex h-full items-center gap-4 p-4">
+              <div className="min-w-0 flex-1">
+                <p className="text-[16px] text-ink-500">이번 달 예상 지출</p>
+                <p className="mt-2 text-[27px] font-semibold text-ink-900 num">
+                  {won(SUMMARY.cash.plannedSpend)}
+                </p>
+                <p className="mt-1.5 text-[15.5px] text-ink-400">계획 대비 집행률</p>
               </div>
-              <p className="-mt-3 text-[21px] font-semibold text-ink-900 num">
-                {won(SUMMARY.cash.plannedSpend)}
-              </p>
-              <p className="mt-1.5 text-[13px] text-ink-400">
-                계획 대비 집행률 <span className="text-ink-600 num">{SUMMARY.cash.executedRate}%</span>
-              </p>
+              <RateDonut value={SUMMARY.cash.executedRate} color="#1b2437" size={92} label="집행" />
             </div>
           </Card>
         </div>
 
-        <div className={cn("col-span-12", scope === "all" ? "xl:col-span-2" : "xl:col-span-3")}>
+        <div className={cn("col-span-12", scope === "all" ? "xl:col-span-8" : "xl:col-span-6")}>
           <Card className="h-full">
             <div className="flex items-center justify-between border-b border-ink-200/60 px-4 py-2.5">
-              <h3 className="text-[14.5px] font-semibold text-ink-800">긴급 확인 업무</h3>
+              <h3 className="text-[17.5px] font-semibold text-ink-800">긴급 확인 업무</h3>
               <MoreLink href="/tasks" />
             </div>
-            <ul className="px-3 py-1.5">
+            <ul className="grid grid-cols-1 gap-x-4 px-3 py-1.5 sm:grid-cols-2">
               {tasks.map((t) => (
                 <li key={t.id}>
                   <Link
                     href={t.href}
-                    className="flex items-center gap-2 rounded px-1 py-[7px] transition-colors hover:bg-ivory-100"
+                    className="flex items-center gap-2 rounded px-1 py-[9px] transition-colors hover:bg-ivory-100"
                   >
                     <span
                       className={cn(
@@ -232,12 +230,12 @@ function DesktopDashboard({
                         t.level === "긴급" ? "bg-rose-500" : "bg-amber-500",
                       )}
                     />
-                    <span className="min-w-0 flex-1 truncate text-[13.5px] text-ink-700">
+                    <span className="min-w-0 flex-1 truncate text-[16px] text-ink-700">
                       {t.title}
                     </span>
-                    <span className="shrink-0 text-[13.5px] font-semibold text-ink-800 num">
+                    <span className="shrink-0 text-[16px] font-semibold text-ink-800 num">
                       {t.count}
-                      <span className="ml-0.5 text-[12px] font-normal text-ink-400">건</span>
+                      <span className="ml-0.5 text-[14.5px] font-normal text-ink-400">건</span>
                     </span>
                   </Link>
                 </li>
@@ -260,7 +258,7 @@ function DesktopDashboard({
               <CardHeader
                 title={
                   <span className="flex items-center gap-2">
-                    <span className="flex h-[18px] w-[18px] items-center justify-center rounded-[3px] bg-tailor-600 text-[10.5px] font-bold text-white">
+                    <span className="flex h-[18px] w-[18px] items-center justify-center rounded-[3px] bg-tailor-600 text-[12.5px] font-bold text-white">
                       B&amp;
                     </span>
                     <span className="text-tailor-700">비앤테일러샵 주요 현황</span>
@@ -306,29 +304,29 @@ function DesktopDashboard({
               <div className="grid grid-cols-1 divide-y divide-ink-100 md:grid-cols-2 md:divide-x md:divide-y-0">
                 <div className="p-3.5">
                   <div className="mb-2 flex items-center justify-between">
-                    <h4 className="text-[14px] font-semibold text-ink-700">주요 일정</h4>
+                    <h4 className="text-[17px] font-semibold text-ink-700">주요 일정</h4>
                     <MoreLink href="/schedule" />
                   </div>
                   <ul className="space-y-1.5">
                     {todaySchedules.map((s) => (
                       <li key={s.id} className="flex items-center gap-2">
-                        <span className="w-[52px] shrink-0 text-[13px] text-ink-400 num">
+                        <span className="w-[52px] shrink-0 text-[15.5px] text-ink-400 num">
                           {s.date.slice(5)}
                         </span>
                         <Badge className="shrink-0 border-tailor-200 bg-tailor-50 text-tailor-700">
                           {s.kind}
                         </Badge>
-                        <span className="min-w-0 flex-1 truncate text-[13.5px] text-ink-700">
+                        <span className="min-w-0 flex-1 truncate text-[16px] text-ink-700">
                           {s.title}
                         </span>
-                        <span className="shrink-0 text-[13px] text-ink-400 num">{s.time}</span>
+                        <span className="shrink-0 text-[15.5px] text-ink-400 num">{s.time}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="p-3.5">
                   <div className="mb-2 flex items-center justify-between">
-                    <h4 className="text-[14px] font-semibold text-ink-700">원단 재고 알림</h4>
+                    <h4 className="text-[17px] font-semibold text-ink-700">원단 재고 알림</h4>
                     <MoreLink href="/tailor/fabrics" />
                   </div>
                   <ul className="space-y-2">
@@ -350,10 +348,10 @@ function DesktopDashboard({
                           }}
                         />
                         <span className="min-w-0 flex-1">
-                          <span className="block truncate text-[13.5px] font-medium text-ink-700">
+                          <span className="block truncate text-[16px] font-medium text-ink-700">
                             {f.brand}
                           </span>
-                          <span className="block truncate text-[12.5px] text-ink-400">
+                          <span className="block truncate text-[15px] text-ink-400">
                             {f.name} · 잔여 {(f.stockM - f.assignedM).toFixed(1)}m
                           </span>
                         </span>
@@ -373,7 +371,7 @@ function DesktopDashboard({
               <CardHeader
                 title={
                   <span className="flex items-center gap-2">
-                    <span className="flex h-[18px] w-[18px] items-center justify-center rounded-[3px] bg-corp-700 text-[10.5px] font-bold text-white">
+                    <span className="flex h-[18px] w-[18px] items-center justify-center rounded-[3px] bg-corp-700 text-[12.5px] font-bold text-white">
                       AI
                     </span>
                     <span className="text-corp-700">AI 소프트웨어 법인 주요 현황</span>
@@ -418,12 +416,12 @@ function DesktopDashboard({
               </div>
               <div className="p-3.5">
                 <div className="mb-2 flex items-center justify-between">
-                  <h4 className="text-[14px] font-semibold text-ink-700">주요 프로젝트</h4>
+                  <h4 className="text-[17px] font-semibold text-ink-700">주요 프로젝트</h4>
                   <MoreLink href="/ai/projects" />
                 </div>
                 <table className="w-full text-left">
                   <thead>
-                    <tr className="text-[12.5px] text-ink-400">
+                    <tr className="text-[15px] text-ink-400">
                       <th className="pb-1.5 font-normal">프로젝트명</th>
                       <th className="pb-1.5 font-normal">단계</th>
                       <th className="pb-1.5 font-normal">진행률</th>
@@ -435,23 +433,23 @@ function DesktopDashboard({
                       <tr key={p.id} className="border-t border-ink-100">
                         <td className="py-2 pr-2">
                           <ProjectDetailModal project={p}>
-                            <button className="max-w-[190px] truncate text-left text-[13.5px] text-ink-800 hover:text-corp-700 hover:underline">
+                            <button className="max-w-[190px] truncate text-left text-[16px] text-ink-800 hover:text-corp-700 hover:underline">
                               {p.name}
                             </button>
                           </ProjectDetailModal>
                         </td>
                         <td className="py-2 pr-2">
-                          <span className="text-[13px] text-ink-500">{p.phase}</span>
+                          <span className="text-[15.5px] text-ink-500">{p.phase}</span>
                         </td>
                         <td className="w-[120px] py-2 pr-2">
                           <div className="flex items-center gap-1.5">
                             <Bar value={p.progress} color="#234084" />
-                            <span className="w-8 shrink-0 text-right text-[12.5px] text-ink-500 num">
+                            <span className="w-8 shrink-0 text-right text-[15px] text-ink-500 num">
                               {p.progress}%
                             </span>
                           </div>
                         </td>
-                        <td className="py-2 text-right text-[13px] text-ink-500 num">{p.dueAt}</td>
+                        <td className="py-2 text-right text-[15.5px] text-ink-500 num">{p.dueAt}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -476,7 +474,7 @@ function DesktopDashboard({
                       key={r}
                       onClick={() => setRange(r)}
                       className={cn(
-                        "rounded px-2 py-1 text-[13px] transition-colors",
+                        "rounded px-2 py-1 text-[15.5px] transition-colors",
                         range === r ? "bg-ink-800 text-white" : "text-ink-500 hover:bg-ink-50",
                       )}
                     >
@@ -495,22 +493,22 @@ function DesktopDashboard({
               <div className="mt-2 grid grid-cols-2 gap-3 border-t border-ink-100 pt-3">
                 {showTailor ? (
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-[13px] text-ink-500">
+                  <span className="flex items-center gap-1.5 text-[15.5px] text-ink-500">
                     <span className="h-1.5 w-1.5 rounded-full bg-tailor-600" />
                     비앤테일러샵
                   </span>
-                  <span className="text-[14px] font-semibold text-ink-800 num">
+                  <span className="text-[17px] font-semibold text-ink-800 num">
                     {won(SUMMARY.tailor.revenue)}
                   </span>
                 </div>
                 ) : null}
                 {showCorp ? (
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-[13px] text-ink-500">
+                  <span className="flex items-center gap-1.5 text-[15.5px] text-ink-500">
                     <span className="h-1.5 w-1.5 rounded-full bg-corp-700" />
                     AI 소프트웨어 법인
                   </span>
-                  <span className="text-[14px] font-semibold text-ink-800 num">
+                  <span className="text-[17px] font-semibold text-ink-800 num">
                     {won(SUMMARY.corp.revenue)}
                   </span>
                 </div>
@@ -532,16 +530,16 @@ function DesktopDashboard({
                 <div className="flex items-center gap-3 rounded-md border border-tailor-200/60 bg-tailor-50/40 p-3">
                   <RateDonut value={pct(tExec, tPlan)} color="#86293d" size={68} />
                   <div className="min-w-0">
-                    <p className="flex items-center gap-1.5 text-[13.5px] font-medium text-tailor-700">
-                      <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-tailor-600 text-[9.5px] font-bold text-white">
+                    <p className="flex items-center gap-1.5 text-[16px] font-medium text-tailor-700">
+                      <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-tailor-600 text-[11.5px] font-bold text-white">
                         B&amp;
                       </span>
                       비앤테일러샵
                     </p>
-                    <p className="mt-1.5 text-[12.5px] text-ink-400">
+                    <p className="mt-1.5 text-[15px] text-ink-400">
                       계획 <span className="text-ink-700 num">{wonShort(tPlan)}</span>
                     </p>
-                    <p className="text-[12.5px] text-ink-400">
+                    <p className="text-[15px] text-ink-400">
                       집행 <span className="font-medium text-ink-800 num">{wonShort(tExec)}</span>
                     </p>
                   </div>
@@ -551,16 +549,16 @@ function DesktopDashboard({
                 <div className="flex items-center gap-3 rounded-md border border-corp-200/60 bg-corp-50/40 p-3">
                   <RateDonut value={pct(cExec, cPlan)} color="#234084" size={68} />
                   <div className="min-w-0">
-                    <p className="flex items-center gap-1.5 text-[13.5px] font-medium text-corp-700">
-                      <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-corp-700 text-[9.5px] font-bold text-white">
+                    <p className="flex items-center gap-1.5 text-[16px] font-medium text-corp-700">
+                      <span className="flex h-[15px] w-[15px] items-center justify-center rounded-[3px] bg-corp-700 text-[11.5px] font-bold text-white">
                         AI
                       </span>
                       AI 소프트웨어 법인
                     </p>
-                    <p className="mt-1.5 text-[12.5px] text-ink-400">
+                    <p className="mt-1.5 text-[15px] text-ink-400">
                       계획 <span className="text-ink-700 num">{wonShort(cPlan)}</span>
                     </p>
-                    <p className="text-[12.5px] text-ink-400">
+                    <p className="text-[15px] text-ink-400">
                       집행 <span className="font-medium text-ink-800 num">{wonShort(cExec)}</span>
                     </p>
                   </div>
@@ -592,7 +590,7 @@ function DesktopDashboard({
                           : "bg-ink-300",
                     )}
                   />
-                  <p className="text-[13.5px] leading-relaxed text-ink-600">{m.text}</p>
+                  <p className="text-[16px] leading-relaxed text-ink-600">{m.text}</p>
                 </div>
               ))}
             </div>
@@ -608,7 +606,7 @@ function DesktopDashboard({
                     }
                   }}
                   placeholder="메모 추가 후 Enter"
-                  className="w-full rounded border border-ink-200 px-2.5 py-1.5 text-[13.5px] outline-none placeholder:text-ink-300 focus:border-ink-400"
+                  className="w-full rounded border border-ink-200 px-2.5 py-1.5 text-[16px] outline-none placeholder:text-ink-300 focus:border-ink-400"
                 />
                 <Button
                   size="sm"
@@ -657,12 +655,12 @@ function DesktopDashboard({
                       <CompanyChip company={t.company} />
                       <StatusBadge status={t.level} />
                     </div>
-                    <p className="mt-1.5 text-[14.5px] font-medium text-ink-800">{t.title}</p>
-                    <p className="mt-0.5 text-[13px] text-ink-400">{t.detail}</p>
-                    <p className="mt-1 text-[12.5px] text-ink-400">기한 · {t.due}</p>
+                    <p className="mt-1.5 text-[17.5px] font-medium text-ink-800">{t.title}</p>
+                    <p className="mt-0.5 text-[15.5px] text-ink-400">{t.detail}</p>
+                    <p className="mt-1 text-[15px] text-ink-400">기한 · {t.due}</p>
                   </div>
                   <span className="flex shrink-0 items-center gap-1">
-                    <span className="text-[19px] font-semibold text-ink-800 num">{t.count}</span>
+                    <span className="text-[23px] font-semibold text-ink-800 num">{t.count}</span>
                     <ArrowUpRight className="h-3.5 w-3.5 text-ink-300 group-hover:text-ink-600" />
                   </span>
                 </Link>
@@ -679,7 +677,7 @@ function DesktopDashboard({
               action={
                 <button
                   onClick={openNotify}
-                  className="text-[13px] text-ink-400 transition-colors hover:text-ink-700"
+                  className="text-[15.5px] text-ink-400 transition-colors hover:text-ink-700"
                 >
                   알림 패널 열기
                 </button>
@@ -705,12 +703,12 @@ function DesktopDashboard({
                     <span className="min-w-0 flex-1">
                       <span className="flex items-center gap-1.5">
                         <CompanyChip company={a.company} />
-                        <span className="text-[12.5px] text-ink-400">{a.category}</span>
-                        <span className="ml-auto shrink-0 text-[12.5px] text-ink-300">{a.at}</span>
+                        <span className="text-[15px] text-ink-400">{a.category}</span>
+                        <span className="ml-auto shrink-0 text-[15px] text-ink-300">{a.at}</span>
                       </span>
                       <span
                         className={cn(
-                          "mt-1 block truncate text-[14px]",
+                          "mt-1 block truncate text-[17px]",
                           a.read ? "text-ink-600" : "font-medium text-ink-800",
                         )}
                       >
@@ -751,7 +749,7 @@ function DesktopDashboard({
                     { n: "수선 · 리폼", v: 6_250_000, c: "#d9a0ab" },
                     { n: "기업 단체복", v: 4_000_000, c: "#ecccd2" },
                   ].map((r) => (
-                    <li key={r.n} className="flex items-center gap-2 text-[13px]">
+                    <li key={r.n} className="flex items-center gap-2 text-[15.5px]">
                       <span className="h-2 w-2 rounded-sm" style={{ background: r.c }} />
                       <span className="flex-1 truncate text-ink-500">{r.n}</span>
                       <span className="text-ink-700 num">{wonShort(r.v)}</span>
@@ -787,7 +785,7 @@ function DesktopDashboard({
                     { n: "정부 R&D 과제", v: 10_000_000, c: "#94a9d8" },
                     { n: "데이터 라이선스", v: 4_000_000, c: "#c6d2ec" },
                   ].map((r) => (
-                    <li key={r.n} className="flex items-center gap-2 text-[13px]">
+                    <li key={r.n} className="flex items-center gap-2 text-[15.5px]">
                       <span className="h-2 w-2 rounded-sm" style={{ background: r.c }} />
                       <span className="flex-1 truncate text-ink-500">{r.n}</span>
                       <span className="text-ink-700 num">{wonShort(r.v)}</span>
@@ -800,7 +798,7 @@ function DesktopDashboard({
         ) : null}
       </div>
 
-      <p className="mt-4 text-center text-[12.5px] text-ink-300">
+      <p className="mt-4 text-center text-[15px] text-ink-300">
         {TODAY_D} 기준 · 비앤테일러샵 주문 {num(SUMMARY.tailor.orderCount)}건 · AI 법인 프로젝트{" "}
         {SUMMARY.corp.projects}건 · 데모 데이터
       </p>

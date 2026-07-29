@@ -63,6 +63,32 @@ export interface TailorCustomer {
   nextAction: string;
 }
 
+export type WeaveType =
+  | "herringbone"
+  | "pinstripe"
+  | "twill"
+  | "plain"
+  | "cashmere"
+  | "poplin";
+
+/** 매장 상품 라인업 */
+export interface Product {
+  id: string;
+  name: string;
+  category: "정장" | "코트" | "셔츠" | "예복" | "여성";
+  garment: "suit" | "shirt" | "coat" | "pantsuit" | "tuxedo";
+  fabricId: string;
+  fabricLabel: string;
+  color: string;
+  weave: WeaveType;
+  priceFrom: number;
+  leadDays: number;
+  monthlyOrders: number;
+  stockM: number;
+  status: "제작 가능" | "원단 부족" | "예약 마감";
+  note: string;
+}
+
 export type FabricStatus = "충분" | "발주 권장" | "재고 부족" | "발주 완료";
 
 export interface Fabric {
@@ -78,6 +104,7 @@ export interface Fabric {
   status: FabricStatus;
   leadTimeDays: number;
   updatedAt: string;
+  weave: WeaveType;
 }
 
 export interface ProductionJob {
