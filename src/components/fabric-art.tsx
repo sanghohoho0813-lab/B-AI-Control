@@ -4,7 +4,6 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 export type Weave = "herringbone" | "pinstripe" | "twill" | "plain" | "cashmere" | "poplin";
-export type Garment = "suit" | "shirt" | "coat" | "pantsuit" | "tuxedo";
 
 /** 색상명 → 원단 기본색 */
 export function fabricColor(color: string) {
@@ -123,118 +122,6 @@ export function FabricSwatch({
       />
       {/* 원단 접힘 하이라이트 */}
       <path d="M0 34 Q 24 24 48 34 L48 48 L0 48 Z" fill="rgba(255,255,255,0.07)" />
-    </svg>
-  );
-}
-
-/* ── 의류 실루엣 ────────────────────────────── */
-
-const SHADE = "rgba(0,0,0,0.18)";
-const HILITE = "rgba(255,255,255,0.45)";
-
-/** 몸판 + 소매로 구성한 재킷 실루엣 */
-function Jacket({ hem, sleeve, tux }: { hem: number; sleeve: number; tux?: boolean }) {
-  return (
-    <>
-      {/* 소매 */}
-      <path d={`M34 26 L18 34 L15 ${sleeve} L28 ${sleeve + 3} L31 50 Z`} fill="currentColor" />
-      <path d={`M66 26 L82 34 L85 ${sleeve} L72 ${sleeve + 3} L69 50 Z`} fill="currentColor" />
-      <path d={`M34 26 L18 34 L15 ${sleeve} L28 ${sleeve + 3} L31 50 Z`} fill={SHADE} />
-      <path d={`M66 26 L82 34 L85 ${sleeve} L72 ${sleeve + 3} L69 50 Z`} fill={SHADE} />
-      {/* 몸판 */}
-      <path
-        d={`M34 26 L30 33 L29 ${hem} L71 ${hem} L70 33 L66 26 L50 48 Z`}
-        fill="currentColor"
-      />
-      {/* 라펠 */}
-      {tux ? (
-        <path d="M34 26 L50 48 L66 26 L59 24 L50 36 L41 24 Z" fill={HILITE} />
-      ) : null}
-      <path d={`M34 26 L50 48 L43 ${Math.min(hem - 26, 88)}`} fill="none" stroke={HILITE} strokeWidth="2" />
-      <path d={`M66 26 L50 48 L57 ${Math.min(hem - 26, 88)}`} fill="none" stroke={HILITE} strokeWidth="2" />
-      {/* 앞여밈 · 단추 */}
-      <line x1="50" y1="48" x2="50" y2={hem} stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-      <circle cx="54" cy={hem - 32} r="2.4" fill="rgba(255,255,255,0.8)" />
-      <circle cx="54" cy={hem - 18} r="2.4" fill="rgba(255,255,255,0.8)" />
-      {/* 어깨 라인 */}
-      <path d="M34 26 L50 30 L66 26" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
-    </>
-  );
-}
-
-/** 원단 위에 의류 실루엣을 얹은 상품 이미지 */
-export function GarmentArt({
-  garment,
-  color,
-  weave,
-  className,
-}: {
-  garment: Garment;
-  color: string;
-  weave: Weave;
-  className?: string;
-}) {
-  const id = useId("g");
-  const base = fabricColor(color);
-  const dark = shade(base, -34);
-
-  return (
-    <svg viewBox="0 0 100 170" className={cn("h-full w-full", className)} aria-hidden>
-      <defs>
-        <WeaveDefs id={id} color={base} weave={weave} />
-        <linearGradient id={`${id}-bg`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#faf7f2" />
-          <stop offset="100%" stopColor="#ece5da" />
-        </linearGradient>
-      </defs>
-      <rect width="100" height="170" fill={`url(#${id}-bg)`} />
-      <rect x="8" y="10" width="84" height="150" rx="10" fill={`url(#${id})`} opacity="0.2" />
-      {/* 옷걸이 */}
-      <path
-        d="M50 10 L50 18 M50 18 L34 26 M50 18 L66 26"
-        stroke="rgba(60,50,40,0.28)"
-        strokeWidth="1.6"
-        fill="none"
-      />
-
-      <g color={base}>
-        {garment === "suit" ? <Jacket hem={122} sleeve={98} /> : null}
-        {garment === "tuxedo" ? <Jacket hem={122} sleeve={98} tux /> : null}
-        {garment === "coat" ? (
-          <>
-            <Jacket hem={154} sleeve={116} />
-            <rect x="29" y="98" width="42" height="5" rx="2.5" fill={HILITE} />
-            <rect x="46" y="97" width="9" height="7" rx="1.5" fill="rgba(255,255,255,0.7)" />
-          </>
-        ) : null}
-
-        {garment === "pantsuit" ? (
-          <>
-            <path d="M31 100 L47 100 L45 158 L33 158 Z" fill="currentColor" />
-            <path d="M53 100 L69 100 L67 158 L55 158 Z" fill="currentColor" />
-            <line x1="39" y1="106" x2="38" y2="156" stroke="rgba(255,255,255,0.28)" strokeWidth="1.2" />
-            <line x1="61" y1="106" x2="60" y2="156" stroke="rgba(255,255,255,0.28)" strokeWidth="1.2" />
-            <Jacket hem={100} sleeve={82} />
-          </>
-        ) : null}
-
-        {garment === "shirt" ? (
-          <>
-            <path d={`M34 26 L19 34 L16 96 L29 99 L32 50 Z`} fill="currentColor" />
-            <path d={`M66 26 L81 34 L84 96 L71 99 L68 50 Z`} fill="currentColor" />
-            <path d={`M34 26 L19 34 L16 96 L29 99 L32 50 Z`} fill={SHADE} />
-            <path d={`M66 26 L81 34 L84 96 L71 99 L68 50 Z`} fill={SHADE} />
-            <path d="M34 26 L30 33 L29 126 L71 126 L70 33 L66 26 L50 40 Z" fill="currentColor" />
-            {/* 카라 */}
-            <path d="M36 24 L50 40 L43 22 Z" fill={HILITE} />
-            <path d="M64 24 L50 40 L57 22 Z" fill={HILITE} />
-            <line x1="50" y1="40" x2="50" y2="126" stroke="rgba(255,255,255,0.4)" strokeWidth="3.5" />
-            {[54, 68, 82, 96, 110].map((y) => (
-              <circle key={y} cx="50" cy={y} r="1.7" fill={dark} />
-            ))}
-          </>
-        ) : null}
-      </g>
     </svg>
   );
 }

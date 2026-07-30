@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import { useApp } from "@/components/app-store";
-import { FabricRoll, GarmentArt } from "@/components/fabric-art";
+import Image from "next/image";
+import { FabricRoll } from "@/components/fabric-art";
 import { useMobileNav } from "@/components/mobile/nav-context";
 import {
   MCard,
@@ -61,8 +62,14 @@ export function MobileProducts() {
                 onClick={() => go("/tailor/fabrics")}
                 className="overflow-hidden rounded-[16px] border border-ink-200/60 bg-white text-left shadow-[0_1px_3px_rgba(16,24,40,0.05)] active:bg-ivory-100"
               >
-                <div className="relative h-[168px] w-full overflow-hidden bg-ivory-100">
-                  <GarmentArt garment={p.garment} color={p.color} weave={p.weave} />
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-ivory-100">
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    sizes="(max-width: 480px) 50vw, 240px"
+                    className="object-cover"
+                  />
                   <span className="absolute left-2 top-2">
                     <MStatusBadge status={p.status} level={statusLevel(p.status)} />
                   </span>
@@ -93,7 +100,9 @@ export function MobileProducts() {
           <div className="divide-y divide-ink-100">
             {items.map((p) => (
               <div key={p.id} className="flex items-center gap-3 px-4 py-3">
-                <FabricRoll color={p.color} weave={p.weave} className="h-11 w-11" />
+                <span className="relative h-14 w-11 shrink-0 overflow-hidden rounded-[8px] border border-ink-200/70 bg-ivory-100">
+                  <Image src={p.image} alt={p.name} fill sizes="44px" className="object-cover" />
+                </span>
                 <div className="min-w-0 flex-1">
                   <p className="break-keep text-[15px] font-medium leading-snug text-ink-800">{p.name}</p>
                   <p className="mt-1 break-keep text-[12.5px] leading-snug text-ink-400">{p.fabricLabel}</p>

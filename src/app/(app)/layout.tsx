@@ -31,7 +31,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       {mode !== "mobile" ? (
         <div className="hidden lg:block">
           <Sidebar />
-          <div className="min-h-screen lg:pl-[320px]">
+          <div className="min-h-screen lg:pl-[296px]">
             <Header />
             <main className="mx-auto w-full max-w-[1440px] px-4 pb-10 pt-5 lg:px-6">
               {children}

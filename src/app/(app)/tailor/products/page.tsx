@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { FabricRoll, GarmentArt } from "@/components/fabric-art";
+import Image from "next/image";
+import { FabricRoll } from "@/components/fabric-art";
 import { PageHeader } from "@/components/page-kit";
 import { StatusBadge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -67,8 +68,14 @@ export default function ProductsPage() {
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {items.map((p) => (
           <Card key={p.id} className="overflow-hidden">
-            <div className="relative h-[260px] w-full bg-ivory-100">
-              <GarmentArt garment={p.garment} color={p.color} weave={p.weave} />
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-ivory-100">
+              <Image
+                src={p.image}
+                alt={p.name}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 340px"
+                className="object-cover"
+              />
               <span className="absolute left-3 top-3">
                 <StatusBadge
                   status={p.status}

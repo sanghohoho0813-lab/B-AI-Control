@@ -77,6 +77,8 @@ export interface Product {
   name: string;
   category: "정장" | "코트" | "셔츠" | "예복" | "여성";
   garment: "suit" | "shirt" | "coat" | "pantsuit" | "tuxedo";
+  /** /public/products 하위 상품 사진 (4:5 정규화) */
+  image: string;
   fabricId: string;
   fabricLabel: string;
   color: string;

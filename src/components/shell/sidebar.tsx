@@ -17,10 +17,10 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
       <div className="border-b border-white/8 px-5 py-4">
         <Link href="/dashboard" onClick={onNavigate} className="block">
           <div className="flex items-baseline gap-1.5">
-            <span className="text-[31px] font-semibold tracking-tight text-white">B&amp;AI</span>
-            <span className="text-[31px] font-light tracking-[0.16em] text-white/70">CONTROL</span>
+            <span className="text-[28px] font-semibold tracking-tight text-white">B&amp;AI</span>
+            <span className="text-[28px] font-light tracking-[0.16em] text-white/70">CONTROL</span>
           </div>
-          <p className="mt-1.5 text-[16px] leading-snug tracking-wide text-white/45">
+          <p className="mt-1.5 text-[14.5px] leading-snug tracking-wide text-white/45">
             비앤테일러샵 · AI 소프트웨어 법인 통합 경영 OS
           </p>
         </Link>
@@ -37,14 +37,14 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
               : "border-white/8 bg-white/[0.03] hover:bg-white/[0.07]",
           )}
         >
-          <span className="block text-[17px] font-medium tracking-tight text-white/75">
+          <span className="block text-[15.5px] font-medium tracking-tight text-white/75">
             비앤테일러샵
           </span>
           <span className="mt-1 flex items-center gap-1">
             <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[3px] bg-tailor-500 text-[11px] font-bold text-white">
               B&amp;
             </span>
-            <span className="text-[19px] font-semibold text-white/95 num">1억 2,845만</span>
+            <span className="text-[17px] font-semibold text-white/95 num">1억 2,845만</span>
           </span>
         </button>
         <button
@@ -56,14 +56,14 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
               : "border-white/8 bg-white/[0.03] hover:bg-white/[0.07]",
           )}
         >
-          <span className="block text-[17px] font-medium tracking-tight text-white/75">
+          <span className="block text-[15.5px] font-medium tracking-tight text-white/75">
             AI 법인
           </span>
           <span className="mt-1 flex items-center gap-1">
             <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[3px] bg-corp-400 text-[11px] font-bold text-white">
               AI
             </span>
-            <span className="text-[19px] font-semibold text-white/95 num">8,732만</span>
+            <span className="text-[17px] font-semibold text-white/95 num">8,732만</span>
           </span>
         </button>
       </div>
@@ -103,7 +103,7 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
                       href={item.href}
                       onClick={onNavigate}
                       className={cn(
-                        "group flex items-center gap-3 rounded-md px-3 py-2.5 text-[25px] transition-colors",
+                        "group flex items-center gap-3 rounded-md px-3 py-2.5 text-[22.5px] transition-colors",
                         active
                           ? group.tone === "tailor"
                             ? "bg-tailor-600/30 text-white"
@@ -116,7 +116,7 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
                       <Icon
                         name={item.icon}
                         className={cn(
-                          "h-[24px] w-[24px] shrink-0",
+                          "h-[21px] w-[21px] shrink-0",
                           active ? "opacity-100" : "opacity-70",
                         )}
                       />
@@ -161,7 +161,7 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 export function Sidebar() {
   return (
     <aside
-      className="fixed inset-y-0 left-0 z-40 hidden w-[320px] lg:block"
+      className="fixed inset-y-0 left-0 z-40 hidden w-[296px] lg:block"
       style={{ background: "var(--sidebar)" }}
     >
       <SidebarContent />
